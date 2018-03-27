@@ -52,6 +52,12 @@ public class ScreenLibrary {
 		if(id == ScreenConstants.IDLOGIN)
 			ScreenBuilder.renderLoginScreen();// <-- crtl click na classe screenbuilder
 		
+		else if(id == ScreenConstants.IDHOME)
+			ScreenBuilder.renderHomePage();
+		
+		else if(id == ScreenConstants.CADASTRA)
+			ScreenBuilder.renderCadastro();
+		
 		
 		else throw new UnsupportedEncodingException("tela indefida");
 

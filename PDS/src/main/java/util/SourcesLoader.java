@@ -21,6 +21,13 @@ public class SourcesLoader {
 	               "-fx-background-repeat: stretch; -fx-background-size : cover;");
 	}
 	
+	public static void loadLogo(Pane background){
+		
+		background.setStyle("-fx-background-image: url(sources/logo.jpg);-fx-background-position: center center;" + 
+	               "-fx-background-repeat: stretch; -fx-background-size : cover;");
+	}
+	
+	
 	public static void loadUserPhoto(Label foto, byte[] byt) throws IOException{
 		
 		BufferedImage img = ImageIO.read(new ByteArrayInputStream(byt));

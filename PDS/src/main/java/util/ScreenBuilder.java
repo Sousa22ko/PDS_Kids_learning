@@ -50,90 +50,21 @@ public class ScreenBuilder {
 		buildScreen();
 
 	}
-
+	
 	public static void renderHomePage() {
 
-		path = "Home.fxml";
-		title = "Home";
+		path = "HomePage_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		title = "Home"; // nome q aparece no topo da tela
+		buildScreen();
+
+	}
+	
+	public static void renderCadastro() {
+
+		path = "Cadastro_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		title = "Cadastro"; // nome q aparece no topo da tela
 		buildScreen();
 
 	}
 
-	public static void renderSearchMatchPage() {
-
-		path = "SearchMatch.fxml";
-		title = "Procurar partida";
-		buildScreen();
-
-	}
-
-	public static void renderLeague() {
-
-		path = "League.fxml";
-		title = "Liga atual";
-		buildScreen();
-
-	}
-
-	public static void renderNewMatch() {
-
-		path = "NewMatch.fxml";
-		title = "Criar partida";
-		buildScreen();
-
-	}
-
-	public static void renderOldResults() {
-
-		path = "OldResults.fxml";
-		title = "Resultados anteriores";
-		buildScreen();
-
-	}
-
-	public static void renderChallenger() {
-
-		path = "Challenger.fxml";
-		title = "Desafiar jogador";
-		buildScreen();
-
-	}
-
-	public static void renderConfig() {
-
-		path = "Config.fxml";
-		title = "Configurações";
-		buildScreen();
-
-	}
-
-	public static void renderUserView() {
-
-		path = "UserView.fxml";
-		title = "Usuario";
-		buildScreen();
-
-	}
-
-	public static void renderUserViewEdit() {
-
-		path = "UserViewEdit.fxml";
-		title = "Editar informações pessoais do usuario";
-		buildScreen();
-
-	}
-
-	public static void renderNewAccount() {
-		path = "NewAccount.fxml";
-		title = "Cadastrar nova conta";
-		buildScreen();
-
-	}
-
-	public static void renderMatch() {
-		path = "Match.fxml";
-		title = "Let's Rock it";
-		buildScreen();
-
-	}
 }

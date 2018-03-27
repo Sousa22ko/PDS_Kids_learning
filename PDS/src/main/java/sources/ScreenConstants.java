@@ -7,4 +7,5 @@ public class ScreenConstants {
 	
 	public static final int IDLOGIN = 1;
 	public static final int IDHOME = 2;
+	public static final int CADASTRA = 3;
 }
