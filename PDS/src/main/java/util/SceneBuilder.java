@@ -40,6 +40,9 @@ public class SceneBuilder {
 		return null;
 	}
 
+	public static void addPaneComponent(Node novo) {
+		ScreenLibrary.getPane().getChildren().add(novo);
+	}
 	//---------------------------------------------remove objetos dinamicos da tela
 	public static void removePaneComponent(Node removed) {
 		ScreenLibrary.getPane().getChildren().remove(removed);
