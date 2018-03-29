@@ -2,18 +2,18 @@ package dao;
 
 import java.util.List;
 
-/*import javax.persistence.EntityManager;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-import util.EntityManagerProducer;*/
+import util.EntityManagerProducer;
 
 public class GenericDao<T, I> {
-	//protected EntityManager manager;
+	protected EntityManager manager;
 	private Class<T> classePersistida;
-/*
+
 	public GenericDao(Class<T> classePersistida) {
 		manager = new EntityManagerProducer().createEntityManger();
 		this.classePersistida = classePersistida;
@@ -70,5 +70,5 @@ public class GenericDao<T, I> {
 	
 	public Query executeQuery(String query) {
 		return manager.createQuery(query);
-	}*/
+	}
 }
