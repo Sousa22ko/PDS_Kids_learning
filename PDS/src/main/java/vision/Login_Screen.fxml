@@ -19,7 +19,10 @@
                   <Pane fx:id="logo" layoutX="135.0" layoutY="97.0" prefHeight="60.0" prefWidth="31.0" />
                </children>
             </Pane>
-            <Pane layoutX="274.0" layoutY="345.0" prefHeight="200.0" prefWidth="200.0" />
+            <Pane layoutX="274.0" layoutY="345.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="cadPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+               </children></Pane>
          </children>
       </Pane>
    </children>

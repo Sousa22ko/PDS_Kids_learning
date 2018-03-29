@@ -10,7 +10,7 @@ public class EntityManagerProducer {
 	
 	public EntityManagerProducer() {
 		factory = 
-				Persistence.createEntityManagerFactory("GastosPU");
+				Persistence.createEntityManagerFactory("KidsLearning");
 	}
 	
 	public EntityManager createEntityManger() {
