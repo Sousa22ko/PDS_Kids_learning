@@ -58,6 +58,9 @@ public class Login_ScreenController {
 
 	@FXML
 	private AnchorPane masterPane;
+	
+	@FXML
+	private Label error;
 
 	private User remote = new User();
 
@@ -86,7 +89,7 @@ public class Login_ScreenController {
 			}
 
 		} catch (UnsupportedEncodingException e) {
-
+			error.setText("Usuario não econtrado");
 			e.printStackTrace();
 		}
 
@@ -129,10 +132,8 @@ public class Login_ScreenController {
 		Button cadastrar, cancelar;
 
 		Label text;
-		final Label error;
 
 		text = new Label("Cadastro de usuario");
-		error = new Label();
 		nomeT = new TextField();
 		emailT = new TextField();
 		userT = new TextField();
@@ -205,12 +206,17 @@ public class Login_ScreenController {
 		cadPane.getChildren().add(cadastrar);
 		cadPane.getChildren().add(cancelar);
 
-		final Date date = new SimpleDateFormat().parse(niver.getEditor().getText());
+
+		final Date date = new Date();//.parse(niver.getEditor().getText());
 
 		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				remote = createUser(nomeT.getText(), emailT.getText(), userT.getText(), instT.getText(), date,
 						pass.getText(),tipo.getValue(), error);
+				
+				UserDao ud = new UserDao();
+				ud.adicionar(remote);
+				cadPane.setVisible(false);
 			}
 		});
 
