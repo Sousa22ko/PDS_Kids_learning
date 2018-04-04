@@ -27,7 +27,7 @@ public class Cadastra_ScreenController {
 		private TextField userT;
 		
 		@FXML
-		private TextField instT;
+		private TextField instT; 
 		
 		@FXML
 		private DatePicker niver;
