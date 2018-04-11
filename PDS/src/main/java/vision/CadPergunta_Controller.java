@@ -73,7 +73,7 @@ public class CadPergunta_Controller {
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
 	}
 	
 	@FXML

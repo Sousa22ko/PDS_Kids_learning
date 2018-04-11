@@ -3,10 +3,7 @@ package vision;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 
-import javax.persistence.NoResultException;
-
-import org.apache.commons.validator.routines.EmailValidator;
-
+import Services.UserServices;
 import dao.UserDao;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -20,6 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.User;
@@ -56,24 +54,19 @@ public class Login_ScreenController {
 
 	@FXML
 	private AnchorPane masterPane;
-	
+
 	@FXML
 	private Label error;
 
 	private User remote = new User();
 
-	// private User remote = new User();
 
 	@FXML
 	public void initialize() {
 		SourcesLoader.loadBackground(background);
 		SourcesLoader.loadLogo(logo);
 
-		// logicPane.setLayoutX((masterPane.getHeight() / 2) -
-		// (logicPane.getHeight() / 2));
 		logicPane.setLayoutX(533);
-		// logicPane.setLayoutY((masterPane.getHeight() / 2) -
-		// (logicPane.getHeight() / 2));
 		logicPane.setLayoutY(174);
 	}
 
@@ -100,10 +93,10 @@ public class Login_ScreenController {
 		local = new User();
 		local.setUserName(user.getText());
 		local.setSenha(pass.getText());
-		
+
 		remote = ud.getUserByUserName(local.getUserName());
-		
-		//System.out.println(remote.getSenha() + " r l " + local.getSenha());
+
+		// System.out.println(remote.getSenha() + " r l " + local.getSenha());
 
 		if (UserDao.comparePassword(local, remote)) {
 			this.remote = remote;
@@ -116,9 +109,6 @@ public class Login_ScreenController {
 	@FXML
 	public void CadastroHandler() throws ParseException {
 
-		cadPane.setLayoutX(50);
-		cadPane.setLayoutY(-275);
-		cadPane.setPrefSize(700, 600);
 		cadPane.setStyle("-fx-background-color: whitesmoke; -fx-border-color: lightgrey;");
 		cadPane.setVisible(true);
 
@@ -129,8 +119,8 @@ public class Login_ScreenController {
 		final DatePicker niver;
 		final PasswordField senhaT;
 		final ChoiceBox<String> tipo;
-		Button cadastrar, cancelar;
 
+		Button cadastrar, cancelar;
 		Label text;
 
 		text = new Label("Cadastro de usuario");
@@ -183,7 +173,7 @@ public class Login_ScreenController {
 		tipo.setLayoutX(25);
 		tipo.setLayoutY(365);
 		tipo.setPrefSize(650, 10);
-		
+
 		error.setLayoutX(100);
 		error.setLayoutY(600);
 
@@ -206,15 +196,25 @@ public class Login_ScreenController {
 		cadPane.getChildren().add(cadastrar);
 		cadPane.getChildren().add(cancelar);
 
+		cadPane.setLayoutX(185);
+		cadPane.setLayoutY(-400);
+		cadPane.setPrefSize(700, 600);
 
 		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				remote = createUser(nomeT.getText(), emailT.getText(), userT.getText(), instT.getText(),
-						senhaT.getText(),tipo.getValue(), error);
-				
-				//System.out.println(remote + " remote");
-				UserDao ud = new UserDao();
-				ud.adicionar(remote);
+
+				try {
+
+					UserServices.createUserAdd(nomeT.getText(), emailT.getText(), userT.getText(), instT.getText(),
+							senhaT.getText(), tipo.getValue());
+					
+					error.setTextFill(Color.GREEN);
+					error.setText("Cadastro realizado com sucesso");
+				} catch (Exception ee) {
+					error.setTextFill(Color.RED);
+					error.setText("Impossivel criar nova conta: " + ee.getMessage());
+					System.out.println("Impossivel criar nova conta: " + ee.getMessage() + ee);
+				}
 				cadPane.setVisible(false);
 				return;
 			}
@@ -227,61 +227,4 @@ public class Login_ScreenController {
 			}
 		});
 	}
-
-	public User createUser(String nome, String email, String user, String inst, String senha, String tipo, Label error) {
-
-		User novo = new User();
-		Boolean erru, erre;
-
-		if (nome != null && nome.length() < 30) {
-			if (checkUni(user)) {
-				novo.setUserName(user);
-				erru = false;
-			} else {
-				erru = true;
-				error.setText("Usuario indisponivel");
-			}
-		} else {
-			erru = true;
-			error.setText("Usuario vazio ou muito grande (maximo 30 caracteres)");
-		}
-
-		if (EmailValidator.getInstance().isValid(email)) {
-			novo.setEmail(email);
-			erre = false;
-		} else {
-			erre = true;
-			error.setText("Email invalido");
-		}
-		
-		System.out.println(erre + " " + erru);
-		if (erre == false && erru == false) {
-			
-			novo.setNome(nome);
-			novo.setSenha(senha);
-			novo.setInstit(inst);
-			
-			novo.setTipoUsuario(3);// TOFIX --------------------------
-			
-			
-			UserDao ud = new UserDao();
-			ud.adicionar(novo);// persiste no bd
-			return novo;
-		} else
-			return null;
-	}
-
-	// checa se o usuario tem um login unico
-	private static boolean checkUni(String userName) {
-		UserDao ud1 = new UserDao();
-
-		try {
-			User check = ud1.getUserByUserName(userName);
-			System.out.println(check.getUserName() + " do banco");
-		} catch (NoResultException e) {
-			return true;
-		}
-		return false;
-	}
-
 }

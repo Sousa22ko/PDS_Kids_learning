@@ -5,7 +5,12 @@ import model.Pergunta;
 
 public class PergServices {
 
-	public PerguntaDao perguntaDao;
-	public Pergunta pergunta;
+	public static PerguntaDao perguntaDao;
+	public static Pergunta pergunta;
+	
+	
+	public static PerguntaDao getDao() {
+		return perguntaDao;
+	}
 	
 }

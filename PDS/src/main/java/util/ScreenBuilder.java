@@ -1,8 +1,11 @@
 package util;
 
+import Services.UserServices;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class ScreenBuilder {
 	
@@ -17,6 +20,15 @@ public class ScreenBuilder {
 	public static void load_stage(AnchorPane paneout, Stage primaryStageout) {
 		pane = paneout;
 		primaryStage = primaryStageout;
+		
+		//essa parada ta quebrada n sei pq
+		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			
+			public void handle(WindowEvent event) {
+				UserServices.getDao().close();
+				System.exit(0);
+			}
+		});
 	}
 
 	// -----------------------------------constroi as telas

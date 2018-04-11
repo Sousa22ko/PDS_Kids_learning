@@ -71,4 +71,9 @@ public class GenericDao<T, I> {
 	public Query executeQuery(String query) {
 		return manager.createQuery(query);
 	}
+	
+	public void close(){
+		if(manager.isOpen())
+			manager.close();
+	}
 }
