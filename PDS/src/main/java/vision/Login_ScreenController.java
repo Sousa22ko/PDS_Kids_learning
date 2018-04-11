@@ -216,6 +216,7 @@ public class Login_ScreenController {
 				UserDao ud = new UserDao();
 				ud.adicionar(remote);
 				cadPane.setVisible(false);
+				return;
 			}
 		});
 
@@ -282,5 +283,4 @@ public class Login_ScreenController {
 		}
 		return false;
 	}
-
 }
