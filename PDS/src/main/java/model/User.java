@@ -1,28 +1,44 @@
 package model;
 
-import javafx.scene.chart.PieChart.Data;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 
 @Entity
 public class User {
-
+	
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	@Column(name = "nome")
 	private String nome;
 	
+	@Column(name = "userName")
 	private String userName;
 
+	@Column(name = "senha")
 	private String senha;
 	
-	private Data nascimento;
-	
+	@Column(name = "email")
 	private String email;
 	
+	@Column(name = "tipoUsuario")
 	private int tipoUsuario;
 	
+	@Column(name = "instit")
 	private String instit;
 	
 	public String getNome() {
 		return nome;
+	}
+	
+	public long getId(){
+		return this.id;
 	}
 
 	public void setNome(String nome) {
@@ -43,14 +59,6 @@ public class User {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public Data getNascimento() {
-		return nascimento;
-	}
-
-	public void setNascimento(Data nascimento) {
-		this.nascimento = nascimento;
 	}
 
 	public String getEmail() {

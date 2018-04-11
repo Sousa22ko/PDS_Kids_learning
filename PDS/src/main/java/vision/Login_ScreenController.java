@@ -2,8 +2,6 @@ package vision;
 
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.persistence.NoResultException;
 
@@ -100,10 +98,12 @@ public class Login_ScreenController {
 		User local, remote;
 
 		local = new User();
-		local.setNome(login.getText());
+		local.setUserName(user.getText());
 		local.setSenha(pass.getText());
-
-		remote = ud.getUserByName(local.getNome());
+		
+		remote = ud.getUserByUserName(local.getUserName());
+		
+		System.out.println(remote.getUserName());
 
 		if (UserDao.comparePassword(local, remote)) {
 			this.remote = remote;
@@ -150,7 +150,7 @@ public class Login_ScreenController {
 		instT.setPromptText("Instituicao");
 		niver.setPromptText("Nascimento");
 		senhaT.setPromptText("Senha*");
-		tipo = new ChoiceBox<String>(FXCollections.observableArrayList("Aluno", "Professor", "Sei la mano"));
+		tipo = new ChoiceBox<String>(FXCollections.observableArrayList("Aluno", "Professor", "admin"));
 		text.setFont(Font.font("arial", FontWeight.BOLD, 20));
 
 		text.setLayoutX(250);
@@ -207,13 +207,12 @@ public class Login_ScreenController {
 		cadPane.getChildren().add(cancelar);
 
 
-		final Date date = new Date();//.parse(niver.getEditor().getText());
-
 		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				remote = createUser(nomeT.getText(), emailT.getText(), userT.getText(), instT.getText(), date,
+				remote = createUser(nomeT.getText(), emailT.getText(), userT.getText(), instT.getText(),
 						pass.getText(),tipo.getValue(), error);
 				
+				System.out.println(remote + " remote");
 				UserDao ud = new UserDao();
 				ud.adicionar(remote);
 				cadPane.setVisible(false);
@@ -228,14 +227,14 @@ public class Login_ScreenController {
 		});
 	}
 
-	public User createUser(String nome, String email, String user, String inst, Date niver, String senha, String tipo, Label error) {
+	public User createUser(String nome, String email, String user, String inst, String senha, String tipo, Label error) {
 
 		User novo = new User();
 		Boolean erru, erre;
 
 		if (nome != null && nome.length() < 30) {
-			if (checkUni(nome)) {
-				novo.setNome(nome);
+			if (checkUni(user)) {
+				novo.setUserName(user);
 				erru = false;
 			} else {
 				erru = true;
@@ -253,10 +252,17 @@ public class Login_ScreenController {
 			erre = true;
 			error.setText("Email invalido");
 		}
-
-		novo.setSenha(senha);
-
+		
+		System.out.println(erre + " " + erru);
 		if (erre == false && erru == false) {
+			
+			novo.setNome(nome);
+			novo.setSenha(senha);
+			novo.setInstit(inst);
+			
+			novo.setTipoUsuario(3);// TOFIX --------------------------
+			
+			
 			UserDao ud = new UserDao();
 			ud.adicionar(novo);// persiste no bd
 			return novo;
@@ -265,12 +271,12 @@ public class Login_ScreenController {
 	}
 
 	// checa se o usuario tem um login unico
-	@SuppressWarnings("unused")
-	private static boolean checkUni(String nome) {
-		UserDao ud = new UserDao();
+	private static boolean checkUni(String userName) {
+		UserDao ud1 = new UserDao();
 
 		try {
-			User check = ud.getUserByName(nome);
+			User check = ud1.getUserByUserName(userName);
+			System.out.println(check.getUserName() + " do banco");
 		} catch (NoResultException e) {
 			return true;
 		}

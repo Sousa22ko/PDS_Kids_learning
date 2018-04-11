@@ -8,4 +8,5 @@ public class CadPergunta_Controller {
 	
 	@FXML
 	private Label label;
+	
 }

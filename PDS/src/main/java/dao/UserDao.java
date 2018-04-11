@@ -8,8 +8,8 @@ public class UserDao extends GenericDao<User, Long> {
 		super(User.class);
 	}
 	
-	public User getUserByName(String nome){		
-		return (User)executeQuery("from User where nome = :nome").setParameter("nome", nome)
+	public User getUserByUserName(String userName){		
+		return (User)executeQuery("from User where userName = :userName").setParameter("userName", userName)
 				.getSingleResult();
 	}
 	
