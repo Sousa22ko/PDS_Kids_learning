@@ -59,10 +59,10 @@ public class ScreenBuilder {
 
 	}
 	
-	public static void renderCadastro() {
+	public static void renderCadastroPergunta() {
 
-		path = "Cadastro_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
-		title = "Cadastro"; // nome q aparece no topo da tela
+		path = "CadPergunta_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		title = "Cadastro de pergunta"; // nome q aparece no topo da tela
 		buildScreen();
 
 	}

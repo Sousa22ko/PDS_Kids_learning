@@ -103,7 +103,7 @@ public class Login_ScreenController {
 		
 		remote = ud.getUserByUserName(local.getUserName());
 		
-		System.out.println(remote.getSenha() + " r l " + local.getSenha());
+		//System.out.println(remote.getSenha() + " r l " + local.getSenha());
 
 		if (UserDao.comparePassword(local, remote)) {
 			this.remote = remote;
@@ -212,10 +212,11 @@ public class Login_ScreenController {
 				remote = createUser(nomeT.getText(), emailT.getText(), userT.getText(), instT.getText(),
 						senhaT.getText(),tipo.getValue(), error);
 				
-				System.out.println(remote + " remote");
+				//System.out.println(remote + " remote");
 				UserDao ud = new UserDao();
 				ud.adicionar(remote);
 				cadPane.setVisible(false);
+				return;
 			}
 		});
 
