@@ -103,7 +103,7 @@ public class Login_ScreenController {
 		
 		remote = ud.getUserByUserName(local.getUserName());
 		
-		System.out.println(remote.getUserName());
+		System.out.println(remote.getSenha() + " r l " + local.getSenha());
 
 		if (UserDao.comparePassword(local, remote)) {
 			this.remote = remote;
@@ -210,7 +210,7 @@ public class Login_ScreenController {
 		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				remote = createUser(nomeT.getText(), emailT.getText(), userT.getText(), instT.getText(),
-						pass.getText(),tipo.getValue(), error);
+						senhaT.getText(),tipo.getValue(), error);
 				
 				System.out.println(remote + " remote");
 				UserDao ud = new UserDao();

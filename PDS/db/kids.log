@@ -1,3 +1,0 @@
-/*C3*/SET SCHEMA PUBLIC
-INSERT INTO USER VALUES(2,'EmailN@g.com','institui','nomeN','',3,'aluno')
-COMMIT

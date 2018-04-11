@@ -47,4 +47,4 @@ GRANT DBA TO SA
 SET SCHEMA SYSTEM_LOBS
 INSERT INTO BLOCKS VALUES(0,2147483647,0)
 SET SCHEMA PUBLIC
-INSERT INTO USER VALUES(1,'admin@admin.com','adminsindsa','adminNome','',3,'admin')
+INSERT INTO USER VALUES(1,'admin@admin.com','adminInst','adminNome','admin',3,'admin')
