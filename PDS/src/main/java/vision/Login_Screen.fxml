@@ -14,8 +14,8 @@
         <Pane fx:id="logicPane" layoutX="78.0" layoutY="28.0" prefHeight="420.0" prefWidth="300.0" style="-fx-background-color: whitesmoke; -fx-border-color: lightgrey;">
           <children>
             <Button fx:id="login" layoutX="75.0" layoutY="300.0" mnemonicParsing="false" onAction="#LoginHandler" prefWidth="150.0" text="Login" />
-            <TextField fx:id="user" layoutX="25.0" layoutY="220.0" prefHeight="25.0" prefWidth="250.0" promptText="Usuario" />
-            <PasswordField fx:id="pass" layoutX="25.0" layoutY="260.0" prefWidth="250.0" promptText="Senha" />
+            <TextField fx:id="user" layoutX="25.0" layoutY="220.0" onAction="#LoginHandler" prefHeight="25.0" prefWidth="250.0" promptText="Usuario" />
+            <PasswordField fx:id="pass" layoutX="25.0" layoutY="260.0" onAction="#LoginHandler" prefWidth="250.0" promptText="Senha" />
             <Button fx:id="cad" layoutX="75.0" layoutY="340.0" mnemonicParsing="false" onAction="#CadastroHandler" prefWidth="150.0" text="Cadastrar" />
             <Pane fx:id="logo" layoutX="135.0" layoutY="97.0" prefHeight="60.0" prefWidth="31.0" />
             <Label fx:id="error" layoutX="14.0" layoutY="389.0" text="teste teste" />

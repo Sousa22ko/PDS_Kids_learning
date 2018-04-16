@@ -4,14 +4,12 @@ import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 
 import Services.UserServices;
-import dao.UserDao;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -20,9 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import model.User;
 import sources.ScreenConstants;
-import util.LoggedUser;
 import util.ScreenLibrary;
 import util.SourcesLoader;
 
@@ -58,8 +54,7 @@ public class Login_ScreenController {
 	@FXML
 	private Label error;
 
-	private User remote = new User();
-
+	// private User remote = new User();
 
 	@FXML
 	public void initialize() {
@@ -74,35 +69,12 @@ public class Login_ScreenController {
 	public void LoginHandler() {
 
 		try {
-			if (login()) {
-				LoggedUser.setUserLogged(remote);
-				ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
-			}
+			UserServices.login(user.getText(), pass.getText());
+			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
 
 		} catch (UnsupportedEncodingException e) {
 			error.setText("Usuario não econtrado");
 			e.printStackTrace();
-		}
-
-	}
-
-	public boolean login() {
-		UserDao ud = new UserDao();
-		User local, remote;
-
-		local = new User();
-		local.setUserName(user.getText());
-		local.setSenha(pass.getText());
-
-		remote = ud.getUserByUserName(local.getUserName());
-
-		// System.out.println(remote.getSenha() + " r l " + local.getSenha());
-
-		if (UserDao.comparePassword(local, remote)) {
-			this.remote = remote;
-			return true;
-		} else {
-			return false;
 		}
 	}
 
@@ -116,7 +88,6 @@ public class Login_ScreenController {
 		final TextField emailT;
 		final TextField userT;
 		final TextField instT;
-		final DatePicker niver;
 		final PasswordField senhaT;
 		final ChoiceBox<String> tipo;
 
@@ -128,7 +99,6 @@ public class Login_ScreenController {
 		emailT = new TextField();
 		userT = new TextField();
 		instT = new TextField();
-		niver = new DatePicker();
 		senhaT = new PasswordField();
 
 		cadastrar = new Button("cadastrar");
@@ -138,7 +108,6 @@ public class Login_ScreenController {
 		emailT.setPromptText("Email*");
 		userT.setPromptText("Usuario*");
 		instT.setPromptText("Instituicao");
-		niver.setPromptText("Nascimento");
 		senhaT.setPromptText("Senha*");
 		tipo = new ChoiceBox<String>(FXCollections.observableArrayList("Aluno", "Professor", "admin"));
 		text.setFont(Font.font("arial", FontWeight.BOLD, 20));
@@ -162,27 +131,23 @@ public class Login_ScreenController {
 		instT.setLayoutY(245);
 		instT.setPrefSize(650, 10);
 
-		niver.setLayoutX(25);
-		niver.setLayoutY(285);
-		niver.setPrefSize(650, 10);
-
 		senhaT.setLayoutX(25);
-		senhaT.setLayoutY(325);
+		senhaT.setLayoutY(285);
 		senhaT.setPrefSize(650, 10);
 
 		tipo.setLayoutX(25);
-		tipo.setLayoutY(365);
+		tipo.setLayoutY(325);
 		tipo.setPrefSize(650, 10);
 
 		error.setLayoutX(100);
 		error.setLayoutY(600);
 
 		cadastrar.setLayoutX(25);
-		cadastrar.setLayoutY(405);
+		cadastrar.setLayoutY(365);
 		cadastrar.setPrefSize(320, 10);
 
 		cancelar.setLayoutX(355);
-		cancelar.setLayoutY(405);
+		cancelar.setLayoutY(365);
 		cancelar.setPrefSize(320, 10);
 
 		cadPane.getChildren().add(text);
@@ -190,7 +155,6 @@ public class Login_ScreenController {
 		cadPane.getChildren().add(emailT);
 		cadPane.getChildren().add(userT);
 		cadPane.getChildren().add(instT);
-		cadPane.getChildren().add(niver);
 		cadPane.getChildren().add(senhaT);
 		cadPane.getChildren().add(tipo);
 		cadPane.getChildren().add(cadastrar);
@@ -204,10 +168,8 @@ public class Login_ScreenController {
 			public void handle(ActionEvent e) {
 
 				try {
-
 					UserServices.createUserAdd(nomeT.getText(), emailT.getText(), userT.getText(), instT.getText(),
 							senhaT.getText(), tipo.getValue());
-					
 					error.setTextFill(Color.GREEN);
 					error.setText("Cadastro realizado com sucesso");
 				} catch (Exception ee) {

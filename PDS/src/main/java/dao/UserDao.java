@@ -13,14 +13,11 @@ public class UserDao extends GenericDao<User, Long> {
 				.getSingleResult();
 	}
 	
-	public static boolean comparePassword(User u1, User u2){
+	public static boolean comparePassword(User u1, String senha){
 		
-		if(u1.getUserName().equals(u2.getUserName())){
-			if(u1.getSenha().equals(u2.getSenha())){
+			if(u1.getSenha().equals(senha)){
 				return true;
 			}
 			return false;
-		}
-		return false;
 	}
 }

@@ -1,16 +1,20 @@
 package Services;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.persistence.NoResultException;
 
 import org.apache.commons.validator.routines.EmailValidator;
 
 import dao.UserDao;
 import model.User;
+import util.LoggedUser;
 
 public class UserServices {
 
 	public static UserDao userDao = new UserDao();
 	public static User user = new User();
+	public static LoggedUser connected = new LoggedUser();
 
 	public static UserDao getDao() {
 		return userDao;
@@ -70,5 +74,18 @@ public class UserServices {
 			return true;
 		}
 		return false;
+	}
+	
+	public static void login(String usuario, String senha) throws UnsupportedEncodingException{
+
+		user = userDao.getUserByUserName(usuario);
+		if (UserDao.comparePassword(user, senha)) {
+			LoggedUser.setUserLogged(user);
+		}
+		else throw new UnsupportedEncodingException();
+	}
+
+	public static User getUserConnected() {
+		return LoggedUser.getLoggedUser();
 	}
 }
