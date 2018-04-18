@@ -8,4 +8,5 @@ public class ScreenConstants {
 	public static final int IDLOGIN = 1;
 	public static final int IDHOME = 2;
 	public static final int IDCADPERG = 3;
+	public static final int IDLISTPERG = 4; //tela de listagem de perguntas no geral, no futuro pode vir a ser algo mais específico
 }

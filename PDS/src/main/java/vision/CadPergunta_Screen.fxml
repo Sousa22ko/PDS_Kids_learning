@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vision.CadPergunta_Controller">
-   <children>
-      <Pane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: whitesmoke; -fx-border-color: lightgrey;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
-         <children>
-            <TextField fx:id="pergunta" layoutX="15.0" layoutY="110.0" prefWidth="740.0" promptText="Digite aqui sua pergunta" />
-            <Label layoutX="15.0" layoutY="73.0" text="Pergunta">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="alt1" layoutX="15.0" layoutY="200.0" promptText="Alternativa 1" />
-            <TextField fx:id="alt4" layoutX="15.0" layoutY="350.0" promptText="Alternativa 4" />
-            <TextField fx:id="alt2" layoutX="15.0" layoutY="250.0" promptText="Alternativa 2" />
-            <TextField fx:id="alt3" layoutX="15.0" layoutY="300.0" promptText="Alternativa 3" />
-            <ChoiceBox fx:id="correta" layoutX="515.0" layoutY="200.0" prefWidth="150.0" />
-            <Button layoutX="515.0" layoutY="350.0" mnemonicParsing="false" onAction="#handlerCadastrarPergunta" text="Cadastrar pergunta" />
-            <Button layoutX="515.0" layoutY="386.0" mnemonicParsing="false" onAction="#handlerVoltar" prefHeight="25.0" prefWidth="118.0" text="Voltar" />
-         </children>
-      </Pane>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="vision.CadPergunta_Controller">
+  <children>
+    <Pane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: whitesmoke; -fx-border-color: lightgrey;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+      <children>
+        <TextField fx:id="pergunta" layoutX="15.0" layoutY="110.0" prefWidth="740.0" promptText="Digite aqui sua pergunta" />
+        <Label layoutX="15.0" layoutY="73.0" text="Pergunta">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+        <TextField fx:id="alt1" layoutX="25.0" layoutY="200.0" promptText="Alternativa 1" />
+        <TextField id="alt4" fx:id="alt2" layoutX="25.0" layoutY="250.0" promptText="Alternativa 2" />
+        <TextField id="alt2" fx:id="alt3" layoutX="25.0" layoutY="300.0" promptText="Alternativa 3" />
+        <TextField id="alt3" fx:id="alt4" layoutX="25.0" layoutY="350.0" promptText="Alternativa 4" />
+        <ChoiceBox fx:id="correta" disable="false" focusTraversable="true" layoutX="515.0" layoutY="200.0" mouseTransparent="false" prefWidth="150.0" visible="true" />
+        <Button layoutX="515.0" layoutY="350.0" mnemonicParsing="false" onAction="#handlerCadastrarPergunta" text="Cadastrar pergunta" />
+        <Button layoutX="515.0" layoutY="386.0" mnemonicParsing="false" onAction="#handlerVoltar" prefHeight="25.0" prefWidth="118.0" text="Voltar" />
+        <Label layoutX="511.0" layoutY="177.0" text="Selecione a alternativa correta" />
+        <Label layoutX="10.0" layoutY="203.0" text="1." />
+        <Label layoutX="10.0" layoutY="253.0" text="2." />
+        <Label layoutX="10.0" layoutY="303.0" text="3." />
+        <Label layoutX="10.0" layoutY="353.0" text="4." />
+      </children>
+    </Pane>
+  </children>
 </AnchorPane>

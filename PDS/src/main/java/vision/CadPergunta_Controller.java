@@ -36,7 +36,7 @@ public class CadPergunta_Controller {
 	private TextField alt4;
 	
 	@FXML
-	private ChoiceBox<String> correta = new ChoiceBox<String>(FXCollections.observableArrayList("correta 1", "correta 2", "correta 3", "correta 4"));
+	private ChoiceBox<String> correta = new ChoiceBox();
 	
 	@FXML
 	private Pane background;
@@ -47,9 +47,13 @@ public class CadPergunta_Controller {
 	
 	@FXML
 	public void initialize() {
-		correta = new ChoiceBox<String>(FXCollections.observableArrayList("correta 1", "correta 2", "correta 3", "correta 4"));
+		correta.getItems().addAll("Alternativa 1", "Alternativa 2", "Alternativa 3", "Alternativa 4");
 	}
 	
+	@FXML
+	public void handlerPreencheCB(){
+		
+	}
 	
 	@FXML
 	public void handlerCadastrarPergunta(){
@@ -61,7 +65,19 @@ public class CadPergunta_Controller {
 		nova.setAlternativa2(alt2.getText());
 		nova.setAlternativa3(alt3.getText());
 		nova.setAlternativa4(alt4.getText());
-		nova.setCorreta(correta.getValue());
+		
+		if(correta.getValue() == "Alternativa 1"){
+			nova.setCorreta("alternativa1");
+		} else if(correta.getValue() == "Alternativa 2"){
+			nova.setCorreta("alternativa2");
+		} else if(correta.getValue() == "Alternativa 3"){
+			nova.setCorreta("alternativa3");
+		} else if(correta.getValue() == "Alternativa 4"){
+			nova.setCorreta("alternativa4");
+		} else
+			System.out.println("DEU ERRO NEGADA");
+		
+		//nova.setCorreta(correta.getValue());
 		nova.setIdUser(LoggedUser.getLoggedUser().getId());
 
 		PerguntaDao pd = new PerguntaDao();

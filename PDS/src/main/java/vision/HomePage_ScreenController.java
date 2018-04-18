@@ -21,13 +21,13 @@ public class HomePage_ScreenController {
 	@FXML
 	public void initialize() {
 		if(UserServices.getUserConnected().getTipoUsuario() == 2 ||UserServices.getUserConnected().getTipoUsuario() == 3 ){
-			Button cadastrarPergunta = new Button("Cadastrar nova pergunta");
+			//Button cadastrarPergunta = new Button("Cadastrar nova pergunta");
 			
-			cadastrarPergunta.setPrefSize(100, 20);
-			cadastrarPergunta.setLayoutX(16);
-			cadastrarPergunta.setLayoutY(100);
+			//cadastrarPergunta.setPrefSize(100, 20);
+			//cadastrarPergunta.setLayoutX(16);
+			//cadastrarPergunta.setLayoutY(100);
 			
-			cadastrarPergunta.setOnAction(new EventHandler<ActionEvent>() {
+			/*cadastrarPergunta.setOnAction(new EventHandler<ActionEvent>() {
 				public void handle(ActionEvent e) {
 					try {
 						ScreenLibrary.LoadTela(ScreenConstants.IDCADPERG);
@@ -36,9 +36,9 @@ public class HomePage_ScreenController {
 					}
 					return;
 				}
-			});
+			});*/
 			
-			backPane.getChildren().add(cadastrarPergunta);
+			//backPane.getChildren().add(cadastrarPergunta);
 		}
 
 	}
