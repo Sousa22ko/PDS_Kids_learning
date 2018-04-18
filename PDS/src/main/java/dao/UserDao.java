@@ -12,12 +12,8 @@ public class UserDao extends GenericDao<User, Long> {
 		return (User)executeQuery("from User where userName = :userName").setParameter("userName", userName)
 				.getSingleResult();
 	}
-	
-	public static boolean comparePassword(User u1, String senha){
-		
-			if(u1.getSenha().equals(senha)){
-				return true;
-			}
-			return false;
+
+	public void initialize() {
+		// TODO Auto-generated method stub
 	}
 }

@@ -19,6 +19,10 @@ public class UserServices {
 	public static UserDao getDao() {
 		return userDao;
 	}
+	
+	public static void initialize(){
+		userDao.initialize();
+	}
 
 	// persiste um usuario no bd
 	public static void adicionar(User remote) {
@@ -30,7 +34,6 @@ public class UserServices {
 			String value) {
 
 		user = new User();
-		
 
 		if (userName != null && userName.length() < 30) {
 			if (checkUni(userName)) {
@@ -56,9 +59,9 @@ public class UserServices {
 		user.setInstit(inst);
 		user.setSenha(senha);
 
-		if (value == "aluno")
+		if (value == "Aluno")
 			user.setTipoUsuario(1);
-		else if (value == "professor")
+		else if (value == "Professor")
 			user.setTipoUsuario(2);
 		else
 			user.setTipoUsuario(3);
@@ -75,14 +78,29 @@ public class UserServices {
 		}
 		return false;
 	}
-	
-	public static void login(String usuario, String senha) throws UnsupportedEncodingException{
 
-		user = userDao.getUserByUserName(usuario);
-		if (UserDao.comparePassword(user, senha)) {
-			LoggedUser.setUserLogged(user);
+	public static void login(String usuario, String senha) throws UnsupportedEncodingException {
+
+		try {
+			user = userDao.getUserByUserName(usuario);
+		} catch (NoResultException e) {
+			throw new NoResultException("Usuario não encontrado");
 		}
-		else throw new UnsupportedEncodingException();
+		
+		//---
+		
+		if (comparePassword(user, senha)) {
+			LoggedUser.setUserLogged(user);
+		}else
+			throw new UnsupportedEncodingException("Senha incorreta");
+	}
+
+	public static boolean comparePassword(User u1, String senha) {
+
+		if (u1.getSenha().equals(senha)) {
+			return true;
+		} else
+			return false;
 	}
 
 	public static User getUserConnected() {

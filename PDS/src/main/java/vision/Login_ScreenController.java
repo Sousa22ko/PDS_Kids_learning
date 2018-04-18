@@ -3,6 +3,8 @@ package vision;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 
+import javax.persistence.NoResultException;
+
 import Services.UserServices;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -63,6 +65,7 @@ public class Login_ScreenController {
 
 		logicPane.setLayoutX(533);
 		logicPane.setLayoutY(174);
+		UserServices.initialize();
 	}
 
 	@FXML
@@ -73,8 +76,11 @@ public class Login_ScreenController {
 			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
 
 		} catch (UnsupportedEncodingException e) {
-			error.setText("Usuario não econtrado");
-			e.printStackTrace();
+			error.setTextFill(Color.RED);
+			error.setText("Senha incorreta");
+		} catch (NoResultException e2) {
+			error.setTextFill(Color.RED);
+			error.setText("Usuario não encontrado");
 		}
 	}
 
@@ -109,7 +115,7 @@ public class Login_ScreenController {
 		userT.setPromptText("Usuario*");
 		instT.setPromptText("Instituicao");
 		senhaT.setPromptText("Senha*");
-		tipo = new ChoiceBox<String>(FXCollections.observableArrayList("Aluno", "Professor", "admin"));
+		tipo = new ChoiceBox<String>(FXCollections.observableArrayList("Aluno", "Professor", "Admin"));
 		text.setFont(Font.font("arial", FontWeight.BOLD, 20));
 
 		text.setLayoutX(250);

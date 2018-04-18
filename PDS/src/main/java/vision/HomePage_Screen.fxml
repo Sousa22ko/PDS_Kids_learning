@@ -8,7 +8,7 @@
    <children>
       <Pane layoutX="207.0" layoutY="221.0" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane layoutX="25.0" layoutY="25.0" prefHeight="718.0" prefWidth="1316.0" style="-fx-border-color: lightgrey; -fx-background-color: whitesmoke;">
+            <Pane fx:id="backPane" layoutX="25.0" layoutY="25.0" prefHeight="718.0" prefWidth="1316.0" style="-fx-border-color: lightgrey; -fx-background-color: whitesmoke;">
                <children>
                   <Button layoutX="15.0" layoutY="15.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="419.0" text="Button" />
                   <Button layoutX="447.0" layoutY="15.0" mnemonicParsing="false" onAction="#handlerCadastrarPergunta" prefHeight="75.0" prefWidth="419.0" text="Cadastrar Pergunta" />

@@ -18,7 +18,7 @@
             <PasswordField fx:id="pass" layoutX="25.0" layoutY="260.0" onAction="#LoginHandler" prefWidth="250.0" promptText="Senha" />
             <Button fx:id="cad" layoutX="75.0" layoutY="340.0" mnemonicParsing="false" onAction="#CadastroHandler" prefWidth="150.0" text="Cadastrar" />
             <Pane fx:id="logo" layoutX="135.0" layoutY="97.0" prefHeight="60.0" prefWidth="31.0" />
-            <Label fx:id="error" layoutX="14.0" layoutY="389.0" text="teste teste" />
+            <Label fx:id="error" layoutX="14.0" layoutY="389.0" />
           </children>
         </Pane>
         <Pane layoutX="171.0" layoutY="448.0" prefHeight="60.0" prefWidth="115.0">
