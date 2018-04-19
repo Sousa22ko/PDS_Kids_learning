@@ -69,7 +69,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 	@FXML
 	public void handlerComecar() {
 
-		atual = PergServices.randomPerg();
+		atual = PergServices.randomPerg(); 
 		Pane back = new Pane();
 
 		back.setStyle("-fx-background-color: whitesmoke; -fx-border-color: lightgrey;");
