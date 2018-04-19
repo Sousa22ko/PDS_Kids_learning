@@ -13,6 +13,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< Upstream, based on origin/ReinaldoBranch
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="vision.CadPergunta_Controller">
   <children>
     <Pane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: whitesmoke; -fx-border-color: lightgrey;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
@@ -38,4 +39,31 @@
       </children>
     </Pane>
   </children>
+=======
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vision.CadPergunta_Controller">
+   <children>
+      <Pane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: whitesmoke; -fx-border-color: lightgrey;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <TextField fx:id="pergunta" layoutX="15.0" layoutY="110.0" prefWidth="740.0" promptText="Digite aqui sua pergunta" />
+            <Label layoutX="15.0" layoutY="73.0" text="Pergunta">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="alt1" layoutX="15.0" layoutY="200.0" prefWidth="400.0" promptText="Alternativa 1" />
+            <TextField fx:id="alt2" layoutX="15.0" layoutY="250.0" prefWidth="400.0" promptText="Alternativa 2" />
+            <TextField fx:id="alt3" layoutX="15.0" layoutY="300.0" prefWidth="400.0" promptText="Alternativa 3" />
+            <TextField fx:id="alt4" layoutX="15.0" layoutY="350.0" prefWidth="400.0" promptText="Alternativa 4" />
+            <ChoiceBox fx:id="correta" layoutX="15.0" layoutY="436.0" prefWidth="225.0" />
+            <Label layoutX="15.0" layoutY="419.0" text="Selecione a alternativa correta" />
+            <Pane layoutX="554.0" layoutY="197.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: lightgrey; -fx-background-color: #fafafa;">
+               <children>
+                  <Button layoutX="37.0" layoutY="50.0" mnemonicParsing="false" onAction="#handlerCadastrarPergunta" prefWidth="125.0" text="Cadastrar pergunta" />
+                  <Button layoutX="37.0" layoutY="138.0" mnemonicParsing="false" onAction="#handlerVoltar" prefHeight="25.0" prefWidth="125.0" text="Voltar" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+>>>>>>> 4999cdf Criação do cronometro (thread) Observer do cronometro e do controller (contra o tempo)
 </AnchorPane>

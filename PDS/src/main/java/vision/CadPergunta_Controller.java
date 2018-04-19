@@ -3,7 +3,6 @@ package vision;
 import java.io.UnsupportedEncodingException;
 
 import dao.PerguntaDao;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -36,7 +35,8 @@ public class CadPergunta_Controller {
 	private TextField alt4;
 	
 	@FXML
-	private ChoiceBox<String> correta = new ChoiceBox();
+	private ChoiceBox<String> correta = new ChoiceBox<String>();
+
 	
 	@FXML
 	private Pane background;

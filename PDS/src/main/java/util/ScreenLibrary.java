@@ -58,6 +58,9 @@ public class ScreenLibrary {
 		else if(id == ScreenConstants.IDCADPERG)
 			ScreenBuilder.renderCadastroPergunta();
 		
+		else if(id == ScreenConstants.IDAGAINSTTIME)
+			ScreenBuilder.renderContraOTempo();
+		
 		
 		else throw new UnsupportedEncodingException("tela indefida");
 

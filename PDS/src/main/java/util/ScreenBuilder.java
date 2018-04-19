@@ -78,5 +78,13 @@ public class ScreenBuilder {
 		buildScreen();
 
 	}
+	
+	public static void renderContraOTempo() {
+
+		path = "ContraOTempo_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		title = "Contra o Tempo"; // nome q aparece no topo da tela
+		buildScreen();
+
+	}
 
 }

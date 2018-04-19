@@ -1,0 +1,3 @@
+/*C3*/SET SCHEMA PUBLIC
+INSERT INTO USER VALUES(7,'oi@oi.com','','gabriela','1234',1,'gabriela')
+COMMIT

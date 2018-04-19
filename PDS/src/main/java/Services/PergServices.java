@@ -29,4 +29,9 @@ public class PergServices {
 		perguntaDao.adicionar(pergunta);
 		
 	}
+
+	public static Pergunta randomPerg() {
+		
+		return null;
+	}
 }

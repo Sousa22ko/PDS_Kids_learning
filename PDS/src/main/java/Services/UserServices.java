@@ -30,15 +30,12 @@ public class UserServices {
 	}
 
 	// cria um usuario e persiste ele no BD
-	public static void createUserAdd(String nome, String email, String userName, String inst, String senha,
-			String value) {
+	public static void createUserAdd(User novo){//String nome, String email, String userName, String inst, String senha,
+			//String value) {
 
-		user = new User();
 
-		if (userName != null && userName.length() < 30) {
-			if (checkUni(userName)) {
-				user.setUserName(userName);
-			} else {
+		if (novo.getNome() != null && novo.getNome().length() < 30) {
+			if (!checkUni(novo.getNome())) {
 				throw new IllegalArgumentException("Usuario indisponivel");
 			}
 		} else {
@@ -46,26 +43,17 @@ public class UserServices {
 		}
 
 		System.out.println("User check");
-		if (EmailValidator.getInstance().isValid(email)) {
-			user.setEmail(email);
-		} else {
+		
+		if (!EmailValidator.getInstance().isValid(novo.getEmail())) {
 			throw new IllegalArgumentException("Email invalido");
 		}
 		System.out.println("Email check");
+		
+		if (novo.getSenha().length() == 0  || novo.getSenha().length() >= 30) {
+			throw new IllegalArgumentException("Senha Vazia ou muito grande");
+		}
 
-		user.setNome(nome);
-		user.setEmail(email);
-		user.setUserName(userName);
-		user.setInstit(inst);
-		user.setSenha(senha);
-
-		if (value == "Aluno")
-			user.setTipoUsuario(1);
-		else if (value == "Professor")
-			user.setTipoUsuario(2);
-		else
-			user.setTipoUsuario(3);
-		userDao.adicionar(user);
+		userDao.adicionar(novo);
 
 	}
 

@@ -20,6 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import model.User;
 import sources.ScreenConstants;
 import util.ScreenLibrary;
 import util.SourcesLoader;
@@ -172,10 +173,25 @@ public class Login_ScreenController {
 
 		cadastrar.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
+				
+				User novo = new User();
+				novo.setNome(nomeT.getText());
+				novo.setEmail(emailT.getText());
+				novo.setUserName(userT.getText());
+				novo.setInstit(instT.getText());
+				novo.setSenha(senhaT.getText());
+				
+				if (tipo.getValue() == "Aluno")
+					novo.setTipoUsuario(1);
+				else if (tipo.getValue() == "Professor")
+					novo.setTipoUsuario(2);
+				else if (tipo.getValue() == "Admin")
+					novo.setTipoUsuario(3);
+				else 
+					novo.setTipoUsuario(4);
 
 				try {
-					UserServices.createUserAdd(nomeT.getText(), emailT.getText(), userT.getText(), instT.getText(),
-							senhaT.getText(), tipo.getValue());
+					UserServices.createUserAdd(novo);
 					error.setTextFill(Color.GREEN);
 					error.setText("Cadastro realizado com sucesso");
 				} catch (Exception ee) {
