@@ -25,7 +25,7 @@ public class CadPergunta_Controller {
 	@FXML
 	private TextField alt1;
 	
-	@FXML
+	@FXML 
 	private TextField alt2;
 	
 	@FXML
