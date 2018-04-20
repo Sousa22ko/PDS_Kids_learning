@@ -5,17 +5,18 @@ import java.util.Observable;
 import java.util.Observer;
 
 import Services.PergServices;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import model.Pergunta;
 import sources.ScreenConstants;
 import util.Cronometro;
+import util.Round;
 import util.ScreenLibrary;
 
 public class ContraOTempo_ScreenController extends Observable implements Observer {
@@ -40,7 +41,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 
 	@FXML
 	private Label relogio;
-	
+
 	@FXML
 	private Label pergunta;
 
@@ -64,72 +65,81 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		op3.setVisible(false);
 		op4.setVisible(false);
 		pergunta.setVisible(false);
+		extra.setVisible(false);
+		relogio.setVisible(false);
 	}
 
 	@FXML
 	public void handlerComecar() {
 
-		atual = PergServices.randomPerg();
-		Pane back = new Pane();
-
-		back.setStyle("-fx-background-color: whitesmoke; -fx-border-color: lightgrey;");
-
+		loadPergunta();
 		op1.setVisible(true);
 		op2.setVisible(true);
 		op3.setVisible(true);
 		op4.setVisible(true);
 		pergunta.setVisible(true);
-		
-		pergunta.setText(atual.getPergunta());
-		
-		op1.setText(atual.getAlternativa1());
-		op2.setText(atual.getAlternativa2());
-		op3.setText(atual.getAlternativa3());
-		op4.setText(atual.getAlternativa4());
+		extra.setVisible(true);
+		relogio.setVisible(true);
 
 		control.start();
 		gameStart();
 
 	}
 
+	private void loadPergunta() {
+		atual = PergServices.randomPerg();
+		pergunta.setText(atual.getPergunta());
+
+		op1.setText(atual.getAlternativa1());
+		op2.setText(atual.getAlternativa2());
+		op3.setText(atual.getAlternativa3());
+		op4.setText(atual.getAlternativa4());
+		gameStart();
+	}
+
 	public void gameStart() {
 
-			op1.setOnAction(new EventHandler<ActionEvent>() {
-				public void handle(ActionEvent e) {
-					if (atual.getCorreta().equals("Alternativa 1"))
-						notifyObservers(true);
-					else
-						notifyObservers(false);
-				}
-			});
+		setChanged();
+		op1.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				if (atual.getCorreta().equals("alternativa1"))
+					notifyObservers(true);
+				else
+					notifyObservers(false);
+				loadPergunta();
+			}
+		});
 
-			op2.setOnAction(new EventHandler<ActionEvent>() {
-				public void handle(ActionEvent e) {
-					if (atual.getCorreta().equals("Alternativa 2"))
-						notifyObservers(true);
-					else
-						notifyObservers(false);
-				}
-			});
+		op2.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				if (atual.getCorreta().equals("alternativa2"))
+					notifyObservers(true);
+				else
+					notifyObservers(false);
+				loadPergunta();
+			}
+		});
 
-			op3.setOnAction(new EventHandler<ActionEvent>() {
-				public void handle(ActionEvent e) {
-					if (atual.getCorreta().equals("Alternativa 3"))
-						notifyObservers(true);
-					else
-						notifyObservers(false);
-				}
-			});
+		op3.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				if (atual.getCorreta().equals("alternativa3"))
+					notifyObservers(true);
+				else
+					notifyObservers(false);
+				loadPergunta();
+			}
+		});
 
-			op4.setOnAction(new EventHandler<ActionEvent>() {
-				public void handle(ActionEvent e) {
-					if (atual.getCorreta().equals("Alternativa 4"))
-						notifyObservers(true);
-					else
-						notifyObservers(false);
-				}
-			});
-		
+		op4.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				if (atual.getCorreta().equals("alternativa4"))
+					notifyObservers(true);
+				else
+					notifyObservers(false);
+				loadPergunta();
+			}
+		});
+
 	}
 
 	public void gameStop() {
@@ -138,7 +148,10 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		op3.setVisible(false);
 		op4.setVisible(false);
 		pergunta.setVisible(false);
+		relogio.setVisible(false);
+		extra.setVisible(false);
 		control.interrupt();
+		
 	}
 
 	@FXML
@@ -151,26 +164,46 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		}
 	}
 
-	public void update(Observable o, Object arg) {
-		String s = (String) arg;
-		extra.setTextFill(Color.GREEN);
+	public void update(Observable o, final Object arg) {
+		
+		if (arg instanceof Double) {
+			Platform.runLater(new Runnable() {
+				public void run() {
+					if((Double)arg > 30)
+						relogio.setTextFill(Color.GREEN);
+					if((Double)arg <= 30 && (Double)arg >= 10)
+						relogio.setTextFill(Color.ORANGE);
+					if((Double)arg < 10)
+						relogio.setTextFill(Color.RED);
+					
+					relogio.setText(""+ Round.round((Double)arg, 2));
+				}
+			});
+		}
 
-		if (s.equals("5"))
-			extra.setText("+5");
+		if (arg instanceof String) {
+			if ((Double.parseDouble((String)arg) == 5)){
+				extra.setTextFill(Color.GREEN);
+				extra.setText("+5");
+			}
+			if ((Double.parseDouble((String)arg) == 3)) {
+				extra.setTextFill(Color.GREEN);
+				extra.setText("+3");
+			}
+			if ((Double.parseDouble((String)arg) == 1)) {
+				extra.setTextFill(Color.GREEN);
+				extra.setText("+1");
+			}
 
-		if (s.equals("2"))
-			extra.setText("+2");
+			if ((Double.parseDouble((String)arg) == -1)) {
+				extra.setTextFill(Color.RED);
+				extra.setText("-1");
+			}
+		}
 
-		if (s.equals("1"))
-			extra.setText("+1");
-
-		if (s.equals("0"))
-			gameStop();
-
-		if (s.equals("-1")) {
-			extra.setTextFill(Color.RED);
-			extra.setText("-1");
+		if (arg instanceof Boolean) {
+			if ((Boolean) arg == false)
+				gameStop();
 		}
 	}
-
 }

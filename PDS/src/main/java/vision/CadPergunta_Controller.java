@@ -52,7 +52,6 @@ public class CadPergunta_Controller {
 	
 	@FXML
 	public void handlerPreencheCB(){
-		
 	}
 	
 	@FXML
@@ -87,7 +86,6 @@ public class CadPergunta_Controller {
 		try {
 			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 	}
@@ -97,7 +95,6 @@ public class CadPergunta_Controller {
 		try {
 			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

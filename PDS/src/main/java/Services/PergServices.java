@@ -7,8 +7,7 @@ import model.Pergunta;
 
 public class PergServices {
 
-	public static PerguntaDao perguntaDao; // criado pelo reinaldo -- não sei se faz sentido, mas deixa aí até resolvermos
-	public static PerguntaDao perguntaDB = new PerguntaDao(); // banco com perguntas #SL
+	public static PerguntaDao perguntaDao = new PerguntaDao(); // banco com perguntas #SL
 	public static Pergunta pergunta;
 	public static long id;
 	
@@ -35,13 +34,6 @@ public class PergServices {
 
 	public static Pergunta randomPerg() {
 		
-	    
-		Random random = new Random();
-	    id = random.nextInt(perguntaDB.getList().size()) + 1; // (max - min + 1) + min
-	    System.out.println("TAMANHO "+perguntaDB.getList().size()+" id selecionado: "+id);
-	    pergunta = perguntaDB.getPerguntaById(id);
-	    
-		return pergunta;
-		//return null;
+		return perguntaDao.getPerguntaById(new Random().nextInt(perguntaDao.getList().size()-1)+1);
 	}
 }

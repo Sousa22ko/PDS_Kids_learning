@@ -6,7 +6,7 @@ import java.util.Observer;
 //Fun fact: cronômetro em ingles é "cronometro"
 public class Cronometro extends Observable implements Runnable, Observer {
 
-	private Double remainTime = 30.0d;
+	private Double remainTime = 45.0d;
 	private int acertos = 0;
 	
 	@SuppressWarnings("unused")
@@ -28,40 +28,43 @@ public class Cronometro extends Observable implements Runnable, Observer {
 	}
 
 	public void run() {
-		// TODO Auto-generated method stub
 		while (true) {
-			if (remainTime == 0.0d)
-				notifyObservers(0);
+			setChanged();
+			if (remainTime < 0.1d)
+				notifyObservers((Boolean)false);
 			else {
 				try {
-					Thread.sleep(10);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				remainTime -= 0.1d;
-				notifyObservers(100 + remainTime);
+				remainTime -= 0.1000000000d;
+				notifyObservers((Double)remainTime);
+				System.out.println((Double)remainTime);
 			}
 		}
 	}
 
 	public void update(Observable o, Object arg) {
+		setChanged();
 		if ((Boolean) arg) {
+			acertos += 1;
 			if (acertos < 10) {
 				remainTime += 5;
-				notifyObservers(5);
+				notifyObservers((String)("" +5));
 			}
 			if (acertos >= 10 && acertos <= 15) {
 				remainTime += 2;
-				notifyObservers(2);
+				notifyObservers((String)("" + 2));
 			}
 			if (acertos >= 15) {
 				remainTime += 1;
-				notifyObservers(1);
+				notifyObservers((String)("" + 1));
 			}
 		}
 		else{
 			remainTime -= 1;
-			notifyObservers(-1);
+			notifyObservers((String)("" +(-1)));
 		}
 	}
 }
