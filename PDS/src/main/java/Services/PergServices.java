@@ -10,6 +10,7 @@ public class PergServices {
 	public static PerguntaDao perguntaDao; // criado pelo reinaldo -- não sei se faz sentido, mas deixa aí até resolvermos
 	public static PerguntaDao perguntaDB = new PerguntaDao(); // banco com perguntas #SL
 	public static Pergunta pergunta;
+	public static long id;
 	
 	public static PerguntaDao getDao() {
 		return perguntaDao;
@@ -36,7 +37,7 @@ public class PergServices {
 		
 	    
 		Random random = new Random();
-	    long id = random.nextInt(perguntaDB.getList().size()) + 1; // (max - min + 1) + min
+	    id = random.nextInt(perguntaDB.getList().size()) + 1; // (max - min + 1) + min
 	    System.out.println("TAMANHO "+perguntaDB.getList().size()+" id selecionado: "+id);
 	    pergunta = perguntaDB.getPerguntaById(id);
 	    
