@@ -7,14 +7,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vision.ContraOTempo_ScreenController">
    <children>
-      <Pane layoutX="496.0" layoutY="137.0" prefHeight="768.0" prefWidth="1366.0" />
+      <Pane layoutX="496.0" layoutY="137.0" prefHeight="768.0" prefWidth="1366.0">
+         <children>
+            <Label fx:id="extra" layoutX="99.0" layoutY="133.0" text="Label" />
+            <Label fx:id="pergunta" layoutX="310.0" layoutY="142.0" text="Label" />
+            <Button fx:id="op1" layoutX="26.0" layoutY="159.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="op2" layoutX="140.0" layoutY="172.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="op3" layoutX="312.0" layoutY="185.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="op4" layoutX="479.0" layoutY="185.0" mnemonicParsing="false" text="Button" />
+         </children></Pane>
       <Pane layoutX="14.0" layoutY="14.0" prefHeight="680.0" prefWidth="461.0" style="-fx-border-color: lightgrey; -fx-background-color: whitesmoke;">
          <children>
             <Label layoutX="187.0" layoutY="14.0" text="Contra o Tempo" />
             <Label layoutX="14.0" layoutY="60.0" prefHeight="326.0" prefWidth="432.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pulvinar nunc eu lorem semper egestas. In rutrum sapien quis enim malesuada tincidunt vel eu leo. Nulla venenatis pellentesque leo id consectetur. Duis in dui placerat, egestas tortor quis, varius nibh. Vestibulum in varius odio. Curabitur lobortis malesuada risus, vel efficitur velit faucibus vitae. Donec eleifend odio vel scelerisque mattis. Aliquam vel sapien vel enim dapibus blandit non in nulla. Quisque imperdiet, eros vel scelerisque lobortis, erat diam consectetur enim, sed volutpat urna est non diam. Cras faucibus bibendum euismod. Nunc blandit consectetur ligula. Nulla bibendum augue massa, vel ornare arcu pellentesque sit amet. Sed ut odio accumsan, vestibulum nunc quis, varius ipsum. Mauris vestibulum et nunc id ornare." textAlignment="JUSTIFY" wrapText="true" />
-            <Button layoutX="237.0" layoutY="635.0" mnemonicParsing="false" prefWidth="200.0" text="Começar" />
+            <Button layoutX="237.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerComecar" prefWidth="200.0" text="Começar" />
             <Button layoutX="12.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerVoltar" prefHeight="25.0" prefWidth="200.0" text="Voltar" />
-            <Label layoutX="165.0" layoutY="406.0" prefHeight="124.0" prefWidth="146.0" style="-fx-background-color: grey;" text="Label" />
+            <Label fx:id="relogio" layoutX="165.0" layoutY="406.0" prefHeight="124.0" prefWidth="146.0" style="-fx-background-color: grey;" text="Label" />
          </children>
       </Pane>
    </children>
