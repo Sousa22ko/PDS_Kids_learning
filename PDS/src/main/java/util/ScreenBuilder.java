@@ -86,5 +86,13 @@ public class ScreenBuilder {
 		buildScreen();
 
 	}
+	
+	public static void renderClassico() {
+
+		path = "Classico.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		title = "Classico"; // nome q aparece no topo da tela
+		buildScreen();
+
+	}
 
 }

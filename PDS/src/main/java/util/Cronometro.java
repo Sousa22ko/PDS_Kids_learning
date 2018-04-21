@@ -63,8 +63,8 @@ public class Cronometro extends Observable implements Runnable, Observer {
 			}
 		}
 		else{
-			remainTime -= 1;
-			notifyObservers((String)("" +(-1)));
+			remainTime -= 3;
+			notifyObservers((String)("" +(-3)));
 		}
 	}
 }

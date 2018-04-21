@@ -61,6 +61,9 @@ public class ScreenLibrary {
 		else if(id == ScreenConstants.IDAGAINSTTIME)
 			ScreenBuilder.renderContraOTempo();
 		
+		else if(id == ScreenConstants.CLASSIC)
+			ScreenBuilder.renderClassico();
+		
 		
 		else throw new UnsupportedEncodingException("tela indefida");
 

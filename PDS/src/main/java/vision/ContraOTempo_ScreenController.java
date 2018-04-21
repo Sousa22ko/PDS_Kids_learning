@@ -197,9 +197,9 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 				extra.setText("+1");
 			}
 
-			if ((Double.parseDouble((String)arg) == -1)) {
+			if ((Double.parseDouble((String)arg) == -3)) {
 				extra.setTextFill(Color.RED);
-				extra.setText("-1");
+				extra.setText("-3");
 			}
 		}
 
