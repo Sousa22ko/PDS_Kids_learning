@@ -50,5 +50,14 @@ public class HomePage_ScreenController {
 			e.printStackTrace();
 		}
 	}
+	
+	@FXML
+	public void handlerClassico() {
+		try {
+			ScreenLibrary.LoadTela(ScreenConstants.CLASSIC);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
