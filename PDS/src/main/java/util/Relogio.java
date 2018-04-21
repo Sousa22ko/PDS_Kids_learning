@@ -44,7 +44,7 @@ public class Relogio extends Observable implements Runnable, Observer {
 				}
 				remainTime += 0.1000000000d;
 				notifyObservers((Double)remainTime);
-				System.out.println((Double)remainTime);
+				//System.out.println((Double)remainTime);
 			}
 		}
 	}
@@ -81,9 +81,9 @@ public class Relogio extends Observable implements Runnable, Observer {
 				notifyObservers((String)("ERRADO "+pontuacao));
 			}
 			
-			System.out.println("O VALOR DE VIDAS É "+compair[1]);
+			//System.out.println("O VALOR DE VIDAS É "+compair[1]);
 			if(compair[1].equals("1")){
-				System.out.println("ENTRANDO NO EQUALS É PRA PARAR O RELOGINHO");
+				//System.out.println("ENTRANDO NO EQUALS É PRA PARAR O RELOGINHO");
 				rodaThread = false;
 			}
 		}
