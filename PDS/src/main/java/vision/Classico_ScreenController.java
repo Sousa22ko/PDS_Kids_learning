@@ -15,11 +15,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import model.Pergunta;
 import sources.ScreenConstants;
-import util.Cronometro;
+import util.Relogio;
 import util.Round;
 import util.ScreenLibrary;
 
-public class Classico_ScreenController{
+public class Classico_ScreenController extends Observable implements Observer {
 
 	@FXML
 	private AnchorPane screen = new AnchorPane();
@@ -42,8 +42,8 @@ public class Classico_ScreenController{
 	@FXML
 	private Label extra;
 
-	//@FXML
-	//private Label relogio;
+	@FXML
+	private Label relogio;
 	
 	@FXML
 	private Label vidas;
@@ -51,10 +51,22 @@ public class Classico_ScreenController{
 	@FXML
 	private Label pergunta;
 
+	private Relogio time = new Relogio(this);
+	private Thread control = new Thread(time);
 	private Pergunta atual = new Pergunta();
+	
+	@SuppressWarnings("unused")
+	private Observable obs;
+
+	public void assinar(Observable obs) {
+		this.obs = obs;
+		obs.addObserver(this);
+	}
+
 
 	@FXML
 	public void initialize() {
+		assinar(time);
 		op1.setVisible(false);
 		op2.setVisible(false);
 		op3.setVisible(false);
@@ -63,7 +75,7 @@ public class Classico_ScreenController{
 		extra.setVisible(false);
 		vidas.setText("3");
 		vidas.setVisible(false);
-		//relogio.setVisible(false);
+		relogio.setVisible(false);
 	}
 
 	@FXML
@@ -77,9 +89,10 @@ public class Classico_ScreenController{
 		pergunta.setVisible(true);
 		extra.setVisible(true);
 		vidas.setVisible(true);
-		//relogio.setVisible(true);
+		relogio.setVisible(true);
 		comecar.setVisible(false);
 		
+		control.start();
 		gameStart();
 
 		
@@ -109,17 +122,14 @@ public class Classico_ScreenController{
 
 	public void gameStart() {
 
+		setChanged();
 		op1.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa1")){
-					extra.setTextFill(Color.GREEN);
-					extra.setText("ACERTOU");
+					notifyObservers(true);
 				}
 				else{
-					extra.setTextFill(Color.RED);
-					extra.setText("ERROU");
-					int qtdVidas = Integer.parseInt(vidas.getText());
-					vidas.setText(Integer.toString(qtdVidas-1)); //alterando o valor das vidas
+					notifyObservers(false);
 				}
 				checaVidas();
 				loadPergunta();
@@ -129,14 +139,10 @@ public class Classico_ScreenController{
 		op2.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa2")){
-					extra.setTextFill(Color.GREEN);
-					extra.setText("ACERTOU");
+					notifyObservers(true);
 				}
 				else{
-					extra.setTextFill(Color.RED);
-					extra.setText("ERROU");
-					int qtdVidas = Integer.parseInt(vidas.getText());
-					vidas.setText(Integer.toString(qtdVidas-1)); //alterando o valor das vidas
+					notifyObservers(false);
 				}
 				checaVidas();
 				loadPergunta();
@@ -146,14 +152,10 @@ public class Classico_ScreenController{
 		op3.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa3")){
-					extra.setTextFill(Color.GREEN);
-					extra.setText("ACERTOU");
+					notifyObservers(true);
 				}
 				else{
-					extra.setTextFill(Color.RED);
-					extra.setText("ERROU");
-					int qtdVidas = Integer.parseInt(vidas.getText());
-					vidas.setText(Integer.toString(qtdVidas-1)); //alterando o valor das vidas
+					notifyObservers(false);
 				}
 				checaVidas();
 				loadPergunta();
@@ -163,14 +165,11 @@ public class Classico_ScreenController{
 		op4.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa4")){
-					extra.setTextFill(Color.GREEN);
-					extra.setText("ACERTOU");
+					notifyObservers(true);
 				}
 				else{
-					extra.setTextFill(Color.RED);
-					extra.setText("ERROU");
-					int qtdVidas = Integer.parseInt(vidas.getText());
-					vidas.setText(Integer.toString(qtdVidas-1)); //alterando o valor das vidas
+					notifyObservers(false);
+					
 				}
 				checaVidas();
 				loadPergunta();
@@ -185,10 +184,11 @@ public class Classico_ScreenController{
 		op3.setVisible(false);
 		op4.setVisible(false);
 		pergunta.setVisible(false);
-		//relogio.setVisible(false);
+		relogio.setVisible(false);
 		extra.setVisible(false);
 		vidas.setVisible(false);
 		vidas.setText("3");
+		control.interrupt();
 		
 	}
 	
@@ -198,18 +198,52 @@ public class Classico_ScreenController{
 		op3.setVisible(false);
 		op4.setVisible(false);
 		pergunta.setVisible(false);
-		//relogio.setVisible(false);
+		control.interrupt();
+		relogio.setVisible(false);
+		control.interrupt();
 	}
 	
 	/*
 	 * Método para checar as vidas do usuário
-	 * Caso ela esteja em zero, retorna falso para continuação do jogo
+	 * Caso ela esteja em zero, encerra o jogo
 	 */
 	public void checaVidas(){
 		if(Integer.parseInt(vidas.getText()) == 0)
 			gameBreak();
 		else
 			loadPergunta();
+	}
+	
+public void update(Observable o, final Object arg) {
+		
+		if (arg instanceof Double) {
+			Platform.runLater(new Runnable() {
+				public void run() {
+					if((Double)arg > 30)
+						relogio.setTextFill(Color.GREEN);
+					if((Double)arg <= 30 && (Double)arg >= 10)
+						relogio.setTextFill(Color.ORANGE);
+					if((Double)arg < 10)
+						relogio.setTextFill(Color.RED);
+					
+					relogio.setText(""+ Round.round((Double)arg, 2));
+				}
+			});
+		}
+		
+		if (arg instanceof String) {
+			if ((String)arg == "CERTO"){
+				extra.setTextFill(Color.GREEN);
+				extra.setText("ACERTOU");
+			}
+
+			if ((String)arg == "ERRADO") {
+				extra.setTextFill(Color.RED);
+				extra.setText("ERROU");
+				int qtdVidas = Integer.parseInt(vidas.getText());
+				vidas.setText(Integer.toString(qtdVidas-1)); //alterando o valor das vidas
+			}
+		}
 	}
 
 }
