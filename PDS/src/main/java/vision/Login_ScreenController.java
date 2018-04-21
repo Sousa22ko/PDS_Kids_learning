@@ -155,7 +155,7 @@ public class Login_ScreenController {
 
 		cancelar.setLayoutX(355);
 		cancelar.setLayoutY(365);
-		cancelar.setPrefSize(320, 10);
+		cancelar.setPrefSize(320, 10); // teste
 
 		cadPane.getChildren().add(text);
 		cadPane.getChildren().add(nomeT);
