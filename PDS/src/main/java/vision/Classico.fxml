@@ -31,9 +31,9 @@
         <Label layoutX="14.0" layoutY="60.0" prefHeight="326.0" prefWidth="432.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pulvinar nunc eu lorem semper egestas. In rutrum sapien quis enim malesuada tincidunt vel eu leo. Nulla venenatis pellentesque leo id consectetur. Duis in dui placerat, egestas tortor quis, varius nibh. Vestibulum in varius odio. Curabitur lobortis malesuada risus, vel efficitur velit faucibus vitae. Donec eleifend odio vel scelerisque mattis. Aliquam vel sapien vel enim dapibus blandit non in nulla. Quisque imperdiet, eros vel scelerisque lobortis, erat diam consectetur enim, sed volutpat urna est non diam. Cras faucibus bibendum euismod. Nunc blandit consectetur ligula. Nulla bibendum augue massa, vel ornare arcu pellentesque sit amet. Sed ut odio accumsan, vestibulum nunc quis, varius ipsum. Mauris vestibulum et nunc id ornare." textAlignment="JUSTIFY" wrapText="true" />
         <Button fx:id="comecar" layoutX="237.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerComecar" prefWidth="200.0" text="Começar" />
         <Button layoutX="12.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerVoltar" prefHeight="25.0" prefWidth="200.0" text="Voltar" />
-        <Label fx:id="relogio" alignment="CENTER" layoutX="130.0" layoutY="350.0" prefHeight="200.0" prefWidth="200.0">
+        <Label fx:id="relogio" alignment="CENTER" layoutX="226.0" layoutY="340.0" prefHeight="200.0" prefWidth="200.0">
           <font>
-            <Font size="55.0" />
+            <Font size="55.0" fx:id="x2" />
           </font>
         </Label>
         <Label fx:id="extra" alignment="CENTER" layoutX="305.0" layoutY="574.0" prefHeight="50.0" prefWidth="132.0">
@@ -42,6 +42,11 @@
           </font>
         </Label>
         <Label id="extra" fx:id="vidas" alignment="CENTER" font="$x1" layoutX="14.0" layoutY="584.0" prefHeight="50.0" prefWidth="132.0" />
+        <Label id="relogio" fx:id="pontuacao" alignment="CENTER" layoutX="26.0" layoutY="340.0" prefHeight="200.0" prefWidth="200.0">
+          <font>
+            <Font size="45.0" />
+          </font>
+        </Label>
       </children>
     </Pane>
   </children>

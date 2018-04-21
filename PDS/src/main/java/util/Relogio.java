@@ -8,6 +8,7 @@ public class Relogio extends Observable implements Runnable, Observer {
 
 	private Double remainTime = 0.2d;
 	private int acertos = 0;
+	private double pontuacao = 0;
 	
 	@SuppressWarnings("unused")
 	private Observable obs;
@@ -44,17 +45,35 @@ public class Relogio extends Observable implements Runnable, Observer {
 			}
 		}
 	}
+	
+	public void calculaPontuacao(boolean arg){
+		if(arg){
+			if(acertos <= 5 && arg)
+				pontuacao += (1000 - ((10-acertos)*remainTime));
+			else
+				pontuacao += (1000 - ((5)*remainTime));
+		}
+		else{
+			if(pontuacao >= 100)
+				pontuacao -= 100;
+			else
+				pontuacao = 0;
+		}
+	}
 
 	public void update(Observable o, Object arg) {
 		setChanged();
 		if ((Boolean) arg) {
 			acertos += 1;
+			calculaPontuacao(true);
 			remainTime = 0.2;
-			notifyObservers((String)("CERTO")); //Codigo de acerto = 5
+			notifyObservers((String)("CERTO "+pontuacao));
 		}
 		else{
+			acertos = 0;
+			calculaPontuacao(false);
 			remainTime = 0.2;
-			notifyObservers((String)("ERRADO")); //Codigo de erro = -3
+			notifyObservers((String)("ERRADO "+pontuacao));
 		}
 	}
 }

@@ -46,6 +46,9 @@ public class Classico_ScreenController extends Observable implements Observer {
 	private Label relogio;
 	
 	@FXML
+	private Label pontuacao;
+	
+	@FXML
 	private Label vidas;
 
 	@FXML
@@ -72,6 +75,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op3.setVisible(false);
 		op4.setVisible(false);
 		pergunta.setVisible(false);
+		pontuacao.setVisible(false);
 		extra.setVisible(false);
 		vidas.setText("3");
 		vidas.setVisible(false);
@@ -91,6 +95,8 @@ public class Classico_ScreenController extends Observable implements Observer {
 		vidas.setVisible(true);
 		relogio.setVisible(true);
 		comecar.setVisible(false);
+		pontuacao.setVisible(true);
+		pontuacao.setText("0.0");
 		
 		control.start();
 		gameStart();
@@ -188,6 +194,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		extra.setVisible(false);
 		vidas.setVisible(false);
 		vidas.setText("3");
+		pontuacao.setText("0");
 		control.interrupt();
 		
 	}
@@ -200,7 +207,6 @@ public class Classico_ScreenController extends Observable implements Observer {
 		pergunta.setVisible(false);
 		control.interrupt();
 		relogio.setVisible(false);
-		control.interrupt();
 	}
 	
 	/*
@@ -232,16 +238,20 @@ public void update(Observable o, final Object arg) {
 		}
 		
 		if (arg instanceof String) {
-			if ((String)arg == "CERTO"){
+			String compair[] = ((String) arg).split(" ");
+			System.out.println(compair[0]);
+			if (compair[0].equals("CERTO")){
 				extra.setTextFill(Color.GREEN);
 				extra.setText("ACERTOU");
+				pontuacao.setText(compair[1]);
 			}
 
-			if ((String)arg == "ERRADO") {
+			if (compair[0].equals("ERRADO")) {
 				extra.setTextFill(Color.RED);
 				extra.setText("ERROU");
 				int qtdVidas = Integer.parseInt(vidas.getText());
 				vidas.setText(Integer.toString(qtdVidas-1)); //alterando o valor das vidas
+				pontuacao.setText(compair[1]);
 			}
 		}
 	}
