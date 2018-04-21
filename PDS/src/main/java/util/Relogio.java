@@ -9,6 +9,7 @@ public class Relogio extends Observable implements Runnable, Observer {
 	private Double remainTime = 0.2d;
 	private int acertos = 0;
 	private double pontuacao = 0;
+	private boolean rodaThread = true;
 	
 	@SuppressWarnings("unused")
 	private Observable obs;
@@ -29,15 +30,17 @@ public class Relogio extends Observable implements Runnable, Observer {
 	}
 
 	public void run() {
-		while (true) {
+		while (rodaThread) {
 			setChanged();
-			if (remainTime < 0.1d)
+			if (remainTime < 0.1d){
 				notifyObservers((Boolean)false);
+			}
 			else {
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
+					Thread.currentThread().interrupt();
 				}
 				remainTime += 0.1000000000d;
 				notifyObservers((Double)remainTime);
@@ -63,17 +66,26 @@ public class Relogio extends Observable implements Runnable, Observer {
 
 	public void update(Observable o, Object arg) {
 		setChanged();
-		if ((Boolean) arg) {
-			acertos += 1;
-			calculaPontuacao(true);
-			remainTime = 0.2;
-			notifyObservers((String)("CERTO "+pontuacao));
-		}
-		else{
-			acertos = 0;
-			calculaPontuacao(false);
-			remainTime = 0.2;
-			notifyObservers((String)("ERRADO "+pontuacao));
+		if (arg instanceof String){
+			String compair[] = ((String) arg).split(" ");
+			if (Boolean.parseBoolean(compair[0])) {
+				acertos += 1;
+				calculaPontuacao(true);
+				remainTime = 0.2d;
+				notifyObservers((String)("CERTO "+pontuacao));
+			}
+			else{
+				acertos = 0;
+				calculaPontuacao(false);
+				remainTime = 0.2d;
+				notifyObservers((String)("ERRADO "+pontuacao));
+			}
+			
+			System.out.println("O VALOR DE VIDAS É "+compair[1]);
+			if(compair[1].equals("1")){
+				System.out.println("ENTRANDO NO EQUALS É PRA PARAR O RELOGINHO");
+				rodaThread = false;
+			}
 		}
 	}
 }

@@ -132,10 +132,10 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op1.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa1")){
-					notifyObservers(true);
+					notifyObservers("true "+Integer.parseInt(vidas.getText()));
 				}
 				else{
-					notifyObservers(false);
+					notifyObservers("false "+Integer.parseInt(vidas.getText()));
 				}
 				checaVidas();
 				loadPergunta();
@@ -145,10 +145,10 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa2")){
-					notifyObservers(true);
+					notifyObservers("true "+Integer.parseInt(vidas.getText()));
 				}
 				else{
-					notifyObservers(false);
+					notifyObservers("false "+Integer.parseInt(vidas.getText()));
 				}
 				checaVidas();
 				loadPergunta();
@@ -158,10 +158,10 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op3.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa3")){
-					notifyObservers(true);
+					notifyObservers("true "+Integer.parseInt(vidas.getText()));
 				}
 				else{
-					notifyObservers(false);
+					notifyObservers("false "+Integer.parseInt(vidas.getText()));
 				}
 				checaVidas();
 				loadPergunta();
@@ -171,10 +171,10 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op4.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa4")){
-					notifyObservers(true);
+					notifyObservers("true "+Integer.parseInt(vidas.getText()));
 				}
 				else{
-					notifyObservers(false);
+					notifyObservers("false "+Integer.parseInt(vidas.getText()));
 					
 				}
 				checaVidas();
@@ -194,7 +194,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		extra.setVisible(false);
 		vidas.setVisible(false);
 		vidas.setText("3");
-		pontuacao.setText("0");
+		pontuacao.setText("0.0");
 		control.interrupt();
 		
 	}
@@ -209,10 +209,6 @@ public class Classico_ScreenController extends Observable implements Observer {
 		relogio.setVisible(false);
 	}
 	
-	/*
-	 * Método para checar as vidas do usuário
-	 * Caso ela esteja em zero, encerra o jogo
-	 */
 	public void checaVidas(){
 		if(Integer.parseInt(vidas.getText()) == 0)
 			gameBreak();
@@ -220,7 +216,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 			loadPergunta();
 	}
 	
-public void update(Observable o, final Object arg) {
+	public void update(Observable o, final Object arg) {
 		
 		if (arg instanceof Double) {
 			Platform.runLater(new Runnable() {
@@ -238,8 +234,7 @@ public void update(Observable o, final Object arg) {
 		}
 		
 		if (arg instanceof String) {
-			String compair[] = ((String) arg).split(" ");
-			System.out.println(compair[0]);
+			String compair[] = ((String) arg).split(" "); //dividindo a string em (alternativa correta/errada) e pontuação
 			if (compair[0].equals("CERTO")){
 				extra.setTextFill(Color.GREEN);
 				extra.setText("ACERTOU");
