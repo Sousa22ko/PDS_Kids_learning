@@ -81,7 +81,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		extra.setVisible(true);
 		relogio.setVisible(true);
 		
-		//PergServices.populandoPergunta(100);
+		PergServices.populandoPergunta(100);
 
 		control.start();
 		gameStart();

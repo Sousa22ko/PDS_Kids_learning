@@ -96,7 +96,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		relogio.setVisible(true);
 		comecar.setVisible(false);
 		pontuacao.setVisible(true);
-		pontuacao.setText("0.0");
+		pontuacao.setText("0,00");
 		
 		control.start();
 		gameStart();
@@ -132,10 +132,10 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op1.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa1")){
-					notifyObservers("true "+Integer.parseInt(vidas.getText()));
+					notifyObservers("true "+vidas.getText());
 				}
 				else{
-					notifyObservers("false "+Integer.parseInt(vidas.getText()));
+					notifyObservers("false "+vidas.getText());
 				}
 				checaVidas();
 				loadPergunta();
@@ -145,10 +145,10 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa2")){
-					notifyObservers("true "+Integer.parseInt(vidas.getText()));
+					notifyObservers("true "+vidas.getText());
 				}
 				else{
-					notifyObservers("false "+Integer.parseInt(vidas.getText()));
+					notifyObservers("false "+vidas.getText());
 				}
 				checaVidas();
 				loadPergunta();
@@ -158,10 +158,10 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op3.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa3")){
-					notifyObservers("true "+Integer.parseInt(vidas.getText()));
+					notifyObservers("true "+vidas.getText());
 				}
 				else{
-					notifyObservers("false "+Integer.parseInt(vidas.getText()));
+					notifyObservers("false "+vidas.getText());
 				}
 				checaVidas();
 				loadPergunta();
@@ -171,10 +171,10 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op4.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa4")){
-					notifyObservers("true "+Integer.parseInt(vidas.getText()));
+					notifyObservers("true "+vidas.getText());
 				}
 				else{
-					notifyObservers("false "+Integer.parseInt(vidas.getText()));
+					notifyObservers("false "+vidas.getText());
 					
 				}
 				checaVidas();

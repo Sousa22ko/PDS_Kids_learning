@@ -52,19 +52,39 @@ public class PergServices {
 			nova = new Pergunta();
 			
 			nova.setPergunta("Pergunta ID"+i);
-			nova.setAlternativa1("Alternativa 1");
-			nova.setAlternativa2("Alternativa 2");
-			nova.setAlternativa3("Alternativa 3");
-			nova.setAlternativa4("Alternativa 4");
 			
 			if(correta == 1){
+				nova.setAlternativa1("CORRETA");
+				nova.setAlternativa2("Alternativa 2");
+				nova.setAlternativa3("Alternativa 3");
+				nova.setAlternativa4("Alternativa 4");
+				
 				nova.setCorreta("alternativa1");
+				
 			} else if(correta == 2){
+				nova.setAlternativa1("Alternativa 1");
+				nova.setAlternativa2("CORRETA");
+				nova.setAlternativa3("Alternativa 3");
+				nova.setAlternativa4("Alternativa 4");
+				
 				nova.setCorreta("alternativa2");
+				
 			} else if(correta == 3){
+				nova.setAlternativa1("Alternativa 1");
+				nova.setAlternativa2("Alternativa 2");
+				nova.setAlternativa3("CORRETA");
+				nova.setAlternativa4("Alternativa 4");
+				
 				nova.setCorreta("alternativa3");
+				
 			} else if(correta == 4){
+				nova.setAlternativa1("Alternativa 1");
+				nova.setAlternativa2("Alternativa 2");
+				nova.setAlternativa3("Alternativa 3");
+				nova.setAlternativa4("CORRETA");
+				
 				nova.setCorreta("alternativa4");
+				
 			} else
 				System.out.println("DEU ERRO NEGADA");
 			
