@@ -35,6 +35,9 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 
 	@FXML
 	private Button op4 = new Button("Opção 4");
+	
+	@FXML
+	private Button comecarButton = new Button("Começar");
 
 	@FXML
 	private Label extra;
@@ -80,6 +83,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		pergunta.setVisible(true);
 		extra.setVisible(true);
 		relogio.setVisible(true);
+		comecarButton.setVisible(false);
 		
 		//PergServices.populandoPergunta(100);
 
