@@ -2,6 +2,7 @@ package vision;
 
 import java.io.UnsupportedEncodingException;
 
+import Services.PergServices;
 import Services.UserServices;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -38,6 +39,8 @@ public class HomePage_ScreenController {
 			});
 
 			backPane.getChildren().add(cadastrarPergunta);
+			
+			//PergServices.listandoPerguntas(UserServices.getUserConnected().getId());
 		}
 
 	}

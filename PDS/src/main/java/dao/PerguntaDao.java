@@ -14,6 +14,10 @@ public class PerguntaDao extends GenericDao<Pergunta, Long>{
 		return (Pergunta)executeQuery("from Pergunta where id = :id").setParameter("id", id)
 				.getSingleResult();
 	}
+	
+	public PerguntaDao getPerguntasOfIdUser(long id){		
+		return (PerguntaDao)executeQuery("from Pergunta where id_user = :id_user").setParameter("id_user", id);
+	}
 
 
 }

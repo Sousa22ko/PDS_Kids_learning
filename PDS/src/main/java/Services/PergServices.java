@@ -8,7 +8,7 @@ import util.LoggedUser;
 
 public class PergServices {
 
-	public static PerguntaDao perguntaDao = new PerguntaDao(); // banco com perguntas #SL
+	public static PerguntaDao perguntaDao = new PerguntaDao(); // banco com perguntas
 	public static Pergunta pergunta;
 	public static long id;
 	
@@ -36,6 +36,23 @@ public class PergServices {
 	public static Pergunta randomPerg() {
 		
 		return perguntaDao.getPerguntaById(new Random().nextInt(perguntaDao.getList().size()-1)+1);
+	}
+	
+	public static List<Integer> listandoPerguntas(long idUser){
+		List<Pergunta> listTotal = new ArrayList<Pergunta>();
+		List<Integer> listaUser = new ArrayList<Integer>();
+		listTotal = perguntaDao.getList();
+		//System.out.println("TAMANHO ANTES:"+listTotal.size());
+		for(int i=0; i<listTotal.size(); i++){
+			if(listTotal.get(i).getIdUser() == idUser){
+				listaUser.add(i+1); // inserindo na lista o ID da pergunta cadastrada pelo usuário idUser
+			}
+		}
+		/*System.out.println("TAMANHO:"+listaUser.size());
+		for(int i=0; i<listaUser.size(); i++){
+			System.out.println("TAMANHO:"+listaUser.get(i));
+		}*/
+		return listaUser;
 	}
 	
 	public static void populandoPergunta(int n){
