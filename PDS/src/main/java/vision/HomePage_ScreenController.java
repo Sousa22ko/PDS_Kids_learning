@@ -41,6 +41,7 @@ public class HomePage_ScreenController {
 			backPane.getChildren().add(cadastrarPergunta);
 			
 			//PergServices.listandoPerguntas(UserServices.getUserConnected().getId());
+			//UserServices.listUsers();
 		}
 
 	}

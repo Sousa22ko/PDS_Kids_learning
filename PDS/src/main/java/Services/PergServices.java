@@ -38,21 +38,21 @@ public class PergServices {
 		return perguntaDao.getPerguntaById(new Random().nextInt(perguntaDao.getList().size()-1)+1);
 	}
 	
-	public static List<Integer> listandoPerguntas(long idUser){
+	public static List<Long> listandoPerguntas(long idUser){
 		List<Pergunta> listTotal = new ArrayList<Pergunta>();
-		List<Integer> listaUser = new ArrayList<Integer>();
+		List<Long> listaPergs = new ArrayList<Long>();
 		listTotal = perguntaDao.getList();
 		//System.out.println("TAMANHO ANTES:"+listTotal.size());
 		for(int i=0; i<listTotal.size(); i++){
 			if(listTotal.get(i).getIdUser() == idUser){
-				listaUser.add(i+1); // inserindo na lista o ID da pergunta cadastrada pelo usuário idUser
+				listaPergs.add(listTotal.get(i).getId()); // inserindo na lista o ID da pergunta cadastrada pelo usuário idUser
 			}
 		}
-		/*System.out.println("TAMANHO:"+listaUser.size());
-		for(int i=0; i<listaUser.size(); i++){
-			System.out.println("TAMANHO:"+listaUser.get(i));
+		/*System.out.println("TAMANHO:"+listaPergs.size());
+		for(int i=0; i<listaPergs.size(); i++){
+			System.out.println("TAMANHO:"+listaPergs.get(i));
 		}*/
-		return listaUser;
+		return listaPergs;
 	}
 	
 	public static void populandoPergunta(int n){

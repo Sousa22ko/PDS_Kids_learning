@@ -1,12 +1,15 @@
 package Services;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.NoResultException;
 
 import org.apache.commons.validator.routines.EmailValidator;
 
 import dao.UserDao;
+import model.Pergunta;
 import model.User;
 import util.LoggedUser;
 
@@ -57,6 +60,18 @@ public class UserServices {
 
 	}
 
+	//lista todos os usuários exceto o que está logado
+	public static List<Long> listUsers(){
+		List<Long> listUser = new ArrayList<Long>();
+		//listUser = userDao.getList();
+		for(int i=0; i<userDao.getList().size(); i++){
+			if(getUserConnected().getId() != userDao.getList().get(i).getId()){
+				listUser.add(userDao.getList().get(i).getId());
+			}
+		}
+		return listUser;
+	}
+	
 	private static boolean checkUni(String userName) {
 		System.out.println(userName);
 		try {
