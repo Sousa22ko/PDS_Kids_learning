@@ -221,11 +221,11 @@ public class Classico_ScreenController extends Observable implements Observer {
 		if (arg instanceof Double) {
 			Platform.runLater(new Runnable() {
 				public void run() {
-					if((Double)arg > 30)
+					if((Double)arg <10)
 						relogio.setTextFill(Color.GREEN);
 					if((Double)arg <= 30 && (Double)arg >= 10)
 						relogio.setTextFill(Color.ORANGE);
-					if((Double)arg < 10)
+					if((Double)arg >20)
 						relogio.setTextFill(Color.RED);
 					
 					relogio.setText(""+ Round.round((Double)arg, 2));
