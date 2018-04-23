@@ -46,7 +46,7 @@ public class Relogio extends Observable implements Runnable, Observer {
 				}
 				remainTime += 0.1000000000d;
 				notifyObservers((Double)remainTime);
-				System.out.println((Double)remainTime);
+				//System.out.println((Double)remainTime);
 			}
 		}
 	}
