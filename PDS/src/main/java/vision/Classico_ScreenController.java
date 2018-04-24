@@ -249,6 +249,11 @@ public class Classico_ScreenController extends Observable implements Observer {
 				pontuacao.setText(compair[1]);
 			}
 		}
+		
+		if (arg instanceof Boolean) {
+			if ((Boolean) arg == false)
+				gameStop();
+		}
 	}
 
 }

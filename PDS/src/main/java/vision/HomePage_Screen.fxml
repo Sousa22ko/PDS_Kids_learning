@@ -13,6 +13,8 @@
             <Button layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#handlerContraOTempo" prefHeight="75.0" prefWidth="419.0" text="Contra o tempo" />
             <Button layoutX="447.0" layoutY="15.0" mnemonicParsing="false" onAction="#handlerClassico" prefHeight="75.0" prefWidth="419.0" text="Classico" />
             <Button layoutX="880.0" layoutY="15.0" mnemonicParsing="false" onAction="#handlerFriends" prefHeight="75.0" prefWidth="419.0" text="Lista de amigos" />
+                  <Button fx:id="novaPergunta" layoutX="15.0" layoutY="101.0" mnemonicParsing="false" onAction="#handlerNovaPergunta" prefHeight="25.0" prefWidth="200.0" text="Nova pergunta" />
+                  <Button fx:id="listaPergunta" layoutX="234.0" layoutY="101.0" mnemonicParsing="false" onAction="#handlerListaPergunta" prefHeight="25.0" prefWidth="200.0" text="Editar perguntas" />
           </children>
         </Pane>
       </children>

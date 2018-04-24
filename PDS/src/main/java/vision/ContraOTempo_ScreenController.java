@@ -35,7 +35,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 
 	@FXML
 	private Button op4 = new Button("Opção 4");
-	
+
 	@FXML
 	private Button comecarButton = new Button("Começar");
 
@@ -47,6 +47,15 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 
 	@FXML
 	private Label pergunta;
+	
+	@FXML
+	private Label acrt;
+	
+	@FXML
+	private Label errs;
+
+	private int acertos = 0;
+	private int erros = 0;
 
 	private Cronometro time = new Cronometro(this);
 	private Thread control = new Thread(time);
@@ -70,6 +79,10 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		pergunta.setVisible(false);
 		extra.setVisible(false);
 		relogio.setVisible(false);
+		
+		acrt.setTextFill(Color.GREEN);
+		errs.setTextFill(Color.RED);
+		
 	}
 
 	@FXML
@@ -84,9 +97,8 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		extra.setVisible(true);
 		relogio.setVisible(true);
 		comecarButton.setVisible(false);
-		
-		//PergServices.populandoPergunta(100);
 
+		// PergServices.populandoPergunta(100);
 		control.start();
 		gameStart();
 
@@ -105,43 +117,58 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 
 	public void gameStart() {
 
+		acrt.setText("+ " + acertos);
+		errs.setText("- " +erros);
+		
 		setChanged();
 		op1.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa1"))
+				if (atual.getCorreta().equals("alternativa1")) {
+					acertos += 1;
 					notifyObservers(true);
-				else
+				} else {
+					erros += 1;
 					notifyObservers(false);
+				}
 				loadPergunta();
 			}
 		});
 
 		op2.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa2"))
+				if (atual.getCorreta().equals("alternativa2")){
+					acertos += 1;
 					notifyObservers(true);
-				else
+				} else {
+					erros += 1;
 					notifyObservers(false);
+				}
 				loadPergunta();
 			}
 		});
 
 		op3.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa3"))
+				if (atual.getCorreta().equals("alternativa3")){
+					acertos += 1;
 					notifyObservers(true);
-				else
+				} else {
+					erros += 1;
 					notifyObservers(false);
+				}
 				loadPergunta();
 			}
 		});
 
 		op4.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa4"))
+				if (atual.getCorreta().equals("alternativa4")){
+					acertos += 1;
 					notifyObservers(true);
-				else
+				} else {
+					erros += 1;
 					notifyObservers(false);
+				}
 				loadPergunta();
 			}
 		});
@@ -157,7 +184,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		relogio.setVisible(false);
 		extra.setVisible(false);
 		control.interrupt();
-		
+
 	}
 
 	@FXML
@@ -171,39 +198,39 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 	}
 
 	public void update(Observable o, final Object arg) {
-		
+
 		if (arg instanceof Double) {
 			Platform.runLater(new Runnable() {
 				public void run() {
-					if((Double)arg > 30)
+					if ((Double) arg > 30)
 						relogio.setTextFill(Color.GREEN);
-					if((Double)arg <= 30 && (Double)arg >= 10)
+					if ((Double) arg <= 30 && (Double) arg >= 10)
 						relogio.setTextFill(Color.ORANGE);
-					if((Double)arg < 10)
+					if ((Double) arg < 10)
 						relogio.setTextFill(Color.RED);
-					
-					relogio.setText(""+ Round.round((Double)arg, 2));
+
+					relogio.setText("" + Round.round((Double) arg, 2));
 				}
 			});
 		}
 
 		if (arg instanceof String) {
-			if ((Double.parseDouble((String)arg) == 5)){
+			if ((Double.parseDouble((String) arg) == 5)) {
 				extra.setTextFill(Color.GREEN);
-				extra.setText("+5");
+				extra.setText("+5s ");
 			}
-			if ((Double.parseDouble((String)arg) == 3)) {
+			if ((Double.parseDouble((String) arg) == 3)) {
 				extra.setTextFill(Color.GREEN);
-				extra.setText("+3");
+				extra.setText("+3s ");
 			}
-			if ((Double.parseDouble((String)arg) == 1)) {
+			if ((Double.parseDouble((String) arg) == 1)) {
 				extra.setTextFill(Color.GREEN);
-				extra.setText("+1");
+				extra.setText("+1s ");
 			}
 
-			if ((Double.parseDouble((String)arg) == -3)) {
+			if ((Double.parseDouble((String) arg) == -3)) {
 				extra.setTextFill(Color.RED);
-				extra.setText("-3");
+				extra.setText("-3s ");
 			}
 		}
 
