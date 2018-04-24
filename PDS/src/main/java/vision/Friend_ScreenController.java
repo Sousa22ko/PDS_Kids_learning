@@ -42,6 +42,8 @@ public class Friend_ScreenController {
 	private int listSize;
 	private List<Button> buts = new ArrayList<Button>();
 	private List<Pane> panesTuple = new ArrayList<Pane>();
+	
+	private final int lNumber = 10;
 
 	@FXML
 	public void initialize() {
@@ -61,31 +63,29 @@ public class Friend_ScreenController {
 		} else {
 
 			int maxSizedList;
-
+			maxSizedList = ((listSize - 1) - (((nPagina - 1) * lNumber) - 1));
 			if (nPagina > 1) {
 				canPrev = true;
-				maxSizedList = (listSize - 1) - ((nPagina - 1) * 10);
-				System.out.println(maxSizedList + " max ");
 			}
-
-			if (listSize > 10) {
+			if (listSize > lNumber) {
 				canNext = true;
 			}
-			if (listSize <= 10 && nPagina == 1) {
+			if (listSize <= lNumber && nPagina == 1) {
 				maxSizedList = listSize;
-			} else {
-				maxSizedList = 10;
+			} else if(listSize > 10 && nPagina == 1){
+				maxSizedList = lNumber;
 			}
 			
 			seguindo = seguindoDao.getList();
 
+			if(maxSizedList < lNumber)
+				canNext = false;
 			for (int i = 0; i < maxSizedList; i++) { 
 				final Button follow = new Button("Seguir");
 				final Button unfollow = new Button("Deixar de Seguir");
 				unfollow.setVisible(false);
 
-				System.out.println(i + ((nPagina - 1) * 10));
-				Label namePerson = new Label(users.get(i + ((nPagina - 1) * 10)).getNome() + " " + i);
+				Label namePerson = new Label(users.get(i + ((nPagina - 1) * lNumber)).getNome());
 				final int id = i;
 				Pane tuple = new Pane();
 
@@ -188,6 +188,7 @@ public class Friend_ScreenController {
 	private void handlerNextPage() {
 		unloadTuplesOnScreen();
 		nPagina += 1;
+		//listSize -= lNumber;
 		loadPage();
 	}
 
@@ -195,6 +196,7 @@ public class Friend_ScreenController {
 	private void handlerPrevPage() {
 		unloadTuplesOnScreen();
 		nPagina -= 1;
+		//listSize += lNumber;
 		loadPage();
 	}
 
