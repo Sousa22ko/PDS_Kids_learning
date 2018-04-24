@@ -18,6 +18,7 @@ import sources.ScreenConstants;
 import util.Cronometro;
 import util.Round;
 import util.ScreenLibrary;
+import util.SharedInfo;
 
 public class ContraOTempo_ScreenController extends Observable implements Observer {
 
@@ -83,6 +84,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		acrt.setTextFill(Color.GREEN);
 		errs.setTextFill(Color.RED);
 		
+		SharedInfo.setDirection(false);
 	}
 
 	@FXML

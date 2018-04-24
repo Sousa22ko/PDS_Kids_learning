@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import sources.ScreenConstants;
-import util.SavedQuest;
+import util.SharedInfo;
 import util.ScreenLibrary;
 
 public class HomePage_ScreenController {
@@ -32,7 +32,7 @@ public class HomePage_ScreenController {
 	@FXML
 	public void handlerNovaPergunta() {
 		try {
-			SavedQuest.setId((long) -1);
+			SharedInfo.setId((long) -1);
 			ScreenLibrary.LoadTela(ScreenConstants.IDCADPERG);
 		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();

@@ -15,7 +15,7 @@ import javafx.scene.layout.Pane;
 import model.Pergunta;
 import sources.ScreenConstants;
 import util.LoggedUser;
-import util.SavedQuest;
+import util.SharedInfo;
 import util.SceneBuilder;
 import util.ScreenLibrary;
 
@@ -102,7 +102,7 @@ public class ListQuestions_ScreenController{
 				editar.setOnAction(new EventHandler<ActionEvent>() {
 					public void handle(ActionEvent e) {
 
-						SavedQuest.setId(pergunta.get(id).getId());
+						SharedInfo.setId(pergunta.get(id).getId());
 						
 						try {
 							SceneBuilder.LoadScreen(ScreenConstants.IDCADPERG);

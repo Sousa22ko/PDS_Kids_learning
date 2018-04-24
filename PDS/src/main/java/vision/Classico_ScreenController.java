@@ -15,9 +15,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import model.Pergunta;
 import sources.ScreenConstants;
-import util.Relogio;
+import util.Cronometro;
 import util.Round;
 import util.ScreenLibrary;
+import util.SharedInfo;
 
 public class Classico_ScreenController extends Observable implements Observer {
 
@@ -35,7 +36,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 	@FXML
 	private Button op4 = new Button("Opção 4");
-	
+
 	@FXML
 	private Button comecar = new Button("Comecar");
 
@@ -44,20 +45,20 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 	@FXML
 	private Label relogio;
-	
+
 	@FXML
 	private Label pontuacao;
-	
+
 	@FXML
 	private Label vidas;
 
 	@FXML
 	private Label pergunta;
 
-	private Relogio time = new Relogio(this);
+	private Cronometro time = new Cronometro(this);
 	private Thread control = new Thread(time);
 	private Pergunta atual = new Pergunta();
-	
+
 	@SuppressWarnings("unused")
 	private Observable obs;
 
@@ -65,7 +66,6 @@ public class Classico_ScreenController extends Observable implements Observer {
 		this.obs = obs;
 		obs.addObserver(this);
 	}
-
 
 	@FXML
 	public void initialize() {
@@ -80,6 +80,8 @@ public class Classico_ScreenController extends Observable implements Observer {
 		vidas.setText("3");
 		vidas.setVisible(false);
 		relogio.setVisible(false);
+		SharedInfo.setDirection(true);
+		time.reloadRelogio();
 	}
 
 	@FXML
@@ -97,14 +99,12 @@ public class Classico_ScreenController extends Observable implements Observer {
 		comecar.setVisible(false);
 		pontuacao.setVisible(true);
 		pontuacao.setText("0,00");
-		
+
 		control.start();
 		gameStart();
 
-		
-
 	}
-	
+
 	@FXML
 	public void handlerVoltar() {
 		gameStop();
@@ -131,53 +131,45 @@ public class Classico_ScreenController extends Observable implements Observer {
 		setChanged();
 		op1.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa1")){
-					notifyObservers("true "+vidas.getText());
+				if (atual.getCorreta().equals("alternativa1")) {
+					notifyObservers(true);
+				} else {
+					notifyObservers(false);
 				}
-				else{
-					notifyObservers("false "+vidas.getText());
-				}
-				checaVidas();
 				loadPergunta();
 			}
 		});
 
 		op2.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa2")){
-					notifyObservers("true "+vidas.getText());
+				if (atual.getCorreta().equals("alternativa2")) {
+					notifyObservers(true);
+				} else {
+					notifyObservers(false);
 				}
-				else{
-					notifyObservers("false "+vidas.getText());
-				}
-				checaVidas();
 				loadPergunta();
 			}
 		});
 
 		op3.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa3")){
-					notifyObservers("true "+vidas.getText());
+				if (atual.getCorreta().equals("alternativa3")) {
+					notifyObservers(true);
+				} else {
+					notifyObservers(false);
 				}
-				else{
-					notifyObservers("false "+vidas.getText());
-				}
-				checaVidas();
 				loadPergunta();
 			}
 		});
 
 		op4.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa4")){
-					notifyObservers("true "+vidas.getText());
+				if (atual.getCorreta().equals("alternativa4")) {
+					notifyObservers(true);
+				} else {
+					notifyObservers(false);
+
 				}
-				else{
-					notifyObservers("false "+vidas.getText());
-					
-				}
-				checaVidas();
 				loadPergunta();
 			}
 		});
@@ -196,9 +188,9 @@ public class Classico_ScreenController extends Observable implements Observer {
 		vidas.setText("3");
 		pontuacao.setText("0.0");
 		control.interrupt();
-		
+
 	}
-	
+
 	public void gameBreak() {
 		op1.setVisible(false);
 		op2.setVisible(false);
@@ -208,48 +200,56 @@ public class Classico_ScreenController extends Observable implements Observer {
 		control.interrupt();
 		relogio.setVisible(false);
 	}
-	
-	public void checaVidas(){
-		if(Integer.parseInt(vidas.getText()) == 0)
-			gameBreak();
-		else
-			loadPergunta();
-	}
-	
+
 	public void update(Observable o, final Object arg) {
-		
+
 		if (arg instanceof Double) {
 			Platform.runLater(new Runnable() {
 				public void run() {
-					if((Double)arg <10)
+					if ((Double) arg < 10)
 						relogio.setTextFill(Color.GREEN);
-					if((Double)arg <= 30 && (Double)arg >= 10)
+					if ((Double) arg <= 30 && (Double) arg >= 10)
 						relogio.setTextFill(Color.ORANGE);
-					if((Double)arg >20)
+					if ((Double) arg > 20)
 						relogio.setTextFill(Color.RED);
-					
-					relogio.setText(""+ Round.round((Double)arg, 2));
+
+					relogio.setText("" + Round.round((Double) arg, 2));
 				}
 			});
 		}
-		
+
 		if (arg instanceof String) {
-			String compair[] = ((String) arg).split(" "); //dividindo a string em (alternativa correta/errada) e pontuação
-			if (compair[0].equals("CERTO")){
-				extra.setTextFill(Color.GREEN);
-				extra.setText("ACERTOU");
-				pontuacao.setText(compair[1]);
+			final String compair[] = ((String) arg).split(" "); // dividindo a
+																// string em
+																// (alternativa
+																// correta/errada)
+																// e pontuação
+
+			if (compair[0].equals("CERTO")) {
+
+				Platform.runLater(new Runnable() {
+					public void run() {
+						extra.setTextFill(Color.GREEN);
+						extra.setText("ACERTOU");
+						pontuacao.setText(compair[1]);
+					}
+				});
 			}
 
 			if (compair[0].equals("ERRADO")) {
-				extra.setTextFill(Color.RED);
-				extra.setText("ERROU");
-				int qtdVidas = Integer.parseInt(vidas.getText());
-				vidas.setText(Integer.toString(qtdVidas-1)); //alterando o valor das vidas
-				pontuacao.setText(compair[1]);
+
+				Platform.runLater(new Runnable() {
+					public void run() {
+						extra.setTextFill(Color.RED);
+						extra.setText("ERROU");
+						int qtdVidas = Integer.parseInt(vidas.getText());
+						vidas.setText(Integer.toString(qtdVidas - 1));
+						pontuacao.setText(compair[1]);
+					}
+				});
 			}
 		}
-		
+
 		if (arg instanceof Boolean) {
 			if ((Boolean) arg == false)
 				gameStop();

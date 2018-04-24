@@ -12,7 +12,7 @@ import javafx.scene.layout.Pane;
 import model.Pergunta;
 import sources.ScreenConstants;
 import util.LoggedUser;
-import util.SavedQuest;
+import util.SharedInfo;
 import util.ScreenLibrary;
 
 public class CadPergunta_Controller {
@@ -52,7 +52,7 @@ public class CadPergunta_Controller {
 	@FXML
 	public void initialize() {
 		correta.getItems().addAll("Alternativa 1", "Alternativa 2", "Alternativa 3", "Alternativa 4");
-		idPerguntaRecebida = SavedQuest.getId();
+		idPerguntaRecebida = SharedInfo.getId();
 		
 		if(idPerguntaRecebida != -1){
 			update = true;
