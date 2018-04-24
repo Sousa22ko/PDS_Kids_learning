@@ -47,12 +47,15 @@ public class CadPergunta_Controller {
 	
 	private long idPerguntaRecebida = 0;
 	
+	private boolean update = false;
+	
 	@FXML
 	public void initialize() {
 		correta.getItems().addAll("Alternativa 1", "Alternativa 2", "Alternativa 3", "Alternativa 4");
 		idPerguntaRecebida = SavedQuest.getId();
 		
 		if(idPerguntaRecebida != -1){
+			update = true;
 			
 			Pergunta recebida = PergServices.getPerguntaById(idPerguntaRecebida);
 			
@@ -94,9 +97,11 @@ public class CadPergunta_Controller {
 		//nova.setCorreta(correta.getValue());
 		nova.setIdUser(LoggedUser.getLoggedUser().getId());
 
-		PerguntaDao pd = new PerguntaDao();
-		pd.adicionar(nova);
 		
+		if(update == false)
+			PergServices.adicionar(nova);
+		else
+			PergServices.atualizar(nova);
 		
 		try {
 			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);

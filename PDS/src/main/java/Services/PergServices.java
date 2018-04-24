@@ -20,6 +20,10 @@ public class PergServices {
 		perguntaDao.adicionar(remote); 	
 	}
 	
+	public static void atualizar(Pergunta remote){
+		perguntaDao.atualizar(remote); 	
+	}
+	
 	public static Pergunta getPerguntaById(Long id){
 		return perguntaDao.getPerguntaById(id);
 	}
