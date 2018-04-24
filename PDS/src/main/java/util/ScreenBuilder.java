@@ -94,5 +94,13 @@ public class ScreenBuilder {
 		buildScreen();
 
 	}
+	
+	public static void renderFriends() {
+
+		path = "Friend_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		title = "Lista de amigos"; // nome q aparece no topo da tela
+		buildScreen();
+
+	}
 
 }

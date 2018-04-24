@@ -8,7 +8,7 @@ import util.LoggedUser;
 
 public class PergServices {
 
-	public static PerguntaDao perguntaDao = new PerguntaDao(); // banco com perguntas #SL
+	public static PerguntaDao perguntaDao = new PerguntaDao(); // banco com perguntas
 	public static Pergunta pergunta;
 	public static long id;
 	
@@ -38,6 +38,23 @@ public class PergServices {
 		return perguntaDao.getPerguntaById(new Random().nextInt(perguntaDao.getList().size()-1)+1);
 	}
 	
+	public static List<Pergunta> listandoPerguntas(long idUser){
+		List<Pergunta> listTotal = new ArrayList<Pergunta>();
+		List<Pergunta> listaPergs = new ArrayList<Pergunta>();
+		listTotal = perguntaDao.getList();
+		//System.out.println("TAMANHO ANTES:"+listTotal.size());
+		for(int i=0; i<listTotal.size(); i++){
+			if(listTotal.get(i).getIdUser() == idUser){
+				listaPergs.add(listTotal.get(i)); // inserindo na lista o ID da pergunta cadastrada pelo usuário idUser
+			}
+		}
+		/*System.out.println("TAMANHO:"+listaPergs.size());
+		for(int i=0; i<listaPergs.size(); i++){
+			System.out.println("TAMANHO:"+listaPergs.get(i));
+		}*/
+		return listaPergs;
+	}
+	
 	public static void populandoPergunta(int n){
 		
 		List<Pergunta> listPerg = new ArrayList<Pergunta>();
@@ -52,19 +69,39 @@ public class PergServices {
 			nova = new Pergunta();
 			
 			nova.setPergunta("Pergunta ID"+i);
-			nova.setAlternativa1("Alternativa 1");
-			nova.setAlternativa2("Alternativa 2");
-			nova.setAlternativa3("Alternativa 3");
-			nova.setAlternativa4("Alternativa 4");
 			
 			if(correta == 1){
+				nova.setAlternativa1("CORRETA");
+				nova.setAlternativa2("Alternativa 2");
+				nova.setAlternativa3("Alternativa 3");
+				nova.setAlternativa4("Alternativa 4");
+				
 				nova.setCorreta("alternativa1");
+				
 			} else if(correta == 2){
+				nova.setAlternativa1("Alternativa 1");
+				nova.setAlternativa2("CORRETA");
+				nova.setAlternativa3("Alternativa 3");
+				nova.setAlternativa4("Alternativa 4");
+				
 				nova.setCorreta("alternativa2");
+				
 			} else if(correta == 3){
+				nova.setAlternativa1("Alternativa 1");
+				nova.setAlternativa2("Alternativa 2");
+				nova.setAlternativa3("CORRETA");
+				nova.setAlternativa4("Alternativa 4");
+				
 				nova.setCorreta("alternativa3");
+				
 			} else if(correta == 4){
+				nova.setAlternativa1("Alternativa 1");
+				nova.setAlternativa2("Alternativa 2");
+				nova.setAlternativa3("Alternativa 3");
+				nova.setAlternativa4("CORRETA");
+				
 				nova.setCorreta("alternativa4");
+				
 			} else
 				System.out.println("DEU ERRO NEGADA");
 			

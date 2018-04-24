@@ -38,6 +38,10 @@ public class HomePage_ScreenController {
 			});
 
 			backPane.getChildren().add(cadastrarPergunta);
+			
+			//PergServices.listandoPerguntas(UserServices.getUserConnected().getId());
+			//UserServices.listUsersByName();
+			//SeguindoServices.seguir(UserServices.getUserConnected().getId(), 3);
 		}
 
 	}
@@ -60,4 +64,12 @@ public class HomePage_ScreenController {
 		}
 	}
 
+	@FXML
+	public void handlerFriends(){
+		try {
+			ScreenLibrary.LoadTela(ScreenConstants.FRIENDS);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
 }

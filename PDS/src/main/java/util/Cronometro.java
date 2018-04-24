@@ -18,7 +18,7 @@ public class Cronometro extends Observable implements Runnable, Observer {
 	}
 	
 	public void resetCron() {
-		remainTime = 30.0d;
+		remainTime = 45.0d;
 		acertos = 0;
 	}
 
@@ -40,7 +40,7 @@ public class Cronometro extends Observable implements Runnable, Observer {
 				}
 				remainTime -= 0.1000000000d;
 				notifyObservers((Double)remainTime);
-				System.out.println((Double)remainTime);
+				//System.out.println((Double)remainTime);
 			}
 		}
 	}

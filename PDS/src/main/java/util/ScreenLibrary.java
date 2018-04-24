@@ -64,6 +64,9 @@ public class ScreenLibrary {
 		else if(id == ScreenConstants.CLASSIC)
 			ScreenBuilder.renderClassico();
 		
+		else if(id == ScreenConstants.FRIENDS)
+			ScreenBuilder.renderFriends();
+		
 		
 		else throw new UnsupportedEncodingException("tela indefida");
 

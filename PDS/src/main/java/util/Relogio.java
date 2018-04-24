@@ -1,5 +1,6 @@
 package util;
 
+import java.text.DecimalFormat;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -10,6 +11,7 @@ public class Relogio extends Observable implements Runnable, Observer {
 	private int acertos = 0;
 	private double pontuacao = 0;
 	private boolean rodaThread = true;
+	DecimalFormat df = new DecimalFormat("###,##0.00");
 	
 	@SuppressWarnings("unused")
 	private Observable obs;
@@ -51,14 +53,28 @@ public class Relogio extends Observable implements Runnable, Observer {
 	
 	public void calculaPontuacao(boolean arg){
 		if(arg){
-			if(acertos <= 5 && arg)
-				pontuacao += (1000 - ((10-acertos)*remainTime));
+			if(acertos <= 5)
+				if(remainTime <= 20)
+					pontuacao += (1000 - (25*remainTime) + (75*acertos));
+				else{
+					if(remainTime <= 100)
+						pontuacao += 200 + (acertos * 75) - remainTime; // 200 pontos caso acerte + X00 pontos de combo
+					else
+						pontuacao += 200 + (acertos * 75) - 100; // 200 pontos caso acerte + X00 pontos de combo
+				}
 			else
-				pontuacao += (1000 - ((5)*remainTime));
+				if(remainTime <= 20)
+					pontuacao += (1000 - ((25)*remainTime) + 375);
+				else{
+					if(remainTime <= 100)
+						pontuacao += 200 + 375 - remainTime; // 200 pontos caso acerte + X00 pontos de combo
+					else
+						pontuacao += 200 + 375 - 100; // 200 pontos caso acerte + X00 pontos de combo
+				}
 		}
 		else{
-			if(pontuacao >= 100)
-				pontuacao -= 100;
+			if(pontuacao >= (75+2*remainTime))
+				pontuacao -= (75+2*remainTime);
 			else
 				pontuacao = 0;
 		}
@@ -72,17 +88,17 @@ public class Relogio extends Observable implements Runnable, Observer {
 				acertos += 1;
 				calculaPontuacao(true);
 				remainTime = 0.2d;
-				notifyObservers((String)("CERTO "+pontuacao));
+				notifyObservers((String)("CERTO "+df.format(pontuacao)));
 			}
 			else{
 				acertos = 0;
 				calculaPontuacao(false);
 				remainTime = 0.2d;
-				notifyObservers((String)("ERRADO "+pontuacao));
+				notifyObservers((String)("ERRADO "+df.format(pontuacao)));
 			}
 			
 			//System.out.println("O VALOR DE VIDAS É "+compair[1]);
-			if(compair[1].equals("1")){
+			if(compair[1].equals("1") && !Boolean.parseBoolean(compair[0])){
 				//System.out.println("ENTRANDO NO EQUALS É PRA PARAR O RELOGINHO");
 				rodaThread = false;
 			}

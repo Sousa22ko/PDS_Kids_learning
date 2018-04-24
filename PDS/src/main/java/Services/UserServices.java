@@ -1,6 +1,8 @@
 package Services;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.NoResultException;
 
@@ -57,6 +59,47 @@ public class UserServices {
 
 	}
 
+	//lista todos os usuários exceto o que está logado
+	public static List<User> listUsers(){
+		List<User> listUser = new ArrayList<User>();
+		//listUser = userDao.getList();
+		for(int i=0; i<userDao.getList().size(); i++){
+			if(getUserConnected().getId() != userDao.getList().get(i).getId()){
+				listUser.add(userDao.getList().get(i));
+			}
+		}
+		return listUser;
+	}
+	
+	//lista todos os usuários que possuem a string 'nome' em alguma parte do seu nome, email ou username
+	public static List<User> listUsersByName(String nome){
+		List<User> listUser = new ArrayList<User>();
+		for(int i=0; i<userDao.getList().size(); i++){
+			if(containsIgnoreCase(userDao.getList().get(i).getNome(), nome) ||
+					containsIgnoreCase(userDao.getList().get(i).getEmail(), nome) ||
+					containsIgnoreCase(userDao.getList().get(i).getUserName(), nome)){
+				listUser.add(userDao.getList().get(i));
+			}
+		}
+		return listUser;
+	}
+	
+	//método para buscar os nomes no banco ignorando letras maiúsculas (FUNCIONA)
+	//https://stackoverflow.com/questions/14018478/string-contains-ignore-case
+	public static boolean containsIgnoreCase(String str, String searchStr)     {
+	    if(str == null || searchStr == null) return false;
+
+	    final int length = searchStr.length();
+	    if (length == 0)
+	        return true;
+
+	    for (int i = str.length() - length; i >= 0; i--) {
+	        if (str.regionMatches(true, i, searchStr, 0, length))
+	            return true;
+	    }
+	    return false;
+	}
+	
 	private static boolean checkUni(String userName) {
 		System.out.println(userName);
 		try {
