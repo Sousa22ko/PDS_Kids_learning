@@ -70,7 +70,7 @@ public class Friend_ScreenController {
 				maxSizedList = 10;
 			}
 
-			for (int i = 0; i < maxSizedList; i++) {
+			for (int i = 0; i < maxSizedList; i++) { 
 				Button follow = new Button("seguir usuário");
 
 				System.out.println(i + ((nPagina - 1) * 10));
