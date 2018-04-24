@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import sources.ScreenConstants;
+import util.SavedQuest;
 import util.ScreenLibrary;
 
 public class HomePage_ScreenController {
@@ -29,6 +30,7 @@ public class HomePage_ScreenController {
 			cadastrarPergunta.setOnAction(new EventHandler<ActionEvent>() {
 				public void handle(ActionEvent e) {
 					try {
+						SavedQuest.setId((long) -1);
 						ScreenLibrary.LoadTela(ScreenConstants.IDCADPERG);
 					} catch (UnsupportedEncodingException e1) {
 						e1.printStackTrace();
@@ -56,10 +58,6 @@ public class HomePage_ScreenController {
 
 			backPane.getChildren().add(listPerg);
 			backPane.getChildren().add(cadastrarPergunta);
-			
-			//PergServices.listandoPerguntas(UserServices.getUserConnected().getId());
-			//UserServices.listUsersByName();
-			//SeguindoServices.seguir(UserServices.getUserConnected().getId(), 3);
 		}
 
 	}

@@ -3,6 +3,7 @@ package vision;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import Services.PergServices;
 import javafx.event.ActionEvent;
@@ -14,9 +15,11 @@ import javafx.scene.layout.Pane;
 import model.Pergunta;
 import sources.ScreenConstants;
 import util.LoggedUser;
+import util.SavedQuest;
+import util.SceneBuilder;
 import util.ScreenLibrary;
 
-public class ListQuestions_ScreenController {
+public class ListQuestions_ScreenController{
 
 	@FXML
 	private Pane pane;
@@ -99,13 +102,16 @@ public class ListQuestions_ScreenController {
 				editar.setOnAction(new EventHandler<ActionEvent>() {
 					public void handle(ActionEvent e) {
 
-						// if(SeguindoServices.seguir(LoggedUser.getLoggedUser().getId(),
-						// pergunta.get(id).getId())){
-
-						// editar.setVisible(false);recebeIdPergunta(pergunta.get(id).getId())
+						SavedQuest.setId(pergunta.get(id).getId());
+						
+						try {
+							SceneBuilder.LoadScreen(ScreenConstants.IDCADPERG);
+						} catch (UnsupportedEncodingException e1) {
+							e1.printStackTrace();
+						}
 						System.out.println(LoggedUser.getLoggedUser().getNome() + " está editando a pergunta "
 								+ pergunta.get(id).getId());
-						// }
+
 					};
 				});
 
@@ -156,6 +162,11 @@ public class ListQuestions_ScreenController {
 		unloadTuplesOnScreen();
 		nPagina -= 1;
 		loadPage();
+	}
+
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

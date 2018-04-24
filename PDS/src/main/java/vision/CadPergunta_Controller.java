@@ -2,6 +2,7 @@ package vision;
 
 import java.io.UnsupportedEncodingException;
 
+import Services.PergServices;
 import dao.PerguntaDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -11,6 +12,7 @@ import javafx.scene.layout.Pane;
 import model.Pergunta;
 import sources.ScreenConstants;
 import util.LoggedUser;
+import util.SavedQuest;
 import util.ScreenLibrary;
 
 public class CadPergunta_Controller {
@@ -48,7 +50,19 @@ public class CadPergunta_Controller {
 	@FXML
 	public void initialize() {
 		correta.getItems().addAll("Alternativa 1", "Alternativa 2", "Alternativa 3", "Alternativa 4");
+		idPerguntaRecebida = SavedQuest.getId();
 		
+		if(idPerguntaRecebida != -1){
+			
+			Pergunta recebida = PergServices.getPerguntaById(idPerguntaRecebida);
+			
+			pergunta.setText(recebida.getPergunta());
+			alt1.setText(recebida.getAlternativa1());
+			alt2.setText(recebida.getAlternativa2());
+			alt3.setText(recebida.getAlternativa3());
+			alt4.setText(recebida.getAlternativa4());
+			
+		}
 	}
 	
 	@FXML
