@@ -137,9 +137,7 @@ public class Friend_ScreenController {
 				
 				unfollow.setOnAction(new EventHandler<ActionEvent>() {
 					public void handle(ActionEvent e) {
-						//System.out.println(users.get(id).getId() + " " + users.get(id).getNome()); //users.get(i).getId()
 						if(SeguindoServices.seguir(LoggedUser.getLoggedUser().getId(), users.get(id).getId())){
-							//follow.setDisable(true);
 							System.out.println(LoggedUser.getLoggedUser().getNome() + " está deixando de seguir " + users.get(id).getId());
 							follow.setVisible(true);
 							unfollow.setVisible(false);
@@ -188,7 +186,6 @@ public class Friend_ScreenController {
 	private void handlerNextPage() {
 		unloadTuplesOnScreen();
 		nPagina += 1;
-		//listSize -= lNumber;
 		loadPage();
 	}
 
@@ -196,7 +193,6 @@ public class Friend_ScreenController {
 	private void handlerPrevPage() {
 		unloadTuplesOnScreen();
 		nPagina -= 1;
-		//listSize += lNumber;
 		loadPage();
 	}
 

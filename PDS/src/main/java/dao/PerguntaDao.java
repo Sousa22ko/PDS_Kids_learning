@@ -20,6 +20,7 @@ public class PerguntaDao extends GenericDao<Pergunta, Long>{
 				.getSingleResult();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Pergunta> getPerguntaByUserId(long id){
 		
 		List<Pergunta> perg = new ArrayList<Pergunta>();
