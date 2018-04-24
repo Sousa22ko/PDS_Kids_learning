@@ -80,7 +80,9 @@ public class Friend_ScreenController {
 			seguindo = seguindoDao.getList();
 
 			for (int i = 0; i < maxSizedList; i++) { 
-				final Button follow = new Button("seguir usuário");
+				final Button follow = new Button("Seguir");
+				final Button unfollow = new Button("Deixar de Seguir");
+				unfollow.setVisible(false);
 
 				System.out.println(i + ((nPagina - 1) * 10));
 				Label namePerson = new Label(users.get(i + ((nPagina - 1) * 10)).getNome() + " " + i);
@@ -99,17 +101,21 @@ public class Friend_ScreenController {
 					if(seguindo.get(aux).getIdSeguido() == users.get(i).getId() && LoggedUser.getLoggedUser().getId() == seguindo.get(aux).getIdUser()){
 						System.out.println(LoggedUser.getLoggedUser().getNome() + " está seguindo " + users.get(i).getId());
 						follow.setDisable(true); //substituir por setVisible(false) para setar o outro botão como true
+						unfollow.setVisible(true);
 					}
 				}
 
 				tuple.getChildren().add(namePerson);
 				tuple.getChildren().add(follow);
+				tuple.getChildren().add(unfollow);
 
 				namePerson.setLayoutX(50);
 				follow.setLayoutX(550);
+				unfollow.setLayoutX(550);
 
 				namePerson.setLayoutY(15);
 				follow.setLayoutY(15);
+				unfollow.setLayoutY(15);
 
 				tuple.setLayoutX(15);
 				tuple.setLayoutY((i * 50) + 100);
@@ -120,14 +126,29 @@ public class Friend_ScreenController {
 						if(SeguindoServices.seguir(LoggedUser.getLoggedUser().getId(), users.get(id).getId())){
 							//chamar método para ativar o botão de unfollow
 							// e desativar o botão de follow passando o id para renderizar na posição certa
-							follow.setDisable(true);
+							follow.setVisible(false);
+							unfollow.setVisible(true);
 							System.out.println(LoggedUser.getLoggedUser().getNome() + " está seguindo " + users.get(id).getId());
+						}
+					};
+				});
+				
+				unfollow.setOnAction(new EventHandler<ActionEvent>() {
+					public void handle(ActionEvent e) {
+						//System.out.println(users.get(id).getId() + " " + users.get(id).getNome()); //users.get(i).getId()
+						if(SeguindoServices.seguir(LoggedUser.getLoggedUser().getId(), users.get(id).getId())){
+							//follow.setDisable(true);
+							System.out.println(LoggedUser.getLoggedUser().getNome() + " está deixando de seguir " + users.get(id).getId());
+							follow.setVisible(true);
+							unfollow.setVisible(false);
 						}
 					};
 				});
 
 				panesTuple.add(tuple);
+				buts.add(unfollow);
 				buts.add(follow);
+				
 
 			}
 		}
