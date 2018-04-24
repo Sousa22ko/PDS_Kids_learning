@@ -102,5 +102,13 @@ public class ScreenBuilder {
 		buildScreen();
 
 	}
+	
+	public static void renderListPerg() {
+
+		path = "ListQuestions.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		title = "Suas Perguntas"; // nome q aparece no topo da tela
+		buildScreen();
+
+	}
 
 }

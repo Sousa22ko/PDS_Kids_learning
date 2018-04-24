@@ -11,4 +11,5 @@ public class ScreenConstants {
 	public static final int IDAGAINSTTIME = 4;
 	public static final int CLASSIC = 5;
 	public static final int FRIENDS = 6;
+	public static final int LISTPERG = 7;
 }

@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Services.PergServices;
 import Services.SeguindoServices;
 import Services.UserServices;
 import dao.SeguindoDao;
@@ -13,13 +14,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import model.Pergunta;
 import model.Seguindo;
 import model.User;
 import sources.ScreenConstants;
 import util.LoggedUser;
 import util.ScreenLibrary;
 
-public class Friend_ScreenController {
+public class ListQuestions_ScreenController {
 
 	@FXML
 	private Pane pane;
@@ -33,7 +35,7 @@ public class Friend_ScreenController {
 	private SeguindoDao seguindoDao = new SeguindoDao();
 	private List<Seguindo> seguindo = new ArrayList<Seguindo>();
 	
-	private List<User> users = new ArrayList<User>();
+	private List<Pergunta> pergunta = new ArrayList<Pergunta>();
 	private int nPagina = 1;
 
 	private boolean canNext = false;
@@ -45,8 +47,8 @@ public class Friend_ScreenController {
 
 	@FXML
 	public void initialize() {
-		users = UserServices.listUsers();
-		listSize = users.size();
+		pergunta = PergServices.listandoPerguntas(LoggedUser.getLoggedUser().getId());
+		listSize = pergunta.size();
 		System.out.println(listSize);
 		loadPage();
 	}
@@ -80,12 +82,10 @@ public class Friend_ScreenController {
 			seguindo = seguindoDao.getList();
 
 			for (int i = 0; i < maxSizedList; i++) { 
-				final Button follow = new Button("Seguir");
-				final Button unfollow = new Button("Deixar de Seguir");
-				unfollow.setVisible(false);
+				final Button editar = new Button("Editar");
 
 				System.out.println(i + ((nPagina - 1) * 10));
-				Label namePerson = new Label(users.get(i + ((nPagina - 1) * 10)).getNome());
+				Label namePergunta = new Label(pergunta.get(i + ((nPagina - 1) * 10)).getPergunta());
 				final int id = i + ((nPagina - 1) * 10);
 				Pane tuple = new Pane();
 
@@ -95,61 +95,32 @@ public class Friend_ScreenController {
 					tuple.setStyle("-fx-background-color: Gainsboro; -fx-border-color: lightgrey;");
 				else
 					tuple.setStyle("-fx-background-color: whitesmoke; -fx-border-color: lightgrey;");
-				
-				for(int aux=0; aux<seguindo.size(); aux++){
-					
-					if(seguindo.get(aux).getIdSeguido() == users.get(i).getId() && LoggedUser.getLoggedUser().getId() == seguindo.get(aux).getIdUser()){
-						System.out.println(LoggedUser.getLoggedUser().getNome() + " está seguindo " + users.get(i).getId());
-						follow.setVisible(false); //substituir por setVisible(false) para setar o outro botão como true
-						unfollow.setVisible(true);
-						//unfollow.setDisable(true);
-					}
-				}
 
-				tuple.getChildren().add(namePerson);
-				tuple.getChildren().add(follow);
-				tuple.getChildren().add(unfollow);
+				tuple.getChildren().add(namePergunta);
+				tuple.getChildren().add(editar);
 
-				namePerson.setLayoutX(50);
-				follow.setLayoutX(550);
-				unfollow.setLayoutX(550);
+				namePergunta.setLayoutX(50);
+				editar.setLayoutX(550);
 
-				namePerson.setLayoutY(15);
-				follow.setLayoutY(15);
-				unfollow.setLayoutY(15);
+				namePergunta.setLayoutY(15);
+				editar.setLayoutY(15);
 
 				tuple.setLayoutX(15);
 				tuple.setLayoutY((i * 50) + 100);
 				
-				follow.setOnAction(new EventHandler<ActionEvent>() {
+				editar.setOnAction(new EventHandler<ActionEvent>() {
 					public void handle(ActionEvent e) {
-						System.out.println(users.get(id).getId() + " " + users.get(id).getNome()); //users.get(i).getId()
-						if(SeguindoServices.seguir(LoggedUser.getLoggedUser().getId(), users.get(id).getId())){
-							//chamar método para ativar o botão de unfollow
-							// e desativar o botão de follow passando o id para renderizar na posição certa
-							follow.setVisible(false);
-							unfollow.setVisible(true);
-							//unfollow.setDisable(true);
-							System.out.println(LoggedUser.getLoggedUser().getNome() + " está seguindo " + users.get(id).getId());
-						}
-					};
-				});
-				
-				unfollow.setOnAction(new EventHandler<ActionEvent>() {
-					public void handle(ActionEvent e) {
-						//System.out.println(users.get(id).getId() + " " + users.get(id).getNome()); //users.get(i).getId()
-						if(SeguindoServices.unfollow(LoggedUser.getLoggedUser().getId(), users.get(id).getId())){
-							//follow.setDisable(true);
-							System.out.println(LoggedUser.getLoggedUser().getNome() + " está deixando de seguir " + users.get(id).getId());
-							follow.setVisible(true);
-							unfollow.setVisible(false);
-						}
+
+						//if(SeguindoServices.seguir(LoggedUser.getLoggedUser().getId(), pergunta.get(id).getId())){
+
+							//editar.setVisible(false);recebeIdPergunta(pergunta.get(id).getId())
+							System.out.println(LoggedUser.getLoggedUser().getNome() + " está editando a pergunta " + pergunta.get(id).getId());
+						//}
 					};
 				});
 
 				panesTuple.add(tuple);
-				buts.add(unfollow);
-				buts.add(follow);
+				buts.add(editar);
 				
 
 			}

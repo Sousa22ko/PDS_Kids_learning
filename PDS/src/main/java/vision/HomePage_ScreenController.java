@@ -36,7 +36,25 @@ public class HomePage_ScreenController {
 					return;
 				}
 			});
+			
+			Button listPerg = new Button("Listar todas suas perguntas");
 
+			listPerg.setPrefSize(180, 20);
+			listPerg.setLayoutX(132);
+			listPerg.setLayoutY(100);
+
+			listPerg.setOnAction(new EventHandler<ActionEvent>() {
+				public void handle(ActionEvent e) {
+					try {
+						ScreenLibrary.LoadTela(ScreenConstants.LISTPERG);
+					} catch (UnsupportedEncodingException e1) {
+						e1.printStackTrace();
+					}
+					return;
+				}
+			});
+
+			backPane.getChildren().add(listPerg);
 			backPane.getChildren().add(cadastrarPergunta);
 			
 			//PergServices.listandoPerguntas(UserServices.getUserConnected().getId());
