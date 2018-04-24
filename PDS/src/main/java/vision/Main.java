@@ -8,15 +8,11 @@ import util.SceneBuilder;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		launch(args);
-		
 	}
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void start(Stage primaryStage) throws Exception {		
 		SceneBuilder.setPrimaryStage(primaryStage);// carrega o stage... a brincadeira começa aqui em baixo
 		SceneBuilder.LoadScreen(ScreenConstants.IDLOGIN);// <-- vão dando crtl click no metodo pra ver como funciona
 		

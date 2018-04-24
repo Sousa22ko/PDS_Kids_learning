@@ -78,5 +78,37 @@ public class ScreenBuilder {
 		buildScreen();
 
 	}
+	
+	public static void renderContraOTempo() {
+
+		path = "ContraOTempo_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		title = "Contra o Tempo"; // nome q aparece no topo da tela
+		buildScreen();
+
+	}
+	
+	public static void renderClassico() {
+
+		path = "Classico.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		title = "Classico"; // nome q aparece no topo da tela
+		buildScreen();
+
+	}
+	
+	public static void renderFriends() {
+
+		path = "Friend_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		title = "Lista de amigos"; // nome q aparece no topo da tela
+		buildScreen();
+
+	}
+	
+	public static void renderListPerg() {
+
+		path = "ListQuestions.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		title = "Suas Perguntas"; // nome q aparece no topo da tela
+		buildScreen();
+
+	}
 
 }

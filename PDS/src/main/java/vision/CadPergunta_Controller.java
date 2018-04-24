@@ -3,7 +3,6 @@ package vision;
 import java.io.UnsupportedEncodingException;
 
 import dao.PerguntaDao;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -26,7 +25,7 @@ public class CadPergunta_Controller {
 	@FXML
 	private TextField alt1;
 	
-	@FXML
+	@FXML 
 	private TextField alt2;
 	
 	@FXML
@@ -36,20 +35,25 @@ public class CadPergunta_Controller {
 	private TextField alt4;
 	
 	@FXML
-	private ChoiceBox<String> correta = new ChoiceBox<String>(FXCollections.observableArrayList("correta 1", "correta 2", "correta 3", "correta 4"));
-	
+	private ChoiceBox<String> correta = new ChoiceBox<String>();
+
 	@FXML
 	private Pane background;
 	
 	@FXML
 	private Pane logo;
 	
+	private long idPerguntaRecebida = 0;
 	
 	@FXML
 	public void initialize() {
-		correta = new ChoiceBox<String>(FXCollections.observableArrayList("correta 1", "correta 2", "correta 3", "correta 4"));
+		correta.getItems().addAll("Alternativa 1", "Alternativa 2", "Alternativa 3", "Alternativa 4");
+		
 	}
 	
+	@FXML
+	public void handlerPreencheCB(){
+	}
 	
 	@FXML
 	public void handlerCadastrarPergunta(){
@@ -61,7 +65,19 @@ public class CadPergunta_Controller {
 		nova.setAlternativa2(alt2.getText());
 		nova.setAlternativa3(alt3.getText());
 		nova.setAlternativa4(alt4.getText());
-		nova.setCorreta(correta.getValue());
+		
+		if(correta.getValue() == "Alternativa 1"){
+			nova.setCorreta("alternativa1");
+		} else if(correta.getValue() == "Alternativa 2"){
+			nova.setCorreta("alternativa2");
+		} else if(correta.getValue() == "Alternativa 3"){
+			nova.setCorreta("alternativa3");
+		} else if(correta.getValue() == "Alternativa 4"){
+			nova.setCorreta("alternativa4");
+		} else
+			System.out.println("DEU ERRO NEGADA");
+		
+		//nova.setCorreta(correta.getValue());
 		nova.setIdUser(LoggedUser.getLoggedUser().getId());
 
 		PerguntaDao pd = new PerguntaDao();
@@ -71,7 +87,43 @@ public class CadPergunta_Controller {
 		try {
 			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	}
+	
+	@FXML
+	public void handlerAtualizarPergunta(){
+		
+		Pergunta nova = new Pergunta();
+		PerguntaDao pd = new PerguntaDao();
+		
+		nova.setPergunta(pergunta.getText());
+		nova.setAlternativa1(alt1.getText());
+		nova.setAlternativa2(alt2.getText());
+		nova.setAlternativa3(alt3.getText());
+		nova.setAlternativa4(alt4.getText());
+		
+		if(correta.getValue() == "Alternativa 1"){
+			nova.setCorreta("alternativa1");
+		} else if(correta.getValue() == "Alternativa 2"){
+			nova.setCorreta("alternativa2");
+		} else if(correta.getValue() == "Alternativa 3"){
+			nova.setCorreta("alternativa3");
+		} else if(correta.getValue() == "Alternativa 4"){
+			nova.setCorreta("alternativa4");
+		} else
+			System.out.println("DEU ERRO NEGADA");
+		
+		//nova.setCorreta(correta.getValue());
+		nova.setIdUser(LoggedUser.getLoggedUser().getId());
+
+		
+		pd.atualizar(nova);
+		
+		
+		try {
+			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
+		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} 
 	}
@@ -81,10 +133,18 @@ public class CadPergunta_Controller {
 		try {
 			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+	public void recebeIdPergunta(long id){
+		idPerguntaRecebida = id;
+		System.out.println("ESTAMOS RECEBENDO NO CONTROLLER COM O ID: "+idPerguntaRecebida);
+		/*try {
+			ScreenLibrary.LoadTela(ScreenConstants.IDCADPERG);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}*/
+	}
 	
 }
