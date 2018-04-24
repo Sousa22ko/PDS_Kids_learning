@@ -22,9 +22,10 @@ public class SeguindoServices {
 	}
 	
 	public static boolean unfollow(long user1, long user2){
-		//System.out.println("User"+user1+" está seguindo User"+user2);
+		//System.out.println("User"+user1+" está deixando de seguir User"+user2);
 		for(int i=0; i<seguindoDao.getList().size(); i++){
 			if(seguindoDao.getList().get(i).getIdUser() == user1 && seguindoDao.getList().get(i).getIdSeguido() == user2){
+				System.out.println("DENTRO DO IF: User"+user1+" está deixando de seguir User"+user2);
 				seguindoDao.remover(seguindoDao.getList().get(i).getId());
 				return true;
 			}

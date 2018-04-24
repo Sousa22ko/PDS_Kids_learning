@@ -102,7 +102,7 @@ public class Friend_ScreenController {
 						System.out.println(LoggedUser.getLoggedUser().getNome() + " está seguindo " + users.get(i).getId());
 						follow.setVisible(false); //substituir por setVisible(false) para setar o outro botão como true
 						unfollow.setVisible(true);
-						unfollow.setDisable(true);
+						//unfollow.setDisable(true);
 					}
 				}
 
@@ -129,7 +129,7 @@ public class Friend_ScreenController {
 							// e desativar o botão de follow passando o id para renderizar na posição certa
 							follow.setVisible(false);
 							unfollow.setVisible(true);
-							unfollow.setDisable(true);
+							//unfollow.setDisable(true);
 							System.out.println(LoggedUser.getLoggedUser().getNome() + " está seguindo " + users.get(id).getId());
 						}
 					};
@@ -138,7 +138,7 @@ public class Friend_ScreenController {
 				unfollow.setOnAction(new EventHandler<ActionEvent>() {
 					public void handle(ActionEvent e) {
 						//System.out.println(users.get(id).getId() + " " + users.get(id).getNome()); //users.get(i).getId()
-						if(SeguindoServices.seguir(LoggedUser.getLoggedUser().getId(), users.get(id).getId())){
+						if(SeguindoServices.unfollow(LoggedUser.getLoggedUser().getId(), users.get(id).getId())){
 							//follow.setDisable(true);
 							System.out.println(LoggedUser.getLoggedUser().getNome() + " está deixando de seguir " + users.get(id).getId());
 							follow.setVisible(true);
