@@ -22,6 +22,10 @@ public class PergServices extends AbstractPergServices {
 		}
 		return listaPergs;
 	}
+	
+	public Pergunta randomPerg() {	
+		return perguntaDao.getPerguntaById(new Random().nextInt(perguntaDao.getList().size()-1)+1);
+	}
 
 	public void populandoPergunta(int n) {
 

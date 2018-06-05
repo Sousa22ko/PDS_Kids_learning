@@ -28,9 +28,7 @@ public abstract class AbstractPergServices {
 		return perguntaDao.getPerguntaById(id);
 	}
 
-	public Pergunta randomPerg() {	
-		return perguntaDao.getPerguntaById(new Random().nextInt(perguntaDao.getList().size()-1)+1);
-	}
+	public abstract Pergunta randomPerg();
 	
 	public abstract List<Pergunta> listandoPerguntas(long idUser);
 	public abstract void populandoPergunta(int n);
