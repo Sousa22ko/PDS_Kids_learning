@@ -14,6 +14,5 @@ public class UserDao extends GenericDao<User, Long> {
 	}
 
 	public void initialize() {
-		// TODO Auto-generated method stub
 	}
 }

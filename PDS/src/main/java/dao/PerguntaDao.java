@@ -9,8 +9,8 @@ import model.Pergunta;
 
 public class PerguntaDao extends GenericDao<Pergunta, Long>{
 	
-	protected Object close;
-
+	//protected Object close;
+	
 	public PerguntaDao() {
 		super(Pergunta.class);
 	}

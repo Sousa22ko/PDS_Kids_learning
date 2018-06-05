@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import model.Pergunta;
 import sources.ScreenConstants;
-import util.Cronometro;
+import util.ProgressiveCronometer;
 import util.Round;
 import util.ScreenLibrary;
 import util.SharedInfo;
@@ -55,9 +55,10 @@ public class Classico_ScreenController extends Observable implements Observer {
 	@FXML
 	private Label pergunta;
 
-	private Cronometro time = new Cronometro(this);
+	private ProgressiveCronometer time = new ProgressiveCronometer(this);
 	private Thread control = new Thread(time);
 	private Pergunta atual = new Pergunta();
+	private PergServices ps = new PergServices();
 
 	@SuppressWarnings("unused")
 	private Observable obs;
@@ -96,7 +97,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		extra.setVisible(true);
 		vidas.setVisible(true);
 		relogio.setVisible(true);
-		comecar.setVisible(false);
+		comecar.setDisable(true);
 		pontuacao.setVisible(true);
 		pontuacao.setText("0,00");
 
@@ -116,7 +117,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 	}
 
 	private void loadPergunta() {
-		atual = PergServices.randomPerg();
+		atual = ps.randomPerg();
 		pergunta.setText(atual.getPergunta());
 
 		op1.setText(atual.getAlternativa1());
@@ -173,7 +174,6 @@ public class Classico_ScreenController extends Observable implements Observer {
 				loadPergunta();
 			}
 		});
-
 	}
 
 	public void gameStop() {
@@ -185,6 +185,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		relogio.setVisible(false);
 		extra.setVisible(false);
 		vidas.setVisible(false);
+		comecar.setDisable(false);
 		vidas.setText("3");
 		pontuacao.setText("0.0");
 		control.interrupt();

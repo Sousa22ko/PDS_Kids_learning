@@ -15,9 +15,9 @@ import javafx.scene.layout.Pane;
 import model.Pergunta;
 import sources.ScreenConstants;
 import util.LoggedUser;
-import util.SharedInfo;
 import util.SceneBuilder;
 import util.ScreenLibrary;
+import util.SharedInfo;
 
 public class ListQuestions_ScreenController{
 
@@ -41,10 +41,11 @@ public class ListQuestions_ScreenController{
 	private List<Pane> panesTuple = new ArrayList<Pane>();
 
 	private final int lNumber = 10;
+	private PergServices ps = new PergServices();
 
 	@FXML
 	public void initialize() {
-		pergunta = PergServices.listandoPerguntas(LoggedUser.getLoggedUser().getId());
+		pergunta = ps.listandoPerguntas(LoggedUser.getLoggedUser().getId());
 		listSize = pergunta.size();
 		System.out.println(listSize);
 		loadPage();

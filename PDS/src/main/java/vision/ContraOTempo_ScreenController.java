@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import model.Pergunta;
 import sources.ScreenConstants;
-import util.Cronometro;
+import util.RegressiveCronometer;
 import util.Round;
 import util.ScreenLibrary;
 import util.SharedInfo;
@@ -58,9 +58,10 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 	private int acertos = 0;
 	private int erros = 0;
 
-	private Cronometro time = new Cronometro(this);
+	private RegressiveCronometer time = new RegressiveCronometer(this);
 	private Thread control = new Thread(time);
 	private Pergunta atual = new Pergunta();
+	private PergServices ps = new PergServices();
 
 	@SuppressWarnings("unused")
 	private Observable obs;
@@ -80,6 +81,8 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		pergunta.setVisible(false);
 		extra.setVisible(false);
 		relogio.setVisible(false);
+		acertos = 0; 
+		erros = 0;
 		
 		acrt.setTextFill(Color.GREEN);
 		errs.setTextFill(Color.RED);
@@ -98,16 +101,15 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		pergunta.setVisible(true);
 		extra.setVisible(true);
 		relogio.setVisible(true);
-		comecarButton.setVisible(false);
-
-		// PergServices.populandoPergunta(100);
+		comecarButton.setDisable(true);
+		time.reloadRelogio();
 		control.start();
 		gameStart();
 
 	}
 
 	private void loadPergunta() {
-		atual = PergServices.randomPerg();
+		atual = ps.randomPerg();
 		pergunta.setText(atual.getPergunta());
 
 		op1.setText(atual.getAlternativa1());
@@ -185,8 +187,10 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		pergunta.setVisible(false);
 		relogio.setVisible(false);
 		extra.setVisible(false);
+		comecarButton.setDisable(false);
+		acertos = 0;
+		erros = 0;
 		control.interrupt();
-
 	}
 
 	@FXML

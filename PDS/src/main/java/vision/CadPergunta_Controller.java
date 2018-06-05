@@ -12,8 +12,8 @@ import javafx.scene.layout.Pane;
 import model.Pergunta;
 import sources.ScreenConstants;
 import util.LoggedUser;
-import util.SharedInfo;
 import util.ScreenLibrary;
+import util.SharedInfo;
 
 public class CadPergunta_Controller {
 
@@ -48,16 +48,18 @@ public class CadPergunta_Controller {
 	private long idPerguntaRecebida = 0;
 	
 	private boolean update = false;
+	private PergServices ps = new PergServices();
 	
 	@FXML
 	public void initialize() {
 		correta.getItems().addAll("Alternativa 1", "Alternativa 2", "Alternativa 3", "Alternativa 4");
 		idPerguntaRecebida = SharedInfo.getId();
 		
+		System.out.println(idPerguntaRecebida + " vo te tacar o piru");
 		if(idPerguntaRecebida != -1){
 			update = true;
 			
-			Pergunta recebida = PergServices.getPerguntaById(idPerguntaRecebida);
+			Pergunta recebida = ps.getPerguntaById(idPerguntaRecebida);
 			
 			pergunta.setText(recebida.getPergunta());
 			alt1.setText(recebida.getAlternativa1());
@@ -99,9 +101,9 @@ public class CadPergunta_Controller {
 
 		
 		if(update == false)
-			PergServices.adicionar(nova);
+			ps.adicionar(nova);
 		else
-			PergServices.atualizar(nova);
+			ps.atualizar(nova);
 		
 		try {
 			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
