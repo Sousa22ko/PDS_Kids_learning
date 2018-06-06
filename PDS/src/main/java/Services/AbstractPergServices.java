@@ -31,5 +31,4 @@ public abstract class AbstractPergServices {
 	public abstract Pergunta randomPerg();
 	
 	public abstract List<Pergunta> listandoPerguntas(long idUser);
-	public abstract void populandoPergunta(int n);
 }

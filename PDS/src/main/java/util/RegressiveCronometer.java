@@ -34,33 +34,6 @@ public class RegressiveCronometer extends Timer {
 		}
 	}
 
-	public void pontuacao(boolean arg) {
-		if (arg) {
-			if (acertos <= 5)
-				if (remainTime <= 20)
-					pontuacao += (1000 - (25 * remainTime) + (75 * acertos));
-				else {
-					if (remainTime <= 100)
-						pontuacao += 200 + (acertos * 75) - remainTime;
-					else
-						pontuacao += 200 + (acertos * 75) - 100;
-				}
-			else if (remainTime <= 20)
-				pontuacao += (1000 - ((25) * remainTime) + 375);
-			else {
-				if (remainTime <= 100)
-					pontuacao += 200 + 375 - remainTime;
-				else
-					pontuacao += 200 + 375 - 100;
-			}
-		} else {
-			if (pontuacao >= (75 + 2 * remainTime))
-				pontuacao -= (75 + 2 * remainTime);
-			else
-				pontuacao = 0;
-		}
-	}
-
 	public void update(Observable o, Object arg) {
 		setChanged();
 		if ((Boolean) arg) {

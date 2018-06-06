@@ -25,7 +25,7 @@ public abstract class Timer extends Observable implements Runnable, Observer {
 	}
 
 	public abstract void run(); // sleep while true
-	public abstract void pontuacao(boolean arg); // calcula pontuação
+	//public abstract void pontuacao(boolean arg); // calcula pontuação
 	public abstract void update(Observable o, Object arg); // ação quando recebe
 															// notificação
 }
