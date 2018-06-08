@@ -16,9 +16,7 @@ public abstract class AbstractPergServices {
 		return perguntaDao;
 	}
 	
-	public void adicionar(Pergunta remote){
-		perguntaDao.adicionar(remote); 	
-	}
+	public abstract void adicionar(Pergunta remote) throws Exception;
 	
 	public void atualizar(Pergunta remote){
 		perguntaDao.atualizar(remote); 	

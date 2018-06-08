@@ -2,7 +2,7 @@ package util;
 
 import java.util.Observable;
 
-//Fun fact: cron�metro em ingles � "cronometro"
+//Fun fact: cronômetro em ingles é "cronometro"
 public class RegressiveCronometer extends Timer {
 
 	public RegressiveCronometer(Observable obs) {
@@ -32,6 +32,11 @@ public class RegressiveCronometer extends Timer {
 				notifyObservers((Double) remainTime);
 			}
 		}
+	}
+
+
+	public void pontuacao(boolean arg) {
+		// potuação não utilizada para esse modo de jogo
 	}
 
 	public void update(Observable o, Object arg) {

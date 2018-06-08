@@ -83,25 +83,17 @@ public class CadPergunta_Controller {
 		nova.setAlternativa1(alt1.getText());
 		nova.setAlternativa2(alt2.getText());
 		nova.setAlternativa3(alt3.getText());
-		nova.setAlternativa4(alt4.getText());
-		
-		if(correta.getValue() == "Alternativa 1"){
-			nova.setCorreta("alternativa1");
-		} else if(correta.getValue() == "Alternativa 2"){
-			nova.setCorreta("alternativa2");
-		} else if(correta.getValue() == "Alternativa 3"){
-			nova.setCorreta("alternativa3");
-		} else if(correta.getValue() == "Alternativa 4"){
-			nova.setCorreta("alternativa4");
-		} else
-			System.out.println("DEU ERRO NEGADA");
-		
-		//nova.setCorreta(correta.getValue());
+		nova.setAlternativa4(alt4.getText());		
+		nova.setCorreta(correta.getValue());
 		nova.setIdUser(LoggedUser.getLoggedUser().getId());
 
 		
 		if(update == false)
-			ps.adicionar(nova);
+			try {
+				ps.adicionar(nova);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 		else
 			ps.atualizar(nova);
 		

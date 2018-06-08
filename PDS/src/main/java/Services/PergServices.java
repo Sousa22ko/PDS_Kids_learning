@@ -9,6 +9,22 @@ import util.LoggedUser;
 
 public class PergServices extends AbstractPergServices {
 
+	public void adicionar(Pergunta remote) throws Exception{
+		
+		if(remote.getCorreta() == "Alternativa 1"){
+			remote.setCorreta("alternativa1");
+		} else if(remote.getCorreta() == "Alternativa 2"){
+			remote.setCorreta("alternativa2");
+		} else if(remote.getCorreta() == "Alternativa 3"){
+			remote.setCorreta("alternativa3");
+		} else if(remote.getCorreta() == "Alternativa 4"){
+			remote.setCorreta("alternativa4");
+		} else
+			throw new Exception("erro da variavel", null);
+		
+		perguntaDao.adicionar(remote);
+	}
+	
 	public List<Pergunta> listandoPerguntas(long idUser) {
 		List<Pergunta> listTotal = new ArrayList<Pergunta>();
 		List<Pergunta> listaPergs = new ArrayList<Pergunta>();
