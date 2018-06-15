@@ -1,4 +1,4 @@
-package vision;
+package vision.kids;
 
 import java.io.UnsupportedEncodingException;
 
@@ -98,7 +98,7 @@ public class CadPergunta_Controller {
 			ps.atualizar(nova);
 		
 		try {
-			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
+			ScreenLibrary.LoadTela(ScreenConstants.IDHOME, SharedInfo.getInstance());
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} 
@@ -135,7 +135,7 @@ public class CadPergunta_Controller {
 		
 		
 		try {
-			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
+			ScreenLibrary.LoadTela(ScreenConstants.IDHOME, SharedInfo.getInstance());
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} 
@@ -144,7 +144,7 @@ public class CadPergunta_Controller {
 	@FXML
 	public void handlerVoltar(){
 		try {
-			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
+			ScreenLibrary.LoadTela(ScreenConstants.IDHOME, SharedInfo.getInstance());
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

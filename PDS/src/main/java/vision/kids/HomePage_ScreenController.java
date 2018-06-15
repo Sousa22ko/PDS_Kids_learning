@@ -1,4 +1,4 @@
-package vision;
+package vision.kids;
 
 import java.io.UnsupportedEncodingException;
 
@@ -33,7 +33,7 @@ public class HomePage_ScreenController {
 	public void handlerNovaPergunta() {
 		try {
 			SharedInfo.setId((long) -1);
-			ScreenLibrary.LoadTela(ScreenConstants.IDCADPERG);
+			ScreenLibrary.LoadTela(ScreenConstants.IDCADPERG, SharedInfo.getInstance());
 		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();
 		}
@@ -42,7 +42,7 @@ public class HomePage_ScreenController {
 	@FXML
 	public void handlerListaPergunta() {
 		try {
-			ScreenLibrary.LoadTela(ScreenConstants.LISTPERG);
+			ScreenLibrary.LoadTela(ScreenConstants.LISTPERG, SharedInfo.getInstance());
 		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();
 		}
@@ -51,7 +51,7 @@ public class HomePage_ScreenController {
 	@FXML
 	public void handlerContraOTempo() {
 		try {
-			ScreenLibrary.LoadTela(ScreenConstants.IDAGAINSTTIME);
+			ScreenLibrary.LoadTela(ScreenConstants.IDAGAINSTTIME, SharedInfo.getInstance());
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -60,7 +60,7 @@ public class HomePage_ScreenController {
 	@FXML
 	public void handlerClassico() {
 		try {
-			ScreenLibrary.LoadTela(ScreenConstants.CLASSIC);
+			ScreenLibrary.LoadTela(ScreenConstants.CLASSIC, SharedInfo.getInstance());
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -69,7 +69,7 @@ public class HomePage_ScreenController {
 	@FXML
 	public void handlerFriends() {
 		try {
-			ScreenLibrary.LoadTela(ScreenConstants.FRIENDS);
+			ScreenLibrary.LoadTela(ScreenConstants.FRIENDS, SharedInfo.getInstance());
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

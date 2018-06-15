@@ -5,7 +5,6 @@ import java.io.UnsupportedEncodingException;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sources.ScreenConstants;
 
 public class ScreenLibrary {
 	
@@ -35,7 +34,7 @@ public class ScreenLibrary {
 		return dimension;
 	}
 	
-	public static void LoadTela(int id) throws UnsupportedEncodingException{
+	public static void LoadTela(int id, int instance) throws UnsupportedEncodingException{
 		ScreenBuilder.load_stage(pane, primaryStage);
 
 		//-------------------------------------------------------------------------------------------//
@@ -49,29 +48,10 @@ public class ScreenLibrary {
 		//e da interfaçe tbm são feitos por la
 		
 		
-		if(id == ScreenConstants.IDLOGIN)
-			ScreenBuilder.renderLoginScreen();// <-- crtl click na classe screenbuilder
-		
-		else if(id == ScreenConstants.IDHOME)
-			ScreenBuilder.renderHomePage();
-		
-		else if(id == ScreenConstants.IDCADPERG)
-			ScreenBuilder.renderCadastroPergunta();
-		
-		else if(id == ScreenConstants.IDAGAINSTTIME)
-			ScreenBuilder.renderContraOTempo();
-		
-		else if(id == ScreenConstants.CLASSIC)
-			ScreenBuilder.renderClassico();
-		
-		else if(id == ScreenConstants.FRIENDS)
-			ScreenBuilder.renderFriends();
-		
-		else if(id == ScreenConstants.LISTPERG)
-			ScreenBuilder.renderListPerg();
-		
-		
-		else throw new UnsupportedEncodingException("tela indefida");
+		if(instance == 1)
+			BuilderKids.load(id);
+		else if(instance ==  2)
+			BuilderEnem.load(id);
 
 		primaryStage.setWidth(dimension.width);
 		primaryStage.setHeight(dimension.height);

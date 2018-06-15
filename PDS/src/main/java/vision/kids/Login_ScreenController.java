@@ -1,4 +1,4 @@
-package vision;
+package vision.kids;
 
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
@@ -23,6 +23,7 @@ import javafx.scene.text.FontWeight;
 import model.User;
 import sources.ScreenConstants;
 import util.ScreenLibrary;
+import util.SharedInfo;
 import util.SourcesLoader;
 
 public class Login_ScreenController {
@@ -74,7 +75,7 @@ public class Login_ScreenController {
 
 		try {
 			UserServices.login(user.getText(), pass.getText());
-			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
+			ScreenLibrary.LoadTela(ScreenConstants.IDHOME, SharedInfo.getInstance());
 
 		} catch (UnsupportedEncodingException e) {
 			error.setTextFill(Color.RED);

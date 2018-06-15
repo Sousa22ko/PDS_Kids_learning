@@ -1,4 +1,4 @@
-package vision;
+package vision.kids;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import util.SceneBuilder;
 import util.ScreenLibrary;
 import util.SharedInfo;
 
-public class ListQuestions_ScreenController{
+public class ListQuestions_ScreenController {
 
 	@FXML
 	private Pane pane;
@@ -106,7 +106,7 @@ public class ListQuestions_ScreenController{
 						SharedInfo.setId(pergunta.get(id).getId());
 						
 						try {
-							SceneBuilder.LoadScreen(ScreenConstants.IDCADPERG);
+							SceneBuilder.LoadScreen(ScreenConstants.IDCADPERG, SharedInfo.getInstance());
 						} catch (UnsupportedEncodingException e1) {
 							e1.printStackTrace();
 						}
@@ -145,7 +145,7 @@ public class ListQuestions_ScreenController{
 	@FXML
 	private void handlerVoltar() {
 		try {
-			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
+			ScreenLibrary.LoadTela(ScreenConstants.IDHOME, SharedInfo.getInstance());
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

@@ -1,4 +1,4 @@
-package vision;
+package vision.kids;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -18,6 +18,7 @@ import model.User;
 import sources.ScreenConstants;
 import util.LoggedUser;
 import util.ScreenLibrary;
+import util.SharedInfo;
 
 public class Friend_ScreenController {
 
@@ -182,7 +183,7 @@ public class Friend_ScreenController {
 	@FXML
 	private void handlerVoltar() {
 		try {
-			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
+			ScreenLibrary.LoadTela(ScreenConstants.IDHOME, SharedInfo.getInstance());
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

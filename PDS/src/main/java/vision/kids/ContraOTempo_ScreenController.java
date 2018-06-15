@@ -1,4 +1,4 @@
-package vision;
+package vision.kids;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Observable;
@@ -197,7 +197,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 	public void handlerVoltar() {
 		gameStop();
 		try {
-			ScreenLibrary.LoadTela(ScreenConstants.IDHOME);
+			ScreenLibrary.LoadTela(ScreenConstants.IDHOME, SharedInfo.getInstance());
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
