@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
-import Services.PergServices;
+import Services.KidPergServices;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -41,7 +41,7 @@ public class ListQuestions_ScreenController {
 	private List<Pane> panesTuple = new ArrayList<Pane>();
 
 	private final int lNumber = 10;
-	private PergServices ps = new PergServices();
+	private KidPergServices ps = new KidPergServices();
 
 	@FXML
 	public void initialize() {

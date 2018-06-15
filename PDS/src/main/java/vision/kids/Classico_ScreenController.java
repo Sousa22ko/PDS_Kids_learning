@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Observable;
 import java.util.Observer;
 
-import Services.PergServices;
+import Services.KidPergServices;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -58,7 +58,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 	private ProgressiveCronometer time = new ProgressiveCronometer(this);
 	private Thread control = new Thread(time);
 	private Pergunta atual = new Pergunta();
-	private PergServices ps = new PergServices();
+	private KidPergServices ps = new KidPergServices();
 
 	@SuppressWarnings("unused")
 	private Observable obs;

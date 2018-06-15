@@ -2,7 +2,7 @@ package vision.kids;
 
 import java.io.UnsupportedEncodingException;
 
-import Services.PergServices;
+import Services.KidPergServices;
 import dao.PerguntaDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -48,7 +48,7 @@ public class CadPergunta_Controller {
 	private long idPerguntaRecebida = 0;
 	
 	private boolean update = false;
-	private PergServices ps = new PergServices();
+	private KidPergServices ps = new KidPergServices();
 	
 	@FXML
 	public void initialize() {
