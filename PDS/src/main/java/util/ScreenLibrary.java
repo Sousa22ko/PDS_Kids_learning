@@ -52,6 +52,8 @@ public class ScreenLibrary {
 			BuilderKids.load(id);
 		else if(instance ==  2)
 			BuilderEnem.load(id);
+		else if(instance ==  3)
+			BuilderMilhao.load(id);
 
 		primaryStage.setWidth(dimension.width);
 		primaryStage.setHeight(dimension.height);
