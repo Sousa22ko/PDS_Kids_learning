@@ -22,11 +22,11 @@ public abstract class AbstractPergServices <T> {
 	}
 	
 	public T getPerguntaById(Long id){
-		return (T) perguntaDao.getPerguntaById(id);
+		return (T) perguntaDao.buscar(id);
 	}
 
 	public T randomPerg() {	
-		return perguntaDao.getPerguntaById((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
+		return perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
 	}
 	
 	public abstract List<T> listandoPerguntas(long idUser);

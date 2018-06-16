@@ -77,8 +77,4 @@ public class GenericDao<T, I> {
 			manager.close();
 	}
 
-	public T getPerguntaById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
