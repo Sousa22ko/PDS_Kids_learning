@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import model.Pergunta;
+import model.MilhaoPergunta;
 import sources.ScreenConstants;
 import util.LoggedUser;
 import util.SceneBuilder;
@@ -30,7 +30,7 @@ public class ListQuestions_ScreenController {
 	@FXML
 	private Button bPrev;
 
-	private List<Pergunta> pergunta = new ArrayList<Pergunta>();
+	private List<MilhaoPergunta> pergunta = new ArrayList<MilhaoPergunta>();
 	private int nPagina = 1;
 
 	private boolean canNext = false;

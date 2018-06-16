@@ -3,13 +3,12 @@ package vision.milhao;
 import java.io.UnsupportedEncodingException;
 
 import Services.MilhaoPergServices;
-import dao.PerguntaDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import model.Pergunta;
+import model.MilhaoPergunta;
 import sources.ScreenConstants;
 import util.LoggedUser;
 import util.ScreenLibrary;
@@ -59,7 +58,7 @@ public class CadPergunta_Controller {
 		if(idPerguntaRecebida != -1){
 			update = true;
 			
-			Pergunta recebida = ps.getPerguntaById(idPerguntaRecebida);
+			MilhaoPergunta recebida = ps.getPerguntaById(idPerguntaRecebida);
 			
 			pergunta.setText(recebida.getPergunta());
 			alt1.setText(recebida.getAlternativa1());
@@ -77,7 +76,7 @@ public class CadPergunta_Controller {
 	@FXML
 	public void handlerCadastrarPergunta(){
 		
-		Pergunta nova = new Pergunta();
+		MilhaoPergunta nova = new MilhaoPergunta();
 		
 		nova.setPergunta(pergunta.getText());
 		nova.setAlternativa1(alt1.getText());
@@ -107,8 +106,7 @@ public class CadPergunta_Controller {
 	@FXML
 	public void handlerAtualizarPergunta(){
 		
-		Pergunta nova = new Pergunta();
-		PerguntaDao pd = new PerguntaDao();
+		MilhaoPergunta nova = new MilhaoPergunta();
 		
 		nova.setPergunta(pergunta.getText());
 		nova.setAlternativa1(alt1.getText());
@@ -130,8 +128,8 @@ public class CadPergunta_Controller {
 		//nova.setCorreta(correta.getValue());
 		nova.setIdUser(LoggedUser.getLoggedUser().getId());
 
-		
-		pd.atualizar(nova);
+		MilhaoPergServices mps = new MilhaoPergServices();
+		mps.getDao().atualizar(nova);
 		
 		
 		try {

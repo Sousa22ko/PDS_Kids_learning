@@ -13,7 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import model.Pergunta;
+import model.EnemPergunta;
 import sources.ScreenConstants;
 import util.ProgressiveCronometer;
 import util.Round;
@@ -57,7 +57,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 	private ProgressiveCronometer time = new ProgressiveCronometer(this);
 	private Thread control = new Thread(time);
-	private Pergunta atual = new Pergunta();
+	private EnemPergunta atual = new EnemPergunta();
 	private EnemPergServices ps = new EnemPergServices();
 
 	@SuppressWarnings("unused")
@@ -117,7 +117,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 	}
 
 	private void loadPergunta() {
-		atual = ps.randomPerg();
+		atual = (EnemPergunta) ps.randomPerg();
 		pergunta.setText(atual.getPergunta());
 
 		op1.setText(atual.getAlternativa1());

@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import dao.MilhaoPerguntaDao;
 import model.MilhaoPergunta;
 import util.LoggedUser;
 
 public class MilhaoPergServices extends AbstractPergServices <MilhaoPergunta> {
+	
+	public MilhaoPerguntaDao getDao(){
+		return (MilhaoPerguntaDao)perguntaDao;
+	}
 
 	public void adicionar(MilhaoPergunta remote) throws Exception{
 		

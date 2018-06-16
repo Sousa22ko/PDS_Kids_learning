@@ -13,7 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import model.Pergunta;
+import model.MilhaoPergunta;
 import sources.ScreenConstants;
 import util.RegressiveCronometer;
 import util.Round;
@@ -60,7 +60,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 
 	private RegressiveCronometer time = new RegressiveCronometer(this);
 	private Thread control = new Thread(time);
-	private Pergunta atual = new Pergunta();
+	private MilhaoPergunta atual = new MilhaoPergunta();
 	private MilhaoPergServices ps = new MilhaoPergServices();
 
 	@SuppressWarnings("unused")
@@ -109,7 +109,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 	}
 
 	private void loadPergunta() {
-		atual = ps.randomPerg();
+		atual = (MilhaoPergunta) ps.randomPerg();
 		pergunta.setText(atual.getPergunta());
 
 		op1.setText(atual.getAlternativa1());

@@ -4,14 +4,12 @@ import java.io.UnsupportedEncodingException;
 
 import Services.EnemPergServices;
 import dao.EnemPerguntaDao;
-import dao.PerguntaDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import model.EnemPergunta;
-import model.Pergunta;
 import sources.ScreenConstants;
 import util.LoggedUser;
 import util.ScreenLibrary;
@@ -39,7 +37,7 @@ public class CadPergunta_Controller {
 	private TextField alt4;
 	
 	@FXML
-	private TextField alt5 xxxxxxxxxxxxxxxxxxxxxxxxxxxxx;
+	private TextField alt5; // -------------------------------------- adicionar fxml
 	
 	@FXML
 	private ChoiceBox<String> correta = new ChoiceBox<String>();
