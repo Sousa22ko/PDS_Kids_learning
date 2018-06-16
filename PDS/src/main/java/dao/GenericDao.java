@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
+import model.HPergunta;
 import util.EntityManagerProducer;
 
 public class GenericDao<T, I> {
@@ -75,5 +76,10 @@ public class GenericDao<T, I> {
 	public void close(){
 		if(manager.isOpen())
 			manager.close();
+	}
+
+	public HPergunta getPerguntaById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

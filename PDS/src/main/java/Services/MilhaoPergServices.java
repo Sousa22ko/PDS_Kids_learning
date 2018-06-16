@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import model.Pergunta;
+import model.MilhaoPergunta;
 import util.LoggedUser;
 
-public class MilhaoPergServices extends AbstractPergServices {
+public class MilhaoPergServices extends AbstractPergServices <MilhaoPergunta> {
 
-	public void adicionar(Pergunta remote) throws Exception{
+	public void adicionar(MilhaoPergunta remote) throws Exception{
 		
 		if(remote.getCorreta() == "Alternativa 1"){
 			remote.setCorreta("alternativa1");
@@ -25,9 +25,9 @@ public class MilhaoPergServices extends AbstractPergServices {
 		perguntaDao.adicionar(remote);
 	}
 	
-	public List<Pergunta> listandoPerguntas(long idUser) {
-		List<Pergunta> listTotal = new ArrayList<Pergunta>();
-		List<Pergunta> listaPergs = new ArrayList<Pergunta>();
+	public List<MilhaoPergunta> listandoPerguntas(long idUser) {
+		List<MilhaoPergunta> listTotal = new ArrayList<MilhaoPergunta>();
+		List<MilhaoPergunta> listaPergs = new ArrayList<MilhaoPergunta>();
 		listTotal = perguntaDao.getList();
 		for (int i = 0; i < listTotal.size(); i++) {
 			if (listTotal.get(i).getIdUser() == idUser) {
@@ -41,8 +41,8 @@ public class MilhaoPergServices extends AbstractPergServices {
 
 	public void populandoPergunta(int n) {
 
-		List<Pergunta> listPerg = new ArrayList<Pergunta>();
-		Pergunta nova;
+		List<MilhaoPergunta> listPerg = new ArrayList<MilhaoPergunta>();
+		MilhaoPergunta nova;
 		int correta;
 
 		for (int i = perguntaDao.getList().size() + 1, j = 0; i < n + perguntaDao.getList().size() + 1
@@ -50,7 +50,7 @@ public class MilhaoPergServices extends AbstractPergServices {
 
 			correta = new Random().nextInt(4) + 1;
 
-			nova = new Pergunta();
+			nova = new MilhaoPergunta();
 
 			nova.setPergunta("Pergunta ID" + i);
 

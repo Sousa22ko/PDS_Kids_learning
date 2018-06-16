@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Pergunta extends HPergunta{
+public class EnemPergunta extends HPergunta {
 	
 	@Id
 	@Column(name = "id")
@@ -28,6 +28,9 @@ public class Pergunta extends HPergunta{
 	
 	@Column(name = "alternativa4")
 	private String alternativa4;
+	
+	@Column(name = "alternativa5")
+	private String alternativa5;
 	
 	@Column(name = "alternativa_correta")
 	private String correta;
@@ -81,6 +84,10 @@ public class Pergunta extends HPergunta{
 
 	public void setAlternativa4(String alternativa4) {
 		this.alternativa4 = alternativa4;
+	}
+	
+	public void setAlternativa5(String alternativa5) {
+		this.alternativa5 = alternativa5;
 	}
 
 	public String getCorreta() {

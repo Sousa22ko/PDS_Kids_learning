@@ -7,7 +7,7 @@ import java.util.Random;
 import model.Pergunta;
 import util.LoggedUser;
 
-public class KidPergServices extends AbstractPergServices {
+public class KidPergServices extends AbstractPergServices <Pergunta> {
 
 	public void adicionar(Pergunta remote) throws Exception{
 		
