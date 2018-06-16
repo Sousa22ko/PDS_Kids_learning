@@ -117,7 +117,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 	}
 
 	private void loadPergunta() {
-		atual = (Pergunta) ps.randomPerg();
+		atual = (Pergunta) ps.absRandomPerg();
 		pergunta.setText(atual.getPergunta());
 
 		op1.setText(atual.getAlternativa1());

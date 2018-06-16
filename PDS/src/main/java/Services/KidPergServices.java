@@ -43,6 +43,14 @@ public class KidPergServices extends AbstractPergServices <Pergunta> {
 		}
 		return listaPergs;
 	}
+	
+	public Pergunta buscar(long x){
+		return perguntaDao.buscar(x);
+	}
+	
+	public Pergunta randomPergunta(){
+		return perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
+	}
 
 	public void populandoPergunta(int n) {
 

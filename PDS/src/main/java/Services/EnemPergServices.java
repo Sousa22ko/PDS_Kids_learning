@@ -22,6 +22,14 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 			perguntaDao.adicionar(remote);
 	}
 	
+	public EnemPergunta buscarPergunta(long x){
+		return perguntaDao.buscar(x);
+	}
+	
+	public EnemPergunta randonPergunta(){
+		return perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
+	}
+	
 	public List<EnemPergunta> listandoPerguntas(long idUser) {
 		List<EnemPergunta> listTotal = new ArrayList<EnemPergunta>();
 		List<EnemPergunta> listaPergs = new ArrayList<EnemPergunta>();

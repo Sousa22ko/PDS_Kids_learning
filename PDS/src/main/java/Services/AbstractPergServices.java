@@ -25,7 +25,7 @@ public abstract class AbstractPergServices <T> {
 		return (T) perguntaDao.buscar(id);
 	}
 
-	public T randomPerg() {	
+	public T absRandomPerg() {	
 		return perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
 	}
 	

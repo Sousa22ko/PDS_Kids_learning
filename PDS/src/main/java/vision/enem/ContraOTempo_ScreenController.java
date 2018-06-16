@@ -109,7 +109,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 	}
 
 	private void loadPergunta() {
-		atual = (EnemPergunta) ps.randomPerg();
+		atual = ps.absRandomPerg();
 		pergunta.setText(atual.getPergunta());
 
 		op1.setText(atual.getAlternativa1());
