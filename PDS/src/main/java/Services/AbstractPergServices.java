@@ -4,12 +4,11 @@ import java.util.List;
 import java.util.Random;
 
 import dao.GenericDao;
-import model.HPergunta;
 
 public abstract class AbstractPergServices <T> {
 
 	protected GenericDao<T, Long> perguntaDao ;
-	protected HPergunta pergunta;
+	protected T pergunta;
 	protected long id;
 	
 	public GenericDao<T, Long> getDao() {
@@ -22,12 +21,11 @@ public abstract class AbstractPergServices <T> {
 		perguntaDao.atualizar((T)remote); 	
 	}
 	
-	@SuppressWarnings("unchecked")
 	public T getPerguntaById(Long id){
 		return (T) perguntaDao.getPerguntaById(id);
 	}
 
-	public HPergunta randomPerg() {	
+	public T randomPerg() {	
 		return perguntaDao.getPerguntaById((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
 	}
 	

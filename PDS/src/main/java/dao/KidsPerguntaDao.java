@@ -5,15 +5,13 @@ import java.util.List;
 
 import javax.persistence.Query;
 
-import model.HPergunta;
 import model.Pergunta;
 
-public class PerguntaDao extends GenericDao<HPergunta, Long> {
+public class KidsPerguntaDao extends GenericDao<Pergunta, Long> {
 	
-	//protected Object close;
 	
-	public PerguntaDao() {
-		super(HPergunta.class);
+	public KidsPerguntaDao() {
+		super(Pergunta.class);
 	}
 	
 	public Pergunta getPerguntaById(long id){		

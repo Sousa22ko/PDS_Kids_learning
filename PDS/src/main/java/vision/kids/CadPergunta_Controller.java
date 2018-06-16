@@ -3,7 +3,7 @@ package vision.kids;
 import java.io.UnsupportedEncodingException;
 
 import Services.KidPergServices;
-import dao.PerguntaDao;
+import dao.KidsPerguntaDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -108,7 +108,7 @@ public class CadPergunta_Controller {
 	public void handlerAtualizarPergunta(){
 		
 		Pergunta nova = new Pergunta();
-		PerguntaDao pd = new PerguntaDao();
+		KidsPerguntaDao pd = new KidsPerguntaDao();
 		
 		nova.setPergunta(pergunta.getText());
 		nova.setAlternativa1(alt1.getText());

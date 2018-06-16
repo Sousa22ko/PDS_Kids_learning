@@ -10,6 +10,10 @@ import util.LoggedUser;
 
 public class MilhaoPergServices extends AbstractPergServices <MilhaoPergunta> {
 	
+	public MilhaoPergServices(){
+		perguntaDao = new MilhaoPerguntaDao();
+	}
+	
 	public MilhaoPerguntaDao getDao(){
 		return (MilhaoPerguntaDao)perguntaDao;
 	}

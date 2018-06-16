@@ -15,7 +15,7 @@ public class MilhaoPerguntaDao extends GenericDao<MilhaoPergunta, Long>{
 	}
 	
 	public MilhaoPergunta getPerguntaById(long id){		
-		return (MilhaoPergunta)executeQuery("from EnemPergunta where id = :id").setParameter("id", id)
+		return (MilhaoPergunta)executeQuery("from MilhaoPergunta where id = :id").setParameter("id", id)
 				.getSingleResult();
 	}
 	

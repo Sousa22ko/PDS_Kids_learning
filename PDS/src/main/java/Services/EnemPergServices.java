@@ -16,18 +16,10 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 
 	public void adicionar(EnemPergunta remote) throws Exception{
 		
-		if(remote.getCorreta() == "Alternativa 1"){
-			remote.setCorreta("alternativa1");
-		} else if(remote.getCorreta() == "Alternativa 2"){
-			remote.setCorreta("alternativa2");
-		} else if(remote.getCorreta() == "Alternativa 3"){
-			remote.setCorreta("alternativa3");
-		} else if(remote.getCorreta() == "Alternativa 4"){
-			remote.setCorreta("alternativa4");
-		} else
-			throw new Exception("erro da variavel", null);
-		
-		perguntaDao.adicionar(remote);
+		if(remote.getCorreta() == null)
+			throw new Exception("selecione a alternativa correta");
+		else
+			perguntaDao.adicionar(remote);
 	}
 	
 	public List<EnemPergunta> listandoPerguntas(long idUser) {
@@ -53,43 +45,56 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 		for (int i = perguntaDao.getList().size() + 1, j = 0; i < n + perguntaDao.getList().size() + 1
 				|| j < 100; i++, j++) {
 
-			correta = new Random().nextInt(4) + 1;
+			correta = new Random().nextInt(5) + 1;
 
 			nova = new EnemPergunta();
 
 			nova.setPergunta("Pergunta ID" + i);
 
 			if (correta == 1) {
-				nova.setAlternativa1("CORRETA");
-				nova.setAlternativa2("Alternativa 2");
-				nova.setAlternativa3("Alternativa 3");
-				nova.setAlternativa4("Alternativa 4");
-
-				nova.setCorreta("alternativa1");
+				nova.setAlternativa1("A");
+				nova.setAlternativa2("B");
+				nova.setAlternativa3("C");
+				nova.setAlternativa4("D");
+				nova.setAlternativa5("E");
+				
+				nova.setCorreta("A");
 
 			} else if (correta == 2) {
-				nova.setAlternativa1("Alternativa 1");
-				nova.setAlternativa2("CORRETA");
-				nova.setAlternativa3("Alternativa 3");
-				nova.setAlternativa4("Alternativa 4");
-
-				nova.setCorreta("alternativa2");
+				nova.setAlternativa1("A");
+				nova.setAlternativa2("B");
+				nova.setAlternativa3("C");
+				nova.setAlternativa4("D");
+				nova.setAlternativa5("E");
+				
+				nova.setCorreta("B");
 
 			} else if (correta == 3) {
-				nova.setAlternativa1("Alternativa 1");
-				nova.setAlternativa2("Alternativa 2");
-				nova.setAlternativa3("CORRETA");
-				nova.setAlternativa4("Alternativa 4");
-
-				nova.setCorreta("alternativa3");
+				nova.setAlternativa1("A");
+				nova.setAlternativa2("B");
+				nova.setAlternativa3("C");
+				nova.setAlternativa4("D");
+				nova.setAlternativa5("E");
+				
+				nova.setCorreta("C");
 
 			} else if (correta == 4) {
-				nova.setAlternativa1("Alternativa 1");
-				nova.setAlternativa2("Alternativa 2");
-				nova.setAlternativa3("Alternativa 3");
-				nova.setAlternativa4("CORRETA");
+				nova.setAlternativa1("A");
+				nova.setAlternativa2("B");
+				nova.setAlternativa3("C");
+				nova.setAlternativa4("D");
+				nova.setAlternativa5("E");
+				
+				nova.setCorreta("D");
 
-				nova.setCorreta("alternativa4");
+			} else if (correta == 5) {
+				nova.setAlternativa1("A");
+				nova.setAlternativa2("B");
+				nova.setAlternativa3("C");
+				nova.setAlternativa4("D");
+				nova.setAlternativa5("E");
+				
+				nova.setCorreta("E");
 
 			} else
 				System.out.println("DEU ERRO NEGADA");

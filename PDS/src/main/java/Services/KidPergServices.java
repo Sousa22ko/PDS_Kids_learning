@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import dao.KidsPerguntaDao;
 import model.Pergunta;
 import util.LoggedUser;
 
 public class KidPergServices extends AbstractPergServices <Pergunta> {
+	
+	public KidPergServices(){
+		perguntaDao = new KidsPerguntaDao();
+	}
 
 	public void adicionar(Pergunta remote) throws Exception{
 		
