@@ -36,6 +36,9 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 	@FXML
 	private Button op4 = new Button("Opção 4");
+	
+	@FXML
+	private Button op5 = new Button("Opção 5");
 
 	@FXML
 	private Button comecar = new Button("Comecar");
@@ -75,6 +78,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setVisible(false);
 		op3.setVisible(false);
 		op4.setVisible(false);
+		op5.setVisible(false);
 		pergunta.setVisible(false);
 		pontuacao.setVisible(false);
 		extra.setVisible(false);
@@ -83,6 +87,8 @@ public class Classico_ScreenController extends Observable implements Observer {
 		relogio.setVisible(false);
 		SharedInfo.setDirection(true);
 		time.reloadRelogio();
+		
+		
 	}
 
 	@FXML
@@ -93,6 +99,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setVisible(true);
 		op3.setVisible(true);
 		op4.setVisible(true);
+		op5.setVisible(true);
 		pergunta.setVisible(true);
 		extra.setVisible(true);
 		vidas.setVisible(true);
@@ -124,6 +131,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setText(atual.getAlternativa2());
 		op3.setText(atual.getAlternativa3());
 		op4.setText(atual.getAlternativa4());
+		op5.setText(atual.getAlternativa5());
 		gameStart();
 	}
 
@@ -132,7 +140,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		setChanged();
 		op1.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa1")) {
+				if (atual.getCorreta().equals("A")) {
 					notifyObservers(true);
 				} else {
 					notifyObservers(false);
@@ -143,7 +151,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 		op2.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa2")) {
+				if (atual.getCorreta().equals("B")) {
 					notifyObservers(true);
 				} else {
 					notifyObservers(false);
@@ -154,7 +162,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 		op3.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa3")) {
+				if (atual.getCorreta().equals("C")) {
 					notifyObservers(true);
 				} else {
 					notifyObservers(false);
@@ -165,7 +173,19 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 		op4.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				if (atual.getCorreta().equals("alternativa4")) {
+				if (atual.getCorreta().equals("D")) {
+					notifyObservers(true);
+				} else {
+					notifyObservers(false);
+
+				}
+				loadPergunta();
+			}
+		});
+		
+		op5.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				if (atual.getCorreta().equals("E")) {
 					notifyObservers(true);
 				} else {
 					notifyObservers(false);
@@ -181,6 +201,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setVisible(false);
 		op3.setVisible(false);
 		op4.setVisible(false);
+		op5.setVisible(false);
 		pergunta.setVisible(false);
 		relogio.setVisible(false);
 		extra.setVisible(false);
@@ -197,6 +218,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setVisible(false);
 		op3.setVisible(false);
 		op4.setVisible(false);
+		op5.setVisible(false);
 		pergunta.setVisible(false);
 		control.interrupt();
 		relogio.setVisible(false);

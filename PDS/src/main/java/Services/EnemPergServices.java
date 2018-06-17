@@ -67,6 +67,7 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 				nova.setAlternativa5("E");
 				
 				nova.setCorreta("A");
+				nova.setCategoria("Fisica");
 
 			} else if (correta == 2) {
 				nova.setAlternativa1("A");
@@ -76,6 +77,7 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 				nova.setAlternativa5("E");
 				
 				nova.setCorreta("B");
+				nova.setCategoria("Fisica");
 
 			} else if (correta == 3) {
 				nova.setAlternativa1("A");
@@ -85,6 +87,7 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 				nova.setAlternativa5("E");
 				
 				nova.setCorreta("C");
+				nova.setCategoria("Fisica");
 
 			} else if (correta == 4) {
 				nova.setAlternativa1("A");
@@ -94,6 +97,7 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 				nova.setAlternativa5("E");
 				
 				nova.setCorreta("D");
+				nova.setCategoria("Fisica");
 
 			} else if (correta == 5) {
 				nova.setAlternativa1("A");
@@ -103,6 +107,7 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 				nova.setAlternativa5("E");
 				
 				nova.setCorreta("E");
+				nova.setCategoria("Fisica");
 
 			} else
 				System.out.println("DEU ERRO NEGADA");

@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vision.enem.Classico_ScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="vision.enem.Classico_ScreenController">
   <children>
     <Pane layoutX="485.0" layoutY="15.0" prefHeight="768.0" prefWidth="1366.0">
       <children>
-        <Label fx:id="pergunta" alignment="CENTER" prefHeight="310.0" prefWidth="874.0" text="Teste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testes" wrapText="true">
+        <Label fx:id="pergunta" alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="654.9609375" prefWidth="439.0" text="Teste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testes" wrapText="true">
           <font>
             <Font name="System Bold" size="40.0" />
           </font>
         </Label>
-        <Button fx:id="op1" layoutX="9.0" layoutY="314.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: f3b3b3;" text="op1" textAlignment="CENTER" />
-        <Button fx:id="op2" layoutX="439.0" layoutY="315.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: b3f3b3;" text="op2" textAlignment="CENTER" />
-        <Button fx:id="op3" layoutX="9.0" layoutY="501.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: b3b3f3;" text="op3" textAlignment="CENTER" />
-        <Button fx:id="op4" layoutX="439.0" layoutY="501.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: f3b3f3;" text="op4" textAlignment="CENTER" />
+        <Button fx:id="op1" layoutX="439.0" layoutY="3.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="422.0" style="-fx-background-color: f3b3b3;" text="op1" textAlignment="CENTER" />
+        <Button fx:id="op2" layoutX="439.0" layoutY="139.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="422.0" style="-fx-background-color: b3f3b3;" text="op2" textAlignment="CENTER" />
+        <Button fx:id="op3" layoutX="439.0" layoutY="275.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="422.0" style="-fx-background-color: b3b3f3;" text="op3" textAlignment="CENTER" />
+        <Button fx:id="op4" layoutX="439.0" layoutY="411.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="422.0" style="-fx-background-color: f3b3f3;" text="op4" textAlignment="CENTER" />
+        <Button fx:id="op5" layoutX="439.0" layoutY="547.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="422.0" style="-fx-background-color: b3f3f3;" text="op5" textAlignment="CENTER" />
       </children>
     </Pane>
     <Pane layoutX="14.0" layoutY="14.0" prefHeight="680.0" prefWidth="461.0" style="-fx-border-color: lightgrey; -fx-background-color: whitesmoke;">
       <children>
-        <Label layoutX="187.0" layoutY="14.0" text="Modo Clássico" />
-        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="60.0" prefHeight="193.0" prefWidth="432.0" text="No modo &quot;Classico&quot; o jogador tem inicialmente 3 vidas e cada erro reduz uma vida do jogador; " textAlignment="JUSTIFY" wrapText="true" />
+        <Label layoutX="175.0" layoutY="14.0" text="SIMULADOR ENEM" />
+        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="60.0" prefHeight="193.0" prefWidth="432.0" text="O simulador enem é composto por 180 questões selecionadas de forma aleatória, porém com base na quantidade media de cada categoria no Exame Nacional do Ensino Medio." textAlignment="JUSTIFY" wrapText="true" />
         <Button fx:id="comecar" layoutX="237.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerComecar" prefWidth="200.0" text="Começar" />
         <Button layoutX="12.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerVoltar" prefHeight="25.0" prefWidth="200.0" text="Voltar" />
         <Label fx:id="relogio" alignment="CENTER" layoutX="226.0" layoutY="340.0" prefHeight="200.0" prefWidth="200.0">
@@ -43,8 +48,7 @@
             <Font size="45.0" />
           </font>
         </Label>
-            <Label layoutX="12.0" layoutY="90.0" prefHeight="37.0" prefWidth="432.0" text="A pontuação é determinada de duas formas: " wrapText="true" />
-            <Label layoutX="12.0" layoutY="127.0" prefHeight="145.0" prefWidth="432.0" text="Tempo: quanto mais rapido a pergunta for respondida, mais pontuação o jogador receberá (caso acerte a questão) e menos irá perder (caso erre a questão)                                                                                                                 Combo: cada questão acertada em combo contabiliza +75 pontos na pontuação final                                                                                                                          Se o jogador errar uma questão o sistema irá selecionar outra pergunta. Todas as questões são selecionadas automaticamente. Responda o maximo possivel de questões sem errar, boa sorte." wrapText="true" />
+        <Label layoutX="12.0" layoutY="127.0" prefHeight="145.0" prefWidth="432.0" text="Tempo: o tempo será marcado à partir do momento em que o botão começar for ativado e so parará quando a 180ª questão for respondida. Ao final o jogo dará um feedback dos resultados. Bom jogo!" wrapText="true" />
       </children>
     </Pane>
   </children>

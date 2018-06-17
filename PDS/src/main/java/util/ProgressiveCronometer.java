@@ -70,8 +70,8 @@ public class ProgressiveCronometer extends Timer {
 				// notifyObservers((String) ("CERTO " + df.format(pontuacao)));
 				notifyObservers((String) ("CERTO " + pontuacao));
 			} else {
-				acertos = 0;
-				vidas -= 1;
+				//acertos = 0;
+				//vidas -= 1;
 				pontuacao(false);
 				remainTime = 0.2d;
 				notifyObservers((String) ("ERRADO " + pontuacao));
