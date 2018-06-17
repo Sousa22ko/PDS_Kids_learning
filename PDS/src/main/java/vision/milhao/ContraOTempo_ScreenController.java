@@ -148,7 +148,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		pergunta.setVisible(true);
 		pedDica.setVisible(true);
 		extra.setVisible(true);
-		relogio.setVisible(true);
+		//relogio.setVisible(true);
 		comecarButton.setDisable(true);
 		time.reloadRelogio();
 		control.start();
@@ -432,7 +432,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 					if ((Double) arg <= 30 && (Double) arg >= 10)
 						relogio.setTextFill(Color.ORANGE);
 					if ((Double) arg < 5) {
-						//relogio.setVisible(true);
+						relogio.setVisible(true);
 						relogio.setTextFill(Color.RED);
 					}
 						
