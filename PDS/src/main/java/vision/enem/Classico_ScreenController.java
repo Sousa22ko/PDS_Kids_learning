@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import model.EnemPergunta;
 import sources.ScreenConstants;
-import util.ProgressiveCronometer;
+import util.EnemProgressiveCronometer;
 import util.Round;
 import util.ScreenLibrary;
 import util.SharedInfo;
@@ -67,7 +67,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 	@FXML
 	private Label pergunta;
 
-	private ProgressiveCronometer time = new ProgressiveCronometer(this);
+	private EnemProgressiveCronometer time = new EnemProgressiveCronometer(this);
 	private Thread control = new Thread(time);
 	private EnemPergunta atual = new EnemPergunta();
 	private EnemPergServices ps = new EnemPergServices();

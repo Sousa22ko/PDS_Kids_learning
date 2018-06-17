@@ -32,7 +32,7 @@
         <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="60.0" prefHeight="193.0" prefWidth="432.0" text="O simulador enem é composto por 180 questões selecionadas de forma aleatória, porém com base na quantidade media de cada categoria no Exame Nacional do Ensino Medio." textAlignment="JUSTIFY" wrapText="true" />
         <Button fx:id="comecar" layoutX="237.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerComecar" prefWidth="200.0" text="Começar" />
         <Button layoutX="12.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerVoltar" prefHeight="25.0" prefWidth="200.0" text="Voltar" />
-        <Label fx:id="relogio" alignment="CENTER" layoutX="226.0" layoutY="340.0" prefHeight="200.0" prefWidth="200.0">
+        <Label fx:id="relogio" alignment="CENTER" layoutX="226.0" layoutY="370.0" prefHeight="200.0" prefWidth="200.0">
           <font>
             <Font size="55.0" fx:id="x2" />
           </font>
