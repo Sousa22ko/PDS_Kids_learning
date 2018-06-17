@@ -4,7 +4,7 @@ import java.util.Observable;
 
 public class ProgressiveCronometer extends Timer {
 	
-	private int qtdPergs = 180; // variável responsável por parar a geração de perguntas
+	private int qtdPergs = 5; // variável responsável por parar a geração de perguntas
 
 	public ProgressiveCronometer(Observable obs) {
 		super(obs);
@@ -68,15 +68,15 @@ public class ProgressiveCronometer extends Timer {
 			if ((Boolean) arg == true) {
 				acertos += 1;
 				pontuacao(true);
-				remainTime = 0.2d;
+				//remainTime = 0.2d;
 				// notifyObservers((String) ("CERTO " + df.format(pontuacao)));
-				notifyObservers((String) ("CERTO " + acertos));
+				notifyObservers((String) ("CERTO " + acertos + " " + erros));
 			} else {
-				//acertos = 0;
+				erros += 1;
 				//vidas -= 1;
 				pontuacao(false);
-				remainTime = 0.2d;
-				notifyObservers((String) ("ERRADO " + acertos));
+				//remainTime = 0.2d;
+				notifyObservers((String) ("ERRADO " + acertos + " " + erros));
 			}
 			qtdPergs--;
 		}

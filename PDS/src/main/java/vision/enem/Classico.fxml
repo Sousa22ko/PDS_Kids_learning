@@ -43,12 +43,15 @@
           </font>
         </Label>
         <Label id="extra" fx:id="vidas" alignment="CENTER" font="$x1" layoutX="14.0" layoutY="584.0" prefHeight="50.0" prefWidth="132.0" />
-        <Label id="relogio" fx:id="pontuacao" alignment="CENTER" layoutX="26.0" layoutY="340.0" prefHeight="200.0" prefWidth="200.0">
+        <Label id="relogio" fx:id="pontuacao" alignment="CENTER" layoutX="122.0" layoutY="330.0" prefHeight="156.0001220703125" prefWidth="172.0">
           <font>
-            <Font size="45.0" />
+            <Font size="40.0" fx:id="x3" />
           </font>
         </Label>
         <Label layoutX="12.0" layoutY="127.0" prefHeight="145.0" prefWidth="432.0" text="Tempo: o tempo será marcado à partir do momento em que o botão começar for ativado e so parará quando a 180ª questão for respondida. Ao final o jogo dará um feedback dos resultados. Bom jogo!" wrapText="true" />
+        <Label id="relogio" fx:id="textoAcerto" alignment="CENTER" font="$x3" layoutX="6.0" layoutY="330.0" prefHeight="156.00009999999747" prefWidth="172.0" text="Acertos:" />
+        <Label id="relogio" fx:id="qtdErro" alignment="CENTER" font="$x3" layoutX="122.0" layoutY="470.0" prefHeight="156.0001220703125" prefWidth="172.0" />
+        <Label id="relogio" fx:id="textoErro" alignment="CENTER" font="$x3" layoutX="29.0" layoutY="470.0" prefHeight="156.00009999999747" prefWidth="172.0" text="Erros:" />
       </children>
     </Pane>
   </children>

@@ -51,9 +51,18 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 	@FXML
 	private Label pontuacao;
+	
+	@FXML
+	private Label qtdErro;
 
 	@FXML
 	private Label vidas;
+	
+	@FXML
+	private Label textoAcerto;
+	
+	@FXML
+	private Label textoErro;
 
 	@FXML
 	private Label pergunta;
@@ -79,6 +88,9 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op3.setVisible(false);
 		op4.setVisible(false);
 		op5.setVisible(false);
+		textoAcerto.setVisible(false);
+		qtdErro.setVisible(false);
+		textoErro.setVisible(false);
 		pergunta.setVisible(false);
 		pontuacao.setVisible(false);
 		extra.setVisible(false);
@@ -101,12 +113,16 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op4.setVisible(true);
 		op5.setVisible(true);
 		pergunta.setVisible(true);
-		extra.setVisible(true);
-		vidas.setVisible(true);
+		textoAcerto.setVisible(false);
+		//qtdErro.setVisible(false);
+		textoErro.setVisible(false);
+		//extra.setVisible(true);
+		//vidas.setVisible(true);
 		relogio.setVisible(true);
 		comecar.setDisable(true);
-		pontuacao.setVisible(true);
+		//pontuacao.setVisible(true);
 		pontuacao.setText("0,00");
+		qtdErro.setText("180");
 
 		control.start();
 		gameStart();
@@ -203,12 +219,20 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op4.setVisible(false);
 		op5.setVisible(false);
 		pergunta.setVisible(false);
-		relogio.setVisible(false);
+		relogio.setVisible(true);
 		extra.setVisible(false);
+		pontuacao.setVisible(true);
+		qtdErro.setVisible(true);
+		textoAcerto.setVisible(true);
+		textoErro.setVisible(true);
 		vidas.setVisible(false);
 		comecar.setDisable(false);
-		vidas.setText("3");
-		pontuacao.setText("0.0");
+		
+		
+		
+		
+		//vidas.setText("3");
+		//pontuacao.setText("0.0");
 		control.interrupt();
 
 	}
@@ -255,6 +279,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 						extra.setTextFill(Color.GREEN);
 						extra.setText("ACERTOU");
 						pontuacao.setText(compair[1]);
+						qtdErro.setText(compair[2]);
 					}
 				});
 			}
@@ -268,6 +293,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 						int qtdVidas = Integer.parseInt(vidas.getText());
 						vidas.setText(Integer.toString(qtdVidas - 1));
 						pontuacao.setText(compair[1]);
+						qtdErro.setText(compair[2]);
 					}
 				});
 			}
