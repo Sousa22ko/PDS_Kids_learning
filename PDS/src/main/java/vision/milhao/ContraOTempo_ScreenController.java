@@ -1,6 +1,7 @@
 package vision.milhao;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -12,10 +13,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import model.MilhaoPergunta;
 import sources.ScreenConstants;
-import util.RegressiveCronometer;
+import util.MilhaoRegressiveCronometer;
 import util.Round;
 import util.ScreenLibrary;
 import util.SharedInfo;
@@ -24,6 +26,9 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 
 	@FXML
 	private AnchorPane screen = new AnchorPane();
+	
+	@FXML
+	private Pane painelValores = new Pane();
 
 	@FXML
 	private Button op1 = new Button("Opção 1");
@@ -41,30 +46,55 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 	private Button comecarButton = new Button("Começar");
 	
 	@FXML
+	private Button voltarButton = new Button("Voltar");
+	
+	@FXML
 	private Button pedDica = new Button("Quero uma dica");
+	
+	@FXML
+	private Button pararButton = new Button("PARAR");
 
 	@FXML
 	private Label dica;
 
 	@FXML
 	private Label extra;
+	
+	@FXML
+	private Label fimDeJogo;
 
 	@FXML
 	private Label relogio;
+	
+	@FXML
+	private Label errarLabel;
+	
+	@FXML
+	private Label pararLabel;
+	
+	@FXML
+	private Label acertarLabel;
+	
+	@FXML
+	private Label dinheiroParar; //dinheiro ganho se parar
+	
+	@FXML
+	private Label dinheiroAcertar;//dinheiro ganho se parar
+	
+	@FXML
+	private Label dinheiroErrar;//dinheiro ganho se parar
 
 	@FXML
 	private Label pergunta;
 	
-	@FXML
-	private Label acrt;
-	
-	@FXML
-	private Label errs;
-
 	private int acertos = 0;
 	private int erros = 0;
+	
+	private ArrayList<String> acertosValor = new ArrayList<String>();
+	private ArrayList<String> errosValor = new ArrayList<String>();
+	private ArrayList<String> pararValor = new ArrayList<String>();
 
-	private RegressiveCronometer time = new RegressiveCronometer(this);
+	private MilhaoRegressiveCronometer time = new MilhaoRegressiveCronometer(this);
 	private Thread control = new Thread(time);
 	private MilhaoPergunta atual = new MilhaoPergunta();
 	private MilhaoPergServices ps = new MilhaoPergServices();
@@ -79,11 +109,19 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 
 	@FXML
 	public void initialize() {
+
+		preencheArrayAcertos();
+		preencheArrayParar();
+		preencheArrayErros();
+		
 		assinar(time);
 		op1.setVisible(false);
 		op2.setVisible(false);
 		op3.setVisible(false);
 		op4.setVisible(false);
+		pararButton.setVisible(false);
+		fimDeJogo.setVisible(false);
+		painelValores.setVisible(false);
 		pedDica.setVisible(false);
 		dica.setVisible(false);
 		pergunta.setVisible(false);
@@ -92,8 +130,6 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		acertos = 0; 
 		erros = 0;
 		
-		acrt.setTextFill(Color.GREEN);
-		errs.setTextFill(Color.RED);
 		
 		SharedInfo.setDirection(false);
 	}
@@ -106,6 +142,8 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		op2.setVisible(true);
 		op3.setVisible(true);
 		op4.setVisible(true);
+		pararButton.setVisible(true);
+		painelValores.setVisible(true);
 		pergunta.setVisible(true);
 		pedDica.setVisible(true);
 		extra.setVisible(true);
@@ -136,18 +174,17 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 	}
 
 	public void gameStart() {
-
-		acrt.setText("+ " + acertos);
-		errs.setText("- " +erros);
 		
 		setChanged();
 		op1.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa1")) {
 					acertos += 1;
+					atualizaPane(acertos);
 					notifyObservers(true);
 				} else {
 					erros += 1;
+					fimDeJogo.setText("Voce ganhou "+errosValor.get(acertos));
 					notifyObservers(false);
 				}
 				loadPergunta();
@@ -158,9 +195,11 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa2")){
 					acertos += 1;
+					atualizaPane(acertos);
 					notifyObservers(true);
 				} else {
 					erros += 1;
+					fimDeJogo.setText("Voce ganhou "+errosValor.get(acertos));
 					notifyObservers(false);
 				}
 				loadPergunta();
@@ -171,9 +210,11 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa3")){
 					acertos += 1;
+					atualizaPane(acertos);
 					notifyObservers(true);
 				} else {
 					erros += 1;
+					fimDeJogo.setText("Voce ganhou "+errosValor.get(acertos));
 					notifyObservers(false);
 				}
 				loadPergunta();
@@ -184,9 +225,11 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("alternativa4")){
 					acertos += 1;
+					atualizaPane(acertos);
 					notifyObservers(true);
 				} else {
 					erros += 1;
+					fimDeJogo.setText("Voce ganhou "+errosValor.get(acertos));
 					notifyObservers(false);
 				}
 				loadPergunta();
@@ -194,13 +237,22 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		});
 
 	}
+	
+	public void atualizaPane(int fase) {
+		dinheiroErrar.setText(errosValor.get(fase));
+		dinheiroParar.setText(pararValor.get(fase));
+		dinheiroAcertar.setText(acertosValor.get(fase));
+	}
 
 	public void gameStop() {
 		op1.setVisible(false);
 		op2.setVisible(false);
 		op3.setVisible(false);
 		op4.setVisible(false);
+		pararButton.setVisible(false);
+		painelValores.setVisible(false);
 		pergunta.setVisible(false);
+		fimDeJogo.setVisible(true);
 		pedDica.setVisible(false);
 		dica.setVisible(false);
 		relogio.setVisible(false);
@@ -220,6 +272,94 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 			e.printStackTrace();
 		}
 	}
+	
+	@FXML
+	public void handlerParar() {
+		fimDeJogo.setText("Voce ganhou "+pararValor.get(acertos));
+		fimDeJogo.setVisible(true);
+		gameStop();
+	}
+	
+	public void preencheArrayErros() {
+		errosValor.add("0 Reais");
+		errosValor.add("250 Reais");
+		errosValor.add("300 Reais");
+		errosValor.add("350 Reais");
+		errosValor.add("400 Reais");
+		errosValor.add("450 Reais");
+		errosValor.add("500 Reais");
+		errosValor.add("1 mil");
+		errosValor.add("1.500 mil");
+		errosValor.add("2 mil");
+		errosValor.add("2.500 mil");
+		errosValor.add("3 mil");
+		errosValor.add("5 mil");
+		errosValor.add("10 mil");
+		errosValor.add("15 mil");
+		errosValor.add("20 mil");
+		errosValor.add("25 mil");
+		errosValor.add("30 mil");
+		errosValor.add("50 mil");
+		errosValor.add("100 mil");
+		errosValor.add("150 mil");
+		errosValor.add("200 mil");
+		errosValor.add("250 mil");
+		errosValor.add("PERDE TUDO");
+	}
+	
+	public void preencheArrayParar() {
+		pararValor.add("0 Reais");
+		pararValor.add("500 Reais");
+		pararValor.add("600 Reais");
+		pararValor.add("700 Reais");
+		pararValor.add("800 Reais");
+		pararValor.add("900 Reais");
+		pararValor.add("1 mil");
+		pararValor.add("2 mil");
+		pararValor.add("3 mil");
+		pararValor.add("4 mil");
+		pararValor.add("5 mil");
+		pararValor.add("6 mil");
+		pararValor.add("10 mil");
+		pararValor.add("20 mil");
+		pararValor.add("30 mil");
+		pararValor.add("40 mil");
+		pararValor.add("50 mil");
+		pararValor.add("60 mil");
+		pararValor.add("100 mil");
+		pararValor.add("200 mil");
+		pararValor.add("300 mil");
+		pararValor.add("400 mil");
+		pararValor.add("500 mil");
+		pararValor.add("600 mil");
+	}
+	
+	public void preencheArrayAcertos() {
+		acertosValor.add("500 Reais");
+		acertosValor.add("600 Reais");
+		acertosValor.add("700 Reais");
+		acertosValor.add("800 Reais");
+		acertosValor.add("900 Reais");
+		acertosValor.add("1 mil");
+		acertosValor.add("2 mil");
+		acertosValor.add("3 mil");
+		acertosValor.add("4 mil");
+		acertosValor.add("5 mil");
+		acertosValor.add("6 mil");
+		acertosValor.add("10 mil");
+		acertosValor.add("20 mil");
+		acertosValor.add("30 mil");
+		acertosValor.add("40 mil");
+		acertosValor.add("50 mil");
+		acertosValor.add("60 mil");
+		acertosValor.add("100 mil");
+		acertosValor.add("200 mil");
+		acertosValor.add("300 mil");
+		acertosValor.add("400 mil");
+		acertosValor.add("500 mil");
+		acertosValor.add("600 mil");
+		acertosValor.add("1 MILHÃO");
+	}
 
 	public void update(Observable o, final Object arg) {
 
@@ -230,32 +370,23 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 						relogio.setTextFill(Color.GREEN);
 					if ((Double) arg <= 30 && (Double) arg >= 10)
 						relogio.setTextFill(Color.ORANGE);
-					if ((Double) arg < 10)
+					if ((Double) arg < 5) {
+						//relogio.setVisible(true);
 						relogio.setTextFill(Color.RED);
+					}
+						
 
 					relogio.setText("" + Round.round((Double) arg, 2));
 				}
 			});
 		}
-
+		
 		if (arg instanceof String) {
-			if ((Double.parseDouble((String) arg) == 5)) {
-				extra.setTextFill(Color.GREEN);
-				extra.setText("+5s ");
-			}
-			if ((Double.parseDouble((String) arg) == 3)) {
-				extra.setTextFill(Color.GREEN);
-				extra.setText("+3s ");
-			}
-			if ((Double.parseDouble((String) arg) == 1)) {
-				extra.setTextFill(Color.GREEN);
-				extra.setText("+1s ");
-			}
-
-			if ((Double.parseDouble((String) arg) == -3)) {
-				extra.setTextFill(Color.RED);
-				extra.setText("-3s ");
-			}
+			if (arg.equals("CAMPEAO"))
+				System.out.println("voce foi campeao");
+				fimDeJogo.setText("Voce ganhou 1 milhao");
+				fimDeJogo.setVisible(true);
+				gameStop();
 		}
 
 		if (arg instanceof Boolean) {

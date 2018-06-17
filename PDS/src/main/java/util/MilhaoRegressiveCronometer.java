@@ -1,9 +1,14 @@
 package util;
 
+import java.util.ArrayList;
 import java.util.Observable;
+
+import antlr.collections.List;
 
 //Fun fact: cronômetro em ingles é "cronometro"
 public class MilhaoRegressiveCronometer extends Timer {
+	
+	private int qtdPergs = 24; // variável responsável por parar a geração de perguntas
 
 	public MilhaoRegressiveCronometer(Observable obs) {
 		super(obs);
@@ -20,7 +25,7 @@ public class MilhaoRegressiveCronometer extends Timer {
 	public void run() {
 		while (true) {
 			setChanged();
-			if (remainTime < 0.1d || vidas <= 0)
+			if (remainTime < 0.1d || qtdPergs <= 0)
 				notifyObservers((Boolean) false);
 			else {
 				try {
@@ -42,21 +47,15 @@ public class MilhaoRegressiveCronometer extends Timer {
 		setChanged();
 		if ((Boolean) arg) {
 			acertos += 1;
-			if (acertos < 10) {
-				remainTime += 5;
-				notifyObservers((String) ("" + 5));
+			remainTime = 45.0;
+			qtdPergs--;
+			if(qtdPergs == 0) {
+				notifyObservers((String) "CAMPEAO");
 			}
-			if (acertos >= 10 && acertos <= 15) {
-				remainTime += 2;
-				notifyObservers((String) ("" + 2));
-			}
-			if (acertos >= 15) {
-				remainTime += 1;
-				notifyObservers((String) ("" + 1));
-			}
+			//
 		} else {
-			remainTime -= 3;
-			notifyObservers((String) ("" + (-3)));
+			remainTime = 0.0;
+			notifyObservers((Boolean) false);
 		}
 
 	}
