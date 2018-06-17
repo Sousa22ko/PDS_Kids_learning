@@ -24,6 +24,9 @@ public class CadPergunta_Controller {
 	private TextField pergunta;
 	
 	@FXML
+	private TextField dica;
+	
+	@FXML
 	private TextField alt1;
 	
 	@FXML 
@@ -61,6 +64,7 @@ public class CadPergunta_Controller {
 			MilhaoPergunta recebida = ps.getPerguntaById(idPerguntaRecebida);
 			
 			pergunta.setText(recebida.getPergunta());
+			dica.setText(recebida.getDica());
 			alt1.setText(recebida.getAlternativa1());
 			alt2.setText(recebida.getAlternativa2());
 			alt3.setText(recebida.getAlternativa3());
@@ -79,6 +83,7 @@ public class CadPergunta_Controller {
 		MilhaoPergunta nova = new MilhaoPergunta();
 		
 		nova.setPergunta(pergunta.getText());
+		nova.setDica(dica.getText());
 		nova.setAlternativa1(alt1.getText());
 		nova.setAlternativa2(alt2.getText());
 		nova.setAlternativa3(alt3.getText());
@@ -109,6 +114,7 @@ public class CadPergunta_Controller {
 		MilhaoPergunta nova = new MilhaoPergunta();
 		
 		nova.setPergunta(pergunta.getText());
+		nova.setDica(dica.getText());
 		nova.setAlternativa1(alt1.getText());
 		nova.setAlternativa2(alt2.getText());
 		nova.setAlternativa3(alt3.getText());

@@ -17,6 +17,9 @@ public class MilhaoPergunta extends HPergunta {
 	@Column(name = "pergunta")
 	private String pergunta;
 	
+	@Column(name = "dica")
+	private String dica;
+
 	@Column(name = "alternativa1")
 	private String alternativa1;
 	
@@ -28,9 +31,6 @@ public class MilhaoPergunta extends HPergunta {
 	
 	@Column(name = "alternativa4")
 	private String alternativa4;
-	
-	@Column(name = "alternativa5")
-	private String alternativa5;
 	
 	@Column(name = "alternativa_correta")
 	private String correta;
@@ -52,6 +52,14 @@ public class MilhaoPergunta extends HPergunta {
 
 	public void setPergunta(String pergunta) {
 		this.pergunta = pergunta;
+	}
+	
+	public String getDica() {
+		return dica;
+	}
+
+	public void setDica(String dica) {
+		this.dica = dica;
 	}
 
 	public String getAlternativa1() {
@@ -84,10 +92,6 @@ public class MilhaoPergunta extends HPergunta {
 
 	public void setAlternativa4(String alternativa4) {
 		this.alternativa4 = alternativa4;
-	}
-	
-	public void setAlternativa5(String alternativa5) {
-		this.alternativa5 = alternativa5;
 	}
 
 	public String getCorreta() {

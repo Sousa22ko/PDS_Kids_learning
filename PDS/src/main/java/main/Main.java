@@ -14,7 +14,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		SharedInfo.setInstance(2); //1Kid 2Enem 3Milhao
+		SharedInfo.setInstance(3); //1Kid 2Enem 3Milhao
 		SceneBuilder.setPrimaryStage(primaryStage);// carrega o stage... a brincadeira começa aqui em baixo
 		SceneBuilder.LoadScreen(ScreenConstants.IDLOGIN , SharedInfo.getInstance());// <-- vão dando crtl click no metodo pra ver como funciona
 		

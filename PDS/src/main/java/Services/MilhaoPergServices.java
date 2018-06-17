@@ -62,6 +62,7 @@ public class MilhaoPergServices extends AbstractPergServices <MilhaoPergunta> {
 				nova.setAlternativa4("Alternativa 4");
 
 				nova.setCorreta("alternativa1");
+				nova.setDica("A resposta está entre a 1 e a 2");
 
 			} else if (correta == 2) {
 				nova.setAlternativa1("Alternativa 1");
@@ -70,6 +71,7 @@ public class MilhaoPergServices extends AbstractPergServices <MilhaoPergunta> {
 				nova.setAlternativa4("Alternativa 4");
 
 				nova.setCorreta("alternativa2");
+				nova.setDica("A resposta está entre a 1 e a 2");
 
 			} else if (correta == 3) {
 				nova.setAlternativa1("Alternativa 1");
@@ -78,6 +80,7 @@ public class MilhaoPergServices extends AbstractPergServices <MilhaoPergunta> {
 				nova.setAlternativa4("Alternativa 4");
 
 				nova.setCorreta("alternativa3");
+				nova.setDica("A resposta está entre a 3 e a 4");
 
 			} else if (correta == 4) {
 				nova.setAlternativa1("Alternativa 1");
@@ -86,6 +89,7 @@ public class MilhaoPergServices extends AbstractPergServices <MilhaoPergunta> {
 				nova.setAlternativa4("CORRETA");
 
 				nova.setCorreta("alternativa4");
+				nova.setDica("A resposta está entre a 3 e a 4");
 
 			} else
 				System.out.println("DEU ERRO NEGADA");
