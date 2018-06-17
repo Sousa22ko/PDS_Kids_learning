@@ -20,18 +20,10 @@ public class MilhaoPergServices extends AbstractPergServices <MilhaoPergunta> {
 
 	public void adicionar(MilhaoPergunta remote) throws Exception{
 		
-		if(remote.getCorreta() == "Alternativa 1"){
-			remote.setCorreta("alternativa1");
-		} else if(remote.getCorreta() == "Alternativa 2"){
-			remote.setCorreta("alternativa2");
-		} else if(remote.getCorreta() == "Alternativa 3"){
-			remote.setCorreta("alternativa3");
-		} else if(remote.getCorreta() == "Alternativa 4"){
-			remote.setCorreta("alternativa4");
-		} else
-			throw new Exception("erro da variavel", null);
-		
-		perguntaDao.adicionar(remote);
+		if(remote.getCorreta() == null)
+			throw new Exception("selecione a alternativa correta");
+		else
+			perguntaDao.adicionar(remote);
 	}
 	
 	public List<MilhaoPergunta> listandoPerguntas(long idUser) {
