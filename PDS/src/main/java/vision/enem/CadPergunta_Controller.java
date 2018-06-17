@@ -2,6 +2,8 @@ package vision.enem;
 
 import java.io.UnsupportedEncodingException;
 
+import org.hibernate.boot.archive.scan.spi.ClassDescriptor.Categorization;
+
 import Services.EnemPergServices;
 import dao.EnemPerguntaDao;
 import javafx.fxml.FXML;
@@ -41,6 +43,9 @@ public class CadPergunta_Controller {
 	
 	@FXML
 	private ChoiceBox<String> correta = new ChoiceBox<String>();
+	
+	@FXML
+	private ChoiceBox<String> categoria = new ChoiceBox<String>();
 
 	@FXML
 	private Pane background;
@@ -55,7 +60,8 @@ public class CadPergunta_Controller {
 	
 	@FXML
 	public void initialize() {
-		correta.getItems().addAll("Alternativa 1", "Alternativa 2", "Alternativa 3", "Alternativa 4");
+		correta.getItems().addAll("Alternativa 1", "Alternativa 2", "Alternativa 3", "Alternativa 4", "Alternativa 5");
+		categoria.getItems().addAll("Ingles", "Espanhol", "Historia", "Geografia", "Filosofia", "Sociologia", "Portugues", "Quimica", "Fisica", "Biologia", "Matematica", "Artes");
 		idPerguntaRecebida = SharedInfo.getId();
 		
 		System.out.println(idPerguntaRecebida + " vo te tacar o piru");
@@ -69,6 +75,7 @@ public class CadPergunta_Controller {
 			alt2.setText(recebida.getAlternativa2());
 			alt3.setText(recebida.getAlternativa3());
 			alt4.setText(recebida.getAlternativa4());
+			alt5.setText(recebida.getAlternativa5());
 			
 		}
 	}
@@ -89,6 +96,7 @@ public class CadPergunta_Controller {
 		nova.setAlternativa4(alt4.getText());
 		nova.setAlternativa5(alt5.getText());
 		nova.setCorreta(correta.getValue());
+		nova.setCategoria(categoria.getValue());
 		nova.setIdUser(LoggedUser.getLoggedUser().getId());
 
 		
@@ -119,8 +127,10 @@ public class CadPergunta_Controller {
 		nova.setAlternativa2(alt2.getText());
 		nova.setAlternativa3(alt3.getText());
 		nova.setAlternativa4(alt4.getText());
+		nova.setAlternativa4(alt5.getText());
 		
 		nova.setCorreta(correta.getValue());
+		nova.setCategoria(categoria.getValue());
 		nova.setIdUser(LoggedUser.getLoggedUser().getId());
 
 		

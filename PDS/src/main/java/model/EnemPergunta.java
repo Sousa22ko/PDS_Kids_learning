@@ -35,6 +35,17 @@ public class EnemPergunta extends HPergunta {
 	@Column(name = "alternativa_correta")
 	private String correta;
 	
+	@Column(name = "categoria")
+	private String categoria;
+	
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
 	@Column(name = "id_user")
 	private long idUser;
 
@@ -80,6 +91,10 @@ public class EnemPergunta extends HPergunta {
 
 	public String getAlternativa4() {
 		return alternativa4;
+	}
+	
+	public String getAlternativa5() {
+		return alternativa5;
 	}
 
 	public void setAlternativa4(String alternativa4) {
