@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Random;
 
 import Services.MilhaoPergServices;
 import javafx.application.Platform;
@@ -157,8 +158,46 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 
 	@FXML
 	public void handlerDica() {
+		int correta = 0;
+		if(atual.getCorreta().equals("alternativa1")) {
+			correta = 1;
+		}else if(atual.getCorreta().equals("alternativa2")) {
+			correta = 2;
+		}else if(atual.getCorreta().equals("alternativa3")) {
+			correta = 3;
+		}else if(atual.getCorreta().equals("alternativa4")) {
+			correta = 4;
+		}
+		
+		
+		int eliminaQ = new Random().nextInt(4) + 1;
+		int eliminaQ2 = new Random().nextInt(4) + 1;
+		while(eliminaQ == correta) {
+			eliminaQ = new Random().nextInt(4) + 1;
+		}
+		while(eliminaQ2 == eliminaQ || eliminaQ2 == correta) {
+			eliminaQ2 = new Random().nextInt(4) + 1;
+		}
+		
+		if(eliminaQ == 1 || eliminaQ2 == 1) {
+			op1.setVisible(false);
+			System.out.println(atual.getCorreta());
+		}
+		if(eliminaQ == 2 || eliminaQ2 == 2) {
+			op2.setVisible(false);
+			System.out.println(atual.getCorreta());
+		}
+		if(eliminaQ == 3 || eliminaQ2 == 3) {
+			op3.setVisible(false);
+			System.out.println(atual.getCorreta());
+		}
+		if(eliminaQ == 4 || eliminaQ2 == 4) {
+			op4.setVisible(false);
+			System.out.println(atual.getCorreta());
+		}
 		pedDica.setVisible(false);
-		dica.setVisible(true);
+		//dica.setVisible(true);
+		
 	}
 
 	private void loadPergunta() {
@@ -181,6 +220,10 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 				if (atual.getCorreta().equals("alternativa1")) {
 					acertos += 1;
 					atualizaPane(acertos);
+					op1.setVisible(true);
+					op2.setVisible(true);
+					op3.setVisible(true);
+					op4.setVisible(true);
 					notifyObservers(true);
 				} else {
 					erros += 1;
@@ -196,6 +239,10 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 				if (atual.getCorreta().equals("alternativa2")){
 					acertos += 1;
 					atualizaPane(acertos);
+					op1.setVisible(true);
+					op2.setVisible(true);
+					op3.setVisible(true);
+					op4.setVisible(true);
 					notifyObservers(true);
 				} else {
 					erros += 1;
@@ -211,6 +258,10 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 				if (atual.getCorreta().equals("alternativa3")){
 					acertos += 1;
 					atualizaPane(acertos);
+					op1.setVisible(true);
+					op2.setVisible(true);
+					op3.setVisible(true);
+					op4.setVisible(true);
 					notifyObservers(true);
 				} else {
 					erros += 1;
@@ -227,6 +278,10 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 					acertos += 1;
 					atualizaPane(acertos);
 					notifyObservers(true);
+					op1.setVisible(true);
+					op2.setVisible(true);
+					op3.setVisible(true);
+					op4.setVisible(true);
 				} else {
 					erros += 1;
 					fimDeJogo.setText("Voce ganhou "+errosValor.get(acertos));
@@ -275,7 +330,10 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 	
 	@FXML
 	public void handlerParar() {
-		fimDeJogo.setText("Voce ganhou "+pararValor.get(acertos));
+		if(acertos != 0)
+			fimDeJogo.setText("Voce ganhou "+pararValor.get(acertos));
+		else
+			fimDeJogo.setText("Voce ganhou "+pararValor.get(23));
 		fimDeJogo.setVisible(true);
 		gameStop();
 	}
@@ -305,6 +363,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		errosValor.add("200 mil");
 		errosValor.add("250 mil");
 		errosValor.add("PERDE TUDO");
+		errosValor.add("PERDEU TUDO");
 	}
 	
 	public void preencheArrayParar() {
@@ -332,6 +391,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		pararValor.add("400 mil");
 		pararValor.add("500 mil");
 		pararValor.add("600 mil");
+		pararValor.add("600 mil");
 	}
 	
 	public void preencheArrayAcertos() {
@@ -358,6 +418,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		acertosValor.add("400 mil");
 		acertosValor.add("500 mil");
 		acertosValor.add("600 mil");
+		acertosValor.add("1 MILHÃO");
 		acertosValor.add("1 MILHÃO");
 	}
 
