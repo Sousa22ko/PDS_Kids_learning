@@ -39,7 +39,13 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 	@FXML
 	private Button comecar = new Button("Comecar");
+	
+	@FXML
+	private Button pedDica = new Button("Quero uma dica");
 
+	@FXML
+	private Label dica;
+	
 	@FXML
 	private Label extra;
 
@@ -75,6 +81,8 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setVisible(false);
 		op3.setVisible(false);
 		op4.setVisible(false);
+		pedDica.setVisible(false);
+		dica.setVisible(false);
 		pergunta.setVisible(false);
 		pontuacao.setVisible(false);
 		extra.setVisible(false);
@@ -83,6 +91,8 @@ public class Classico_ScreenController extends Observable implements Observer {
 		relogio.setVisible(false);
 		SharedInfo.setDirection(true);
 		time.reloadRelogio();
+		
+		//ps.populandoPergunta(100);
 	}
 
 	@FXML
@@ -93,6 +103,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setVisible(true);
 		op3.setVisible(true);
 		op4.setVisible(true);
+		pedDica.setVisible(true);
 		pergunta.setVisible(true);
 		extra.setVisible(true);
 		vidas.setVisible(true);
@@ -115,6 +126,12 @@ public class Classico_ScreenController extends Observable implements Observer {
 			e.printStackTrace();
 		}
 	}
+	
+	@FXML
+	public void handlerDica() {
+		pedDica.setVisible(false);
+		dica.setVisible(true);
+	}
 
 	private void loadPergunta() {
 		atual = (MilhaoPergunta) ps.absRandomPerg();
@@ -124,6 +141,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setText(atual.getAlternativa2());
 		op3.setText(atual.getAlternativa3());
 		op4.setText(atual.getAlternativa4());
+		dica.setText(atual.getDica());
 		gameStart();
 	}
 
@@ -181,6 +199,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setVisible(false);
 		op3.setVisible(false);
 		op4.setVisible(false);
+		pedDica.setVisible(false);
 		pergunta.setVisible(false);
 		relogio.setVisible(false);
 		extra.setVisible(false);
@@ -197,6 +216,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op2.setVisible(false);
 		op3.setVisible(false);
 		op4.setVisible(false);
+		pedDica.setVisible(false);
 		pergunta.setVisible(false);
 		control.interrupt();
 		relogio.setVisible(false);

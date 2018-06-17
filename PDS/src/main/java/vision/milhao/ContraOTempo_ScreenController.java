@@ -39,6 +39,12 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 
 	@FXML
 	private Button comecarButton = new Button("Começar");
+	
+	@FXML
+	private Button pedDica = new Button("Quero uma dica");
+
+	@FXML
+	private Label dica;
 
 	@FXML
 	private Label extra;
@@ -78,6 +84,8 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		op2.setVisible(false);
 		op3.setVisible(false);
 		op4.setVisible(false);
+		pedDica.setVisible(false);
+		dica.setVisible(false);
 		pergunta.setVisible(false);
 		extra.setVisible(false);
 		relogio.setVisible(false);
@@ -99,6 +107,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		op3.setVisible(true);
 		op4.setVisible(true);
 		pergunta.setVisible(true);
+		pedDica.setVisible(true);
 		extra.setVisible(true);
 		relogio.setVisible(true);
 		comecarButton.setDisable(true);
@@ -106,6 +115,12 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		control.start();
 		gameStart();
 
+	}
+
+	@FXML
+	public void handlerDica() {
+		pedDica.setVisible(false);
+		dica.setVisible(true);
 	}
 
 	private void loadPergunta() {
@@ -116,6 +131,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		op2.setText(atual.getAlternativa2());
 		op3.setText(atual.getAlternativa3());
 		op4.setText(atual.getAlternativa4());
+		dica.setText(atual.getDica());
 		gameStart();
 	}
 
@@ -185,6 +201,8 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 		op3.setVisible(false);
 		op4.setVisible(false);
 		pergunta.setVisible(false);
+		pedDica.setVisible(false);
+		dica.setVisible(false);
 		relogio.setVisible(false);
 		extra.setVisible(false);
 		comecarButton.setDisable(false);
