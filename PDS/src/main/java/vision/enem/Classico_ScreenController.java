@@ -45,6 +45,9 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 	@FXML
 	private Label extra;
+	
+	@FXML
+	private Label categoria;
 
 	@FXML
 	private Label relogio;
@@ -88,6 +91,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op3.setVisible(false);
 		op4.setVisible(false);
 		op5.setVisible(false);
+		categoria.setVisible(false);
 		textoAcerto.setVisible(false);
 		qtdErro.setVisible(false);
 		textoErro.setVisible(false);
@@ -99,6 +103,8 @@ public class Classico_ScreenController extends Observable implements Observer {
 		relogio.setVisible(false);
 		SharedInfo.setDirection(true);
 		time.reloadRelogio();
+		
+		//ps.populandoPergunta(100);
 		
 		
 	}
@@ -112,6 +118,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op3.setVisible(true);
 		op4.setVisible(true);
 		op5.setVisible(true);
+		categoria.setVisible(true);
 		pergunta.setVisible(true);
 		textoAcerto.setVisible(false);
 		//qtdErro.setVisible(false);
@@ -148,6 +155,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op3.setText(atual.getAlternativa3());
 		op4.setText(atual.getAlternativa4());
 		op5.setText(atual.getAlternativa5());
+		categoria.setText(atual.getCategoria());
 		gameStart();
 	}
 
@@ -218,6 +226,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op3.setVisible(false);
 		op4.setVisible(false);
 		op5.setVisible(false);
+		categoria.setVisible(false);
 		pergunta.setVisible(false);
 		relogio.setVisible(true);
 		extra.setVisible(false);
@@ -243,6 +252,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		op3.setVisible(false);
 		op4.setVisible(false);
 		op5.setVisible(false);
+		categoria.setVisible(false);
 		pergunta.setVisible(false);
 		control.interrupt();
 		relogio.setVisible(false);

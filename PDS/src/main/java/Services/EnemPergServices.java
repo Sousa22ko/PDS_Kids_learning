@@ -10,20 +10,44 @@ import util.LoggedUser;
 
 public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 	public List<String> materias = new ArrayList<String>();
+	public List<Integer> idMaterias = new ArrayList<Integer>();
 	
 	public EnemPergServices(){
 		materias.add("Fisica");
+		idMaterias.add(15);
+		
 		materias.add("Biologia");
+		idMaterias.add(15);
+		
 		materias.add("Ingles");
+		idMaterias.add(10);
+		
 		materias.add("Espanhol");
+		idMaterias.add(10);
+		
 		materias.add("Portugues");
+		idMaterias.add(20);
+		
 		materias.add("Matematica");
+		idMaterias.add(20);
+		
 		materias.add("Quimica");
+		idMaterias.add(15);
+		
 		materias.add("Historia");
+		idMaterias.add(15);
+		
 		materias.add("Geografia");
+		idMaterias.add(15);
+		
 		materias.add("Filosofia");
+		idMaterias.add(15);
+		
 		materias.add("Sociologia");
+		idMaterias.add(15);
+		
 		materias.add("Artes");
+		idMaterias.add(15);
 		
 		perguntaDao = new EnemPerguntaDao();
 	}
@@ -87,7 +111,7 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 				nova.setAlternativa5("E");
 				
 				nova.setCorreta("A");
-				nova.setCategoria("Fisica");
+				nova.setCategoria("Quimica");
 
 			} else if (correta == 2) {
 				nova.setAlternativa1("A");
@@ -97,7 +121,7 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 				nova.setAlternativa5("E");
 				
 				nova.setCorreta("B");
-				nova.setCategoria("Fisica");
+				nova.setCategoria("Artes");
 
 			} else if (correta == 3) {
 				nova.setAlternativa1("A");
@@ -107,7 +131,7 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 				nova.setAlternativa5("E");
 				
 				nova.setCorreta("C");
-				nova.setCategoria("Fisica");
+				nova.setCategoria("Artes");
 
 			} else if (correta == 4) {
 				nova.setAlternativa1("A");
@@ -117,7 +141,7 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 				nova.setAlternativa5("E");
 				
 				nova.setCorreta("D");
-				nova.setCategoria("Fisica");
+				nova.setCategoria("Artes");
 
 			} else if (correta == 5) {
 				nova.setAlternativa1("A");
@@ -127,7 +151,7 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 				nova.setAlternativa5("E");
 				
 				nova.setCorreta("E");
-				nova.setCategoria("Fisica");
+				nova.setCategoria("Artes");
 
 			} else
 				System.out.println("DEU ERRO NEGADA");
