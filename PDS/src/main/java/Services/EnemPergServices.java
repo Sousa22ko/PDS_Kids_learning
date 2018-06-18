@@ -65,7 +65,7 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 	}
 	
 	public EnemPergunta randonPergunta(){
-		int x = new Random().nextInt(11);
+		int x = new Random().nextInt(11); //aaa
 		String escolhida = materias.get(x);
 		
 		while(true){
