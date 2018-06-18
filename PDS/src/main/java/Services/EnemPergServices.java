@@ -10,44 +10,44 @@ import util.LoggedUser;
 
 public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 	public List<String> materias = new ArrayList<String>();
-	public List<Integer> idMaterias = new ArrayList<Integer>();
+	public List<Integer> qtdPergMaterias = new ArrayList<Integer>();
 	
 	public EnemPergServices(){
 		materias.add("Fisica");
-		idMaterias.add(15);
+		qtdPergMaterias.add(15);
 		
 		materias.add("Biologia");
-		idMaterias.add(15);
+		qtdPergMaterias.add(15);
 		
 		materias.add("Ingles");
-		idMaterias.add(10);
+		qtdPergMaterias.add(10);
 		
 		materias.add("Espanhol");
-		idMaterias.add(10);
+		qtdPergMaterias.add(10);
 		
 		materias.add("Portugues");
-		idMaterias.add(20);
+		qtdPergMaterias.add(20);
 		
 		materias.add("Matematica");
-		idMaterias.add(20);
+		qtdPergMaterias.add(20);
 		
 		materias.add("Quimica");
-		idMaterias.add(15);
+		qtdPergMaterias.add(15);
 		
 		materias.add("Historia");
-		idMaterias.add(15);
+		qtdPergMaterias.add(15);
 		
 		materias.add("Geografia");
-		idMaterias.add(15);
+		qtdPergMaterias.add(15);
 		
 		materias.add("Filosofia");
-		idMaterias.add(15);
+		qtdPergMaterias.add(15);
 		
 		materias.add("Sociologia");
-		idMaterias.add(15);
+		qtdPergMaterias.add(15);
 		
 		materias.add("Artes");
-		idMaterias.add(15);
+		qtdPergMaterias.add(15);
 		
 		perguntaDao = new EnemPerguntaDao();
 	}
@@ -65,12 +65,15 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 	}
 	
 	public EnemPergunta randonPergunta(){
-		String escolhida = materias.get(new Random().nextInt(11));
+		int x = new Random().nextInt(11);
+		String escolhida = materias.get(x);
 		
 		while(true){
 			EnemPergunta p = perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
-			if(p.getCategoria().equals(escolhida))
+			if(p.getCategoria().equals(escolhida) && qtdPergMaterias.get(x) > 0) {
+				qtdPergMaterias.set(x, qtdPergMaterias.get(x)-1);
 				return p;
+			}
 		}	
 	}
 	
