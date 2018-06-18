@@ -1,9 +1,6 @@
 package util;
 
-import java.util.ArrayList;
 import java.util.Observable;
-
-import antlr.collections.List;
 
 //Fun fact: cronômetro em ingles é "cronometro"
 public class MilhaoRegressiveCronometer extends Timer {

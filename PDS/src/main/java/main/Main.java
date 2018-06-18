@@ -1,5 +1,6 @@
 package main;
 	
+import Services.UserServices;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import sources.ScreenConstants;
@@ -14,9 +15,11 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		SharedInfo.setInstance(3); //1Kid 2Enem 3Milhao
+		
+		UserServices.initialize();
+		SharedInfo.setInstance(0);
 		SceneBuilder.setPrimaryStage(primaryStage);// carrega o stage... a brincadeira começa aqui em baixo
-		SceneBuilder.LoadScreen(ScreenConstants.IDLOGIN , SharedInfo.getInstance());// <-- vão dando crtl click no metodo pra ver como funciona
+		SceneBuilder.LoadScreen(ScreenConstants.SELECIONAPP , SharedInfo.getInstance());// <-- vão dando crtl click no metodo pra ver como funciona
 		
 	}
 }

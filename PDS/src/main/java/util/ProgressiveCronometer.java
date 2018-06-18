@@ -4,8 +4,6 @@ import java.util.Observable;
 
 public class ProgressiveCronometer extends Timer {
 	
-	private int qtdPergs = 5; // variável responsável por parar a geração de perguntas
-
 	public ProgressiveCronometer(Observable obs) {
 		super(obs);
 		remainTime = 0.2d;
@@ -78,7 +76,6 @@ public class ProgressiveCronometer extends Timer {
 				remainTime = 0.2d;
 				notifyObservers((String) ("ERRADO " + pontuacao + " " + erros));
 			}
-			qtdPergs--;
 		}
 
 	}

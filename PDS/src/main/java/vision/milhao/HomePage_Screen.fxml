@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="vision.milhao.HomePage_ScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vision.milhao.HomePage_ScreenController">
   <children>
-    <Pane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <Pane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <Pane fx:id="backPane" layoutX="25.0" layoutY="25.0" prefHeight="718.0" prefWidth="1316.0" style="-fx-border-color: lightgrey; -fx-background-color: whitesmoke;">
+        <Pane fx:id="backPane" layoutX="25.0" layoutY="25.0" prefHeight="718.0" prefWidth="1316.0" style="-fx-border-color: lightgrey; -fx-background-color: #000520;">
           <children>
-            <Button layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#handlerContraOTempo" prefHeight="75.0" prefWidth="633.0" text="Contra o tempo" />
-            <Button layoutX="666.0" layoutY="15.0" mnemonicParsing="false" onAction="#handlerFriends" prefHeight="75.0" prefWidth="633.0001220703125" text="Lista de amigos" />
-            <Button fx:id="novaPergunta" layoutX="15.0" layoutY="101.0" mnemonicParsing="false" onAction="#handlerNovaPergunta" prefHeight="25.0" prefWidth="200.0" text="Nova pergunta" />
-            <Button fx:id="listaPergunta" layoutX="234.0" layoutY="101.0" mnemonicParsing="false" onAction="#handlerListaPergunta" prefHeight="25.0" prefWidth="200.0" text="Editar perguntas" />
+            <Button layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#handlerContraOTempo" prefHeight="75.0" prefWidth="633.0" style="-fx-background-color: gold;" text="Show do milhão" />
+            <Button layoutX="666.0" layoutY="15.0" mnemonicParsing="false" onAction="#handlerFriends" prefHeight="75.0" prefWidth="633.0001220703125" style="-fx-background-color: gold;" text="Lista de amigos" />
+            <Button fx:id="novaPergunta" layoutX="15.0" layoutY="101.0" mnemonicParsing="false" onAction="#handlerNovaPergunta" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: gold;" text="Nova pergunta" />
+            <Button fx:id="listaPergunta" layoutX="234.0" layoutY="101.0" mnemonicParsing="false" onAction="#handlerListaPergunta" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: gold;" text="Editar perguntas" />
           </children>
         </Pane>
       </children>
