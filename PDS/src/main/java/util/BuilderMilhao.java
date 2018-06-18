@@ -14,7 +14,7 @@ public class BuilderMilhao extends ScreenBuilder{
 
 	}
 	
-	public static void renderHomePage() {
+	private static void renderHomePage() {
 
 		path = "/vision/kids/HomePage_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
 		title = "Home"; // nome q aparece no topo da tela
@@ -64,25 +64,25 @@ public class BuilderMilhao extends ScreenBuilder{
 
 	public static void load(int id) throws UnsupportedEncodingException {
 		if(id == ScreenConstants.IDLOGIN)
-			BuilderKids.renderLoginScreen();// <-- crtl click na classe screenbuilder
+			BuilderMilhao.renderLoginScreen();// <-- crtl click na classe screenbuilder
 		
 		else if(id == ScreenConstants.IDHOME)
-			BuilderKids.renderHomePage();
+			BuilderMilhao.renderHomePage();
 		
 		else if(id == ScreenConstants.IDCADPERG)
-			BuilderKids.renderCadastroPergunta();
+			BuilderMilhao.renderCadastroPergunta();
 		
 		else if(id == ScreenConstants.IDAGAINSTTIME)
-			BuilderKids.renderContraOTempo();
+			BuilderMilhao.renderContraOTempo();
 		
 		else if(id == ScreenConstants.CLASSIC)
-			BuilderKids.renderClassico();
+			BuilderMilhao.renderClassico();
 		
 		else if(id == ScreenConstants.FRIENDS)
-			BuilderKids.renderFriends();
+			BuilderMilhao.renderFriends();
 		
 		else if(id == ScreenConstants.LISTPERG)
-			BuilderKids.renderListPerg();
+			BuilderMilhao.renderListPerg();
 		
 		
 		else throw new UnsupportedEncodingException("tela indefida");

@@ -49,15 +49,6 @@ public class HomePage_ScreenController { //inserindo um comentário só para conse
 	}
 
 	@FXML
-	public void handlerContraOTempo() {
-		try {
-			ScreenLibrary.LoadTela(ScreenConstants.IDAGAINSTTIME, SharedInfo.getInstance());
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@FXML
 	public void handlerClassico() {
 		try {
 			ScreenLibrary.LoadTela(ScreenConstants.CLASSIC, SharedInfo.getInstance());

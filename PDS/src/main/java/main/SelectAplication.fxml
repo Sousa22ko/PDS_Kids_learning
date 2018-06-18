@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.SelectAplicationController">
+   <children>
+      <Button layoutX="374.0" layoutY="217.0" mnemonicParsing="false" onAction="#handlerKids" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: whitesmoke; -fx-border-color: lightgrey;" text="Kids Learning" />
+      <Button layoutX="583.0" layoutY="217.0" mnemonicParsing="false" onAction="#handlerEnem" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: cyan; -fx-border-color: lightgrey;" text="Simulador Enem" />
+      <Button layoutX="792.0" layoutY="217.0" mnemonicParsing="false" onAction="#handlerMilhao" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gold; -fx-border-color: gold;" text="Show do milhão" />
+      <Label layoutX="632.0" layoutY="178.0" text="Escolha a aplicação" />
+      <Label layoutX="626.0" layoutY="110.0" text="Quizzy">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

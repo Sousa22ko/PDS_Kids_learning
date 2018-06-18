@@ -48,7 +48,9 @@ public class ScreenLibrary {
 		//e da interfaçe tbm são feitos por la
 		
 		
-		if(instance == 1)
+		if(instance == 0)
+			SelectBuilder.load(id);
+		else if(instance == 1)
 			BuilderKids.load(id);
 		else if(instance ==  2)
 			BuilderEnem.load(id);

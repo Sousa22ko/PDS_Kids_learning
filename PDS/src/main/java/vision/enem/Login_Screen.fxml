@@ -11,7 +11,7 @@
   <children>
     <Pane fx:id="background" prefHeight="522.0" prefWidth="456.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <Pane fx:id="logicPane" layoutX="78.0" layoutY="28.0" prefHeight="420.0" prefWidth="300.0" style="-fx-background-color: whitesmoke; -fx-border-color: lightgrey;">
+        <Pane fx:id="logicPane" layoutX="78.0" layoutY="28.0" prefHeight="420.0" prefWidth="300.0" style="-fx-background-color: AliceBlue; -fx-border-color: GhostWhite;">
           <children>
             <Button fx:id="login" layoutX="75.0" layoutY="300.0" mnemonicParsing="false" onAction="#LoginHandler" prefWidth="150.0" text="Login" />
             <TextField fx:id="user" layoutX="25.0" layoutY="220.0" onAction="#LoginHandler" prefHeight="25.0" prefWidth="250.0" promptText="Usuario" />
