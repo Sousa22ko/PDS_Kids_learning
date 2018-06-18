@@ -9,8 +9,22 @@ import model.EnemPergunta;
 import util.LoggedUser;
 
 public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
+	public List<String> materias = new ArrayList<String>();
 	
 	public EnemPergServices(){
+		materias.add("Fisica");
+		materias.add("Biologia");
+		materias.add("Ingles");
+		materias.add("Espanhol");
+		materias.add("Portugues");
+		materias.add("Matematica");
+		materias.add("Quimica");
+		materias.add("Historia");
+		materias.add("Geografia");
+		materias.add("Filosofia");
+		materias.add("Sociologia");
+		materias.add("Artes");
+		
 		perguntaDao = new EnemPerguntaDao();
 	}
 
@@ -27,7 +41,13 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 	}
 	
 	public EnemPergunta randonPergunta(){
-		return perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
+		String escolhida = materias.get(new Random().nextInt(11));
+		
+		while(true){
+			EnemPergunta p = perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
+			if(p.getCategoria().equals(escolhida))
+				return p;
+		}	
 	}
 	
 	public List<EnemPergunta> listandoPerguntas(long idUser) {

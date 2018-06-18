@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="util.RegressiveCronometer" project="PDS" 
     file="/PDS/src/main/java/util/RegressiveCronometer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3184" y="2551"/>    
+    <position height="-1" width="-1" x="2320" y="2363"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="util.EnemProgressiveCronometer" project="PDS" 
     file="/PDS/src/main/java/util/EnemProgressiveCronometer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3440" y="2560"/>    
+    <position height="-1" width="-1" x="2576" y="2372"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="util.ProgressiveCronometer" project="PDS" 
     file="/PDS/src/main/java/util/ProgressiveCronometer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3697" y="2551"/>    
+    <position height="-1" width="-1" x="2833" y="2363"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="util.MilhaoRegressiveCronometer" project="PDS" 
     file="/PDS/src/main/java/util/MilhaoRegressiveCronometer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3954" y="2560"/>    
+    <position height="-1" width="-1" x="3090" y="2372"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,10 +39,10 @@
   </class>  
   <class id="5" language="java" name="util.Timer" project="PDS" file="/PDS/src/main/java/util/Timer.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3554" y="2286"/>    
+    <position height="-1" width="-1" x="2690" y="2098"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  

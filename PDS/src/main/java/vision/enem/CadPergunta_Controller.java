@@ -2,8 +2,6 @@ package vision.enem;
 
 import java.io.UnsupportedEncodingException;
 
-import org.hibernate.boot.archive.scan.spi.ClassDescriptor.Categorization;
-
 import Services.EnemPergServices;
 import dao.EnemPerguntaDao;
 import javafx.fxml.FXML;
