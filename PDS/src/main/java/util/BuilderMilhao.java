@@ -8,7 +8,7 @@ public class BuilderMilhao extends ScreenBuilder{
 	
 	public static void renderLoginScreen() {
 
-		path = "/vision/kids/Login_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		path = "/vision/milhao/Login_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
 		title = "Login"; // nome q aparece no topo da tela
 		buildScreen();
 
@@ -16,7 +16,7 @@ public class BuilderMilhao extends ScreenBuilder{
 	
 	private static void renderHomePage() {
 
-		path = "/vision/kids/HomePage_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		path = "/vision/milhao/HomePage_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
 		title = "Home"; // nome q aparece no topo da tela
 		buildScreen();
 
@@ -24,7 +24,7 @@ public class BuilderMilhao extends ScreenBuilder{
 	
 	public static void renderCadastroPergunta() {
 
-		path = "/vision/kids/CadPergunta_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		path = "/vision/milhao/CadPergunta_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
 		title = "Cadastro de pergunta"; // nome q aparece no topo da tela
 		buildScreen();
 
@@ -32,7 +32,7 @@ public class BuilderMilhao extends ScreenBuilder{
 	
 	public static void renderContraOTempo() {
 
-		path = "/vision/kids/ContraOTempo_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		path = "/vision/milhao/ContraOTempo_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
 		title = "Contra o Tempo"; // nome q aparece no topo da tela
 		buildScreen();
 
@@ -40,7 +40,7 @@ public class BuilderMilhao extends ScreenBuilder{
 	
 	public static void renderClassico() {
 
-		path = "/vision/kids/Classico.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		path = "/vision/milhao/Classico.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
 		title = "Classico"; // nome q aparece no topo da tela
 		buildScreen();
 
@@ -48,7 +48,7 @@ public class BuilderMilhao extends ScreenBuilder{
 	
 	public static void renderFriends() {
 
-		path = "/vision/kids/Friend_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		path = "/vision/milhao/Friend_Screen.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
 		title = "Lista de amigos"; // nome q aparece no topo da tela
 		buildScreen();
 
@@ -56,13 +56,14 @@ public class BuilderMilhao extends ScreenBuilder{
 	
 	public static void renderListPerg() {
 
-		path = "/vision/kids/ListQuestions.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
+		path = "/vision/milhao/ListQuestions.fxml"; // arquivo fxml q vcs vão abrir la no screnebuilder (o programa)
 		title = "Suas Perguntas"; // nome q aparece no topo da tela
 		buildScreen();
 
 	}
 
 	public static void load(int id) throws UnsupportedEncodingException {
+		
 		if(id == ScreenConstants.IDLOGIN)
 			BuilderMilhao.renderLoginScreen();// <-- crtl click na classe screenbuilder
 		
