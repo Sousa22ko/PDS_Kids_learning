@@ -4,7 +4,7 @@ import java.util.Observable;
 
 public class EnemProgressiveCronometer extends Timer {
 	
-	private int qtdPergs = 5; // variável responsável por parar a geração de perguntas
+	private int qtdPergs = 180; // variável responsável por parar a geração de perguntas
 
 	public EnemProgressiveCronometer(Observable obs) {
 		super(obs);
