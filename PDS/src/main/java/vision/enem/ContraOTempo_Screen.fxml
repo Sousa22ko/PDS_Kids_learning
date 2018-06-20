@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="vision.enem.ContraOTempo_ScreenController">
+  <children>
+    <Pane layoutX="485.0" layoutY="15.0" prefHeight="768.0" prefWidth="1366.0">
+      <children>
+        <Label fx:id="pergunta" alignment="CENTER" prefHeight="310.0" prefWidth="874.0" text="Teste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testes" wrapText="true">
+          <font>
+            <Font name="System Bold" size="40.0" />
+          </font>
+        </Label>
+        <Button fx:id="op1" layoutX="9.0" layoutY="314.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: f3b3b3;" text="op1" textAlignment="CENTER" />
+        <Button fx:id="op2" layoutX="439.0" layoutY="315.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: b3f3b3;" text="op2" textAlignment="CENTER" />
+        <Button fx:id="op3" layoutX="9.0" layoutY="501.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: b3b3f3;" text="op3" textAlignment="CENTER" />
+        <Button fx:id="op4" layoutX="439.0" layoutY="501.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: f3b3f3;" text="op4" textAlignment="CENTER" />
+      </children>
+    </Pane>
+    <Pane layoutX="14.0" layoutY="14.0" prefHeight="680.0" prefWidth="461.0" style="-fx-border-color: lightgrey; -fx-background-color: whitesmoke;">
+      <children>
+        <Label layoutX="187.0" layoutY="14.0" text="Contra o Tempo" />
+        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="60.0" prefHeight="326.0" prefWidth="432.0" text="No modo &quot;Contra o tempo&quot; o jogador tem inicialmente 45 segundos em contagem regressiva para responder o maximo possível de questões." textAlignment="JUSTIFY" wrapText="true" />
+        <Button fx:id="comecarButton" layoutX="237.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerComecar" prefWidth="200.0" text="Começar" />
+        <Button layoutX="12.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerVoltar" prefHeight="25.0" prefWidth="200.0" text="Voltar" />
+        <Label fx:id="relogio" alignment="CENTER" layoutX="130.0" layoutY="350.0" prefHeight="200.0" prefWidth="200.0">
+          <font>
+            <Font size="55.0" />
+          </font>
+        </Label>
+        <Label fx:id="extra" alignment="CENTER" layoutX="396.0" layoutY="574.0" prefHeight="50.0" prefWidth="50.0">
+          <font>
+            <Font name="System Bold" size="23.0" />
+          </font>
+        </Label>
+        <Label layoutX="13.0" layoutY="103.0" prefHeight="41.0" prefWidth="432.0" text="Ao acertar a questão o jogador recebe uma bonificação de tempo seguindo a tabela abaixo:" wrapText="true" />
+        <Label layoutX="13.0" layoutY="153.0" prefHeight="82.0" prefWidth="241.0" text="primeiros 10 acertos = +5 segundos/questão 5 acertos seguintes = +2 segundos/questão a partir de 15 acertos = +1 segundo/questão" wrapText="true" />
+        <Label layoutX="12.0" layoutY="236.0" prefHeight="58.0" prefWidth="432.0" text="Se o jogador errar uma questão o sistema irá selecionar outra pergunta e o jogador será penalizado com -3 segundos/questão." wrapText="true" />
+        <Label layoutX="12.0" layoutY="282.0" prefHeight="50.0" prefWidth="432.0" text="Todas as questões são selecionadas automaticamente.Responda o maximo possivel de questões sem errar, boa sorte." wrapText="true" />
+        <Label fx:id="acrt" layoutX="6.0" layoutY="369.0" prefHeight="33.0" prefWidth="50.0" text="+0" textFill="#499358">
+          <font>
+            <Font name="System Bold" size="21.0" fx:id="x1" />
+          </font>
+        </Label>
+        <Label fx:id="errs" font="$x1" layoutX="12.0" layoutY="402.0" prefHeight="33.0" prefWidth="50.0" text="-0" textFill="#f84343" />
+        <Label id="relogio" fx:id="dica" alignment="CENTER" layoutX="12.0" layoutY="553.0" prefHeight="82.0" prefWidth="422.0">
+          <font>
+            <Font size="40.0" />
+          </font>
+        </Label>
+        <Button id="comecarButton" fx:id="pedDica" layoutX="123.0" layoutY="589.0" mnemonicParsing="false" onAction="#handlerComecar" prefWidth="200.0" text="Quero uma dica" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

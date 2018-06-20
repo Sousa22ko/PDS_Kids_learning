@@ -76,4 +76,5 @@ public class GenericDao<T, I> {
 		if(manager.isOpen())
 			manager.close();
 	}
+
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vision.milhao.ContraOTempo_ScreenController">
+  <children>
+    <Pane layoutX="485.0" layoutY="15.0" prefHeight="768.0" prefWidth="1366.0">
+      <children>
+        <Label fx:id="pergunta" alignment="CENTER" prefHeight="310.0" prefWidth="874.0" text="Teste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testesTeste testes" textFill="#ffcc00" wrapText="true">
+          <font>
+            <Font name="System Bold" size="40.0" fx:id="x2" />
+          </font>
+        </Label>
+        <Button fx:id="op1" layoutX="9.0" layoutY="314.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: gold;" text="op1" textAlignment="CENTER" />
+        <Button fx:id="op2" layoutX="439.0" layoutY="315.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: gold;" text="op2" textAlignment="CENTER" />
+        <Button fx:id="op3" layoutX="9.0" layoutY="501.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: gold;" text="op3" textAlignment="CENTER" />
+        <Button fx:id="op4" layoutX="439.0" layoutY="501.0" mnemonicParsing="false" prefHeight="175.0" prefWidth="422.0" style="-fx-background-color: gold;" text="op4" textAlignment="CENTER" />
+      </children>
+    </Pane>
+    <Pane layoutX="14.0" layoutY="14.0" prefHeight="680.0" prefWidth="461.0" style="-fx-border-color: lightgrey; -fx-background-color: #000520;">
+      <children>
+        <Label layoutX="187.0" layoutY="14.0" text="Show do Milhão" textFill="#fff200" />
+        <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="60.0" prefHeight="326.0" prefWidth="432.0" text="Serão 24 questões aleatórias. Cada uma terá um tempo limite de 45 segundos para ser respondida. Acerte todas e seja o mais novo milionario do Brasil." textAlignment="JUSTIFY" textFill="#fff200" wrapText="true" />
+        <Button fx:id="comecarButton" layoutX="237.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerComecar" prefWidth="200.0" style="-fx-background-color: gold;" text="Começar" />
+        <Button fx:id="voltarButton" layoutX="12.0" layoutY="635.0" mnemonicParsing="false" onAction="#handlerVoltar" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: gold;" text="Voltar" />
+        <Label fx:id="relogio" alignment="CENTER" layoutX="131.0" layoutY="390.0" prefHeight="200.0" prefWidth="200.0" textFill="#ffda00">
+          <font>
+            <Font size="55.0" />
+          </font>
+        </Label>
+        <Label fx:id="extra" alignment="CENTER" layoutX="396.0" layoutY="574.0" prefHeight="50.0" prefWidth="50.0" textFill="#ffda00">
+          <font>
+            <Font name="System Bold" size="23.0" />
+          </font>
+        </Label>
+        <Label id="relogio" fx:id="dica" alignment="CENTER" layoutX="9.0" layoutY="553.0" prefHeight="82.0" prefWidth="422.0" textFill="#ffda00">
+          <font>
+            <Font size="30.0" fx:id="x1" />
+          </font>
+        </Label>
+        <Button id="comecarButton" fx:id="pedDica" layoutX="128.0" layoutY="589.0" mnemonicParsing="false" onAction="#handlerDica" prefWidth="200.0" style="-fx-background-color: gold;" text="Quero uma dica" />
+        <Pane fx:id="painelValores" layoutX="12.0" layoutY="236.0" prefHeight="200.0" prefWidth="432.0">
+          <children>
+            <Label id="relogio" fx:id="dinheiroParar" alignment="CENTER" font="$x1" layoutX="165.0" layoutY="96.0" prefHeight="82.0" prefWidth="102.0" text="-" />
+            <Label id="relogio" fx:id="dinheiroAcertar" alignment="CENTER" font="$x1" layoutX="316.0" layoutY="100.0" prefHeight="82.0" prefWidth="102.0" text="500" textFill="#ffea00" />
+            <Label id="relogio" fx:id="dinheiroErrar" alignment="CENTER" font="$x1" layoutX="14.0" layoutY="100.0" prefHeight="82.0" prefWidth="102.0" text="0" textFill="#ffea00" />
+            <Label id="relogio" fx:id="acertarLabel" alignment="CENTER" font="$x1" layoutX="316.0" layoutY="14.0" prefHeight="82.0" prefWidth="102.0" text="Acertar" textFill="#ffea00" />
+            <Label id="relogio" fx:id="pararLabel" alignment="CENTER" font="$x1" layoutX="161.0" layoutY="14.0" prefHeight="82.0" prefWidth="102.0" text="Parar" textFill="#ffea00" />
+            <Label id="relogio" fx:id="errarLabel" alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" prefHeight="82.0" prefWidth="102.0" text="Errar" textFill="#ffea00" />
+          </children>
+        </Pane>
+        <Label id="relogio" fx:id="fimDeJogo" alignment="CENTER" font="$x1" layoutX="0.0" layoutY="80.0" prefHeight="200.0" prefWidth="461.0" textFill="#ffda00" />
+        <Button id="comecarButton" fx:id="pararButton" alignment="CENTER" font="$x2" layoutX="96.0" layoutY="141.0" mnemonicParsing="false" onAction="#handlerParar" prefHeight="82.0" prefWidth="264.0" style="-fx-background-color: gold;" text="PARAR" textOverrun="ELLIPSIS" wrapText="false" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

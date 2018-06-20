@@ -3,7 +3,7 @@ package util;
 import java.util.Observable;
 
 public class ProgressiveCronometer extends Timer {
-
+	
 	public ProgressiveCronometer(Observable obs) {
 		super(obs);
 		remainTime = 0.2d;
@@ -68,13 +68,13 @@ public class ProgressiveCronometer extends Timer {
 				pontuacao(true);
 				remainTime = 0.2d;
 				// notifyObservers((String) ("CERTO " + df.format(pontuacao)));
-				notifyObservers((String) ("CERTO " + pontuacao));
+				notifyObservers((String) ("CERTO " + pontuacao + " " + erros));
 			} else {
-				acertos = 0;
+				erros += 1;
 				vidas -= 1;
 				pontuacao(false);
 				remainTime = 0.2d;
-				notifyObservers((String) ("ERRADO " + pontuacao));
+				notifyObservers((String) ("ERRADO " + pontuacao + " " + erros));
 			}
 		}
 

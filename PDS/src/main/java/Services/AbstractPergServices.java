@@ -3,30 +3,35 @@ package Services;
 import java.util.List;
 import java.util.Random;
 
-import dao.PerguntaDao;
-import model.Pergunta;
+import dao.GenericDao;
 
-public abstract class AbstractPergServices {
+public abstract class AbstractPergServices <T> {
 
-	public static PerguntaDao perguntaDao = new PerguntaDao(); // banco com perguntas
-	public static Pergunta pergunta;
-	public static long id;
+	protected GenericDao<T, Long> perguntaDao ;
+	protected T pergunta;
+	protected long id;
 	
-	public PerguntaDao getDao() {
+	public GenericDao<T, Long> getDao() {
 		return perguntaDao;
 	}
 	
-	public abstract void adicionar(Pergunta remote) throws Exception;
+	public abstract void adicionar(T remote) throws Exception;
 	
-	public void atualizar(Pergunta remote){
-		perguntaDao.atualizar(remote); 	
+	public void atualizar(T remote){
+		perguntaDao.atualizar((T)remote); 	
 	}
 	
-	public Pergunta getPerguntaById(Long id){
-		return perguntaDao.getPerguntaById(id);
+	public T getPerguntaById(Long id){
+		return (T) perguntaDao.buscar(id);
 	}
 
+<<<<<<< HEAD
 	public abstract Pergunta randomPerg();
+=======
+	public T absRandomPerg() {	
+		return perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
+	}
+>>>>>>> BranchRefatoracao
 	
-	public abstract List<Pergunta> listandoPerguntas(long idUser);
+	public abstract List<T> listandoPerguntas(long idUser);
 }

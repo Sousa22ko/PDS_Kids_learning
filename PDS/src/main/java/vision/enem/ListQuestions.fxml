@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vision.enem.ListQuestions_ScreenController">
+   <children>
+      <Pane fx:id="pane" layoutX="213.0" layoutY="122.0" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: whitesmoke; -fx-border-color: lightgrey;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handlerVoltar" text="Voltar para a home" />
+            <Button fx:id="bPrev" layoutX="351.0" layoutY="14.0" mnemonicParsing="false" onAction="#handlerPrevPage" text="Pagina anterior" />
+            <Button fx:id="bNext" layoutX="466.0" layoutY="14.0" mnemonicParsing="false" onAction="#handlerNextPage" text="proxima pagina" />
+         </children></Pane>
+   </children>
+</AnchorPane>
