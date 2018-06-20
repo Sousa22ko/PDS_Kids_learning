@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class EnemPergunta extends HPergunta {
+public class EnemPergunta{
 	
 	@Id
 	@Column(name = "id")

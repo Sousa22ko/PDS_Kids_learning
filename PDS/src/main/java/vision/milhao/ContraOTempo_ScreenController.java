@@ -89,6 +89,7 @@ public class ContraOTempo_ScreenController extends Observable implements Observe
 	private Label pergunta;
 	
 	private int acertos = 0;
+	@SuppressWarnings("unused")
 	private int erros = 0;
 	
 	private ArrayList<String> acertosValor = new ArrayList<String>();

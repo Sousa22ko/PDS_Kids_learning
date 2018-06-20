@@ -36,7 +36,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 	@FXML
 	private Button op4 = new Button("Opção 4");
-	
+
 	@FXML
 	private Button op5 = new Button("Opção 5");
 
@@ -45,7 +45,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 	@FXML
 	private Label extra;
-	
+
 	@FXML
 	private Label categoria;
 
@@ -54,16 +54,16 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 	@FXML
 	private Label pontuacao; // quantidade de questões certas
-	
+
 	@FXML
-	private Label qtdErro; //quantidade de questões erradas
+	private Label qtdErro; // quantidade de questões erradas
 
 	@FXML
 	private Label vidas;
-	
+
 	@FXML
 	private Label textoAcerto;
-	
+
 	@FXML
 	private Label textoErro;
 
@@ -74,6 +74,8 @@ public class Classico_ScreenController extends Observable implements Observer {
 	private Thread control = new Thread(time);
 	private EnemPergunta atual = new EnemPergunta();
 	private EnemPergServices ps = new EnemPergServices();
+
+	private int x;
 
 	@SuppressWarnings("unused")
 	private Observable obs;
@@ -105,10 +107,9 @@ public class Classico_ScreenController extends Observable implements Observer {
 		relogio.setVisible(false);
 		SharedInfo.setDirection(true);
 		time.reloadRelogio();
-		
-		//ps.populandoPergunta(100);
-		
-		
+
+		// ps.populandoPergunta(100);
+
 	}
 
 	@FXML
@@ -123,16 +124,16 @@ public class Classico_ScreenController extends Observable implements Observer {
 		categoria.setVisible(true);
 		pergunta.setVisible(true);
 		textoAcerto.setVisible(false);
-		//qtdErro.setVisible(false);
+		// qtdErro.setVisible(false);
 		textoErro.setVisible(false);
-		//extra.setVisible(true);
-		//vidas.setVisible(true);
+		// extra.setVisible(true);
+		// vidas.setVisible(true);
 		relogio.setVisible(true);
 		comecar.setDisable(true);
-		//pontuacao.setVisible(true);
+		// pontuacao.setVisible(true);
 		pontuacao.setText("0,00");
 		qtdErro.setText("180");
-
+		x = 0;
 		control.start();
 		gameStart();
 
@@ -149,16 +150,20 @@ public class Classico_ScreenController extends Observable implements Observer {
 	}
 
 	private void loadPergunta() {
-		atual = ps.getPergunta(Integer.parseInt(pontuacao.getText())+Integer.parseInt(qtdErro.getText()));
-		pergunta.setText(atual.getPergunta());
+		if (x < 180) {
+			atual = ps.getPergunta(Integer.parseInt(pontuacao.getText()) + Integer.parseInt(qtdErro.getText()));
 
-		op1.setText(atual.getAlternativa1());
-		op2.setText(atual.getAlternativa2());
-		op3.setText(atual.getAlternativa3());
-		op4.setText(atual.getAlternativa4());
-		op5.setText(atual.getAlternativa5());
-		categoria.setText(atual.getCategoria());
-		gameStart();
+			pergunta.setText(atual.getPergunta());
+			x++;
+			op1.setText(atual.getAlternativa1());
+			op2.setText(atual.getAlternativa2());
+			op3.setText(atual.getAlternativa3());
+			op4.setText(atual.getAlternativa4());
+			op5.setText(atual.getAlternativa5());
+			categoria.setText(atual.getCategoria());
+			gameStart();
+		} else
+			gameStop();
 	}
 
 	public void gameStart() {
@@ -208,7 +213,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 				loadPergunta();
 			}
 		});
-		
+
 		op5.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (atual.getCorreta().equals("E")) {
@@ -238,12 +243,9 @@ public class Classico_ScreenController extends Observable implements Observer {
 		textoErro.setVisible(true);
 		vidas.setVisible(false);
 		comecar.setDisable(false);
-		
-		
-		
-		
-		//vidas.setText("3");
-		//pontuacao.setText("0.0");
+
+		// vidas.setText("3");
+		// pontuacao.setText("0.0");
 		control.interrupt();
 
 	}
@@ -265,13 +267,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 		if (arg instanceof Double) {
 			Platform.runLater(new Runnable() {
 				public void run() {
-					if ((Double) arg < 10)
-						relogio.setTextFill(Color.GREEN);
-					if ((Double) arg <= 30 && (Double) arg >= 10)
-						relogio.setTextFill(Color.ORANGE);
-					if ((Double) arg > 20)
-						relogio.setTextFill(Color.RED);
-
+					relogio.setTextFill(Color.GREEN);
 					relogio.setText("" + Round.round((Double) arg, 2));
 				}
 			});

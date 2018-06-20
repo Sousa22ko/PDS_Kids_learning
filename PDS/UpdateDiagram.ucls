@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="util.RegressiveCronometer" project="PDS" 
     file="/PDS/src/main/java/util/RegressiveCronometer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2320" y="2363"/>    
+    <position height="-1" width="-1" x="270" y="1613"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="util.EnemProgressiveCronometer" project="PDS" 
     file="/PDS/src/main/java/util/EnemProgressiveCronometer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2576" y="2372"/>    
+    <position height="-1" width="-1" x="526" y="1622"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="util.ProgressiveCronometer" project="PDS" 
     file="/PDS/src/main/java/util/ProgressiveCronometer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2833" y="2363"/>    
+    <position height="-1" width="-1" x="783" y="1613"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="util.MilhaoRegressiveCronometer" project="PDS" 
     file="/PDS/src/main/java/util/MilhaoRegressiveCronometer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3090" y="2372"/>    
+    <position height="-1" width="-1" x="1040" y="1622"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="util.Timer" project="PDS" file="/PDS/src/main/java/util/Timer.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2690" y="2098"/>    
+    <position height="-1" width="-1" x="640" y="1348"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="util.ScreenBuilder" project="PDS" 
     file="/PDS/src/main/java/util/ScreenBuilder.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3489" y="905"/>    
+    <position height="-1" width="-1" x="1197" y="153"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="util.BuilderMilhao" project="PDS" 
     file="/PDS/src/main/java/util/BuilderMilhao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3172" y="1152"/>    
+    <position height="-1" width="-1" x="880" y="400"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="util.BuilderKids" project="PDS" file="/PDS/src/main/java/util/BuilderKids.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3388" y="1152"/>    
+    <position height="-1" width="-1" x="1096" y="400"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="util.SelectBuilder" project="PDS" 
     file="/PDS/src/main/java/util/SelectBuilder.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3566" y="1089"/>    
+    <position height="-1" width="-1" x="1274" y="337"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="util.BuilderEnem" project="PDS" file="/PDS/src/main/java/util/BuilderEnem.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3744" y="1152"/>    
+    <position height="-1" width="-1" x="1452" y="400"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="Services.AbstractPergServices" project="PDS" 
     file="/PDS/src/main/java/Services/AbstractPergServices.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3462" y="1613"/>    
+    <position height="-1" width="-1" x="1412" y="863"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="Services.EnemPergServices" project="PDS" 
     file="/PDS/src/main/java/Services/EnemPergServices.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3204" y="1860"/>    
+    <position height="-1" width="-1" x="1154" y="1110"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="Services.KidPergServices" project="PDS" 
     file="/PDS/src/main/java/Services/KidPergServices.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3472" y="1860"/>    
+    <position height="-1" width="-1" x="1422" y="1110"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="Services.MilhaoPergServices" project="PDS" 
     file="/PDS/src/main/java/Services/MilhaoPergServices.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3742" y="1851"/>    
+    <position height="-1" width="-1" x="1692" y="1101"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="model.EnemPergunta" project="PDS" 
     file="/PDS/src/main/java/model/EnemPergunta.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2190" y="1216"/>    
+    <position height="-1" width="-1" x="138" y="411"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -138,141 +138,124 @@
   </class>  
   <class id="16" language="java" name="model.MilhaoPergunta" project="PDS" 
     file="/PDS/src/main/java/model/MilhaoPergunta.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2388" y="1189"/>    
+    <position height="-1" width="-1" x="336" y="384"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="model.HPergunta" project="PDS" file="/PDS/src/main/java/model/HPergunta.java" 
+  <class id="17" language="java" name="model.Pergunta" project="PDS" file="/PDS/src/main/java/model/Pergunta.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2388" y="834"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="18" language="java" name="model.Pergunta" project="PDS" file="/PDS/src/main/java/model/Pergunta.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2586" y="1162"/>    
+    <position height="-1" width="-1" x="534" y="357"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="dao.MilhaoPerguntaDao" project="PDS" 
+  <class id="18" language="java" name="dao.MilhaoPerguntaDao" project="PDS" 
     file="/PDS/src/main/java/dao/MilhaoPerguntaDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2256" y="1850"/>    
+    <position height="-1" width="-1" x="206" y="1100"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="dao.GenericDao" project="PDS" file="/PDS/src/main/java/dao/GenericDao.java" 
+  <class id="19" language="java" name="dao.GenericDao" project="PDS" file="/PDS/src/main/java/dao/GenericDao.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2530" y="1612"/>    
+    <position height="-1" width="-1" x="480" y="862"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="dao.EnemPerguntaDao" project="PDS" 
+  <class id="20" language="java" name="dao.EnemPerguntaDao" project="PDS" 
     file="/PDS/src/main/java/dao/EnemPerguntaDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2555" y="1850"/>    
+    <position height="-1" width="-1" x="505" y="1100"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="dao.KidsPerguntaDao" project="PDS" 
+  <class id="21" language="java" name="dao.KidsPerguntaDao" project="PDS" 
     file="/PDS/src/main/java/dao/KidsPerguntaDao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2839" y="1850"/>    
+    <position height="-1" width="-1" x="789" y="1100"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="23">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <generalization id="24">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <generalization id="25">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="20"/>  
-  </generalization>  
-  <generalization id="26">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="17"/>  
-  </generalization>  
-  <generalization id="27">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="17"/>  
-  </generalization>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
-  <generalization id="29">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <generalization id="30">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
-  <generalization id="31">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="17"/>  
-  </generalization>  
-  <generalization id="33">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <generalization id="34">    
+  <generalization id="22">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="5"/>  
   </generalization>  
-  <generalization id="35">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="5"/>  
+  <generalization id="23">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
   </generalization>  
-  <generalization id="36">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="20"/>  
-  </generalization>  
-  <generalization id="37">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="20"/>  
-  </generalization>  
-  <generalization id="38">    
+  <generalization id="24">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="6"/>  
   </generalization>  
-  <association id="39">    
+  <generalization id="25">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <association id="26">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="40" name="perguntaDao"/>      
-      <multiplicity id="41" minimum="0" maximum="1"/>    
+      <attribute id="27" name="perguntaDao">        
+        <position height="0" width="0" x="-2050" y="-750"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-2050" y="-750"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="42">    
+  <generalization id="29">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="30">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="32">    
     <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <generalization id="37">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="6"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
