@@ -53,10 +53,10 @@ public class Classico_ScreenController extends Observable implements Observer {
 	private Label relogio;
 
 	@FXML
-	private Label pontuacao;
+	private Label pontuacao; // quantidade de questões certas
 	
 	@FXML
-	private Label qtdErro;
+	private Label qtdErro; //quantidade de questões erradas
 
 	@FXML
 	private Label vidas;
@@ -85,6 +85,8 @@ public class Classico_ScreenController extends Observable implements Observer {
 
 	@FXML
 	public void initialize() {
+		ps.randonPergunta(); // gerando a lista completa de perguntas aleatórias
+		ps.imprimePerguntas();
 		assinar(time);
 		op1.setVisible(false);
 		op2.setVisible(false);
@@ -147,7 +149,7 @@ public class Classico_ScreenController extends Observable implements Observer {
 	}
 
 	private void loadPergunta() {
-		atual = ps.randonPergunta();
+		atual = ps.getPergunta(Integer.parseInt(pontuacao.getText())+Integer.parseInt(qtdErro.getText()));
 		pergunta.setText(atual.getPergunta());
 
 		op1.setText(atual.getAlternativa1());

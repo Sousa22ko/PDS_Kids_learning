@@ -11,6 +11,7 @@ import util.LoggedUser;
 public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 	public List<String> materias = new ArrayList<String>();
 	public List<Integer> qtdPergMaterias = new ArrayList<Integer>();
+	public List<EnemPergunta> listPerguntas = new ArrayList<EnemPergunta>();
 	
 	public EnemPergServices(){
 		materias.add("Fisica");
@@ -64,17 +65,40 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 		return perguntaDao.buscar(x);
 	}
 	
-	public EnemPergunta randonPergunta(){
-		int x = new Random().nextInt(11); //aaa
-		String escolhida = materias.get(x);
+	public EnemPergunta getPergunta(int index) {
+		return listPerguntas.get(index);
+	}
+	
+	public void imprimePerguntas() {
+		for(int i=0; i<180; i++) {
+			System.out.println("Valor de i: "+i +"\nId da pergunta: "+listPerguntas.get(i));
+		}
+	}
+	
+	public void randonPergunta(){
+		//int x = new Random().nextInt(11); //aaa
+		//String escolhida = materias.get(x);
+		EnemPergunta pergunta = perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
 		
-		while(true){
+		for(int i=0; i<materias.size(); i++) {
+			for(int j=0; j<qtdPergMaterias.get(i);) {
+				if(pergunta.getCategoria().equals(materias.get(i))) {
+					System.out.println("inserindo pergunta "+i+" na materia "+pergunta.getCategoria());
+					listPerguntas.add(pergunta);
+					j++;
+				}
+				pergunta = perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
+			}
+		}
+		
+		/*while(true){
 			EnemPergunta p = perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
 			if(p.getCategoria().equals(escolhida) && qtdPergMaterias.get(x) > 0) {
 				qtdPergMaterias.set(x, qtdPergMaterias.get(x)-1);
 				return p;
 			}
-		}	
+		}*/
+		//return null;
 	}
 	
 	public List<EnemPergunta> listandoPerguntas(long idUser) {
