@@ -110,4 +110,9 @@ public class MilhaoPergServices extends AbstractPergServices <MilhaoPergunta> {
 		}
 	}
 
+	@Override
+	public MilhaoPergunta absRandomPerg() {
+		return perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
+	}
+
 }

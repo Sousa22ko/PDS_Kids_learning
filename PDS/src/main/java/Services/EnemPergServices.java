@@ -199,4 +199,9 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 		}
 	}
 
+	@Override
+	public EnemPergunta absRandomPerg() {
+		return perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
+		}
+
 }

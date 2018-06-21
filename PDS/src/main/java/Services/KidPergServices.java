@@ -117,4 +117,9 @@ public class KidPergServices extends AbstractPergServices <Pergunta> {
 			System.out.println("Valor de J: " + j);
 		}
 	}
+
+	@Override
+	public Pergunta absRandomPerg() {
+		return perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
+	}
 }

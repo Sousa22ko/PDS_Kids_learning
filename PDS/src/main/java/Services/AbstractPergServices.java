@@ -1,7 +1,6 @@
 package Services;
 
 import java.util.List;
-import java.util.Random;
 
 import dao.GenericDao;
 
@@ -25,8 +24,9 @@ public abstract class AbstractPergServices <T> {
 		return (T) perguntaDao.buscar(id);
 	}
 
-	public T absRandomPerg() {	
-		return perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
+	public abstract T absRandomPerg() ;
+	{	
+		//return perguntaDao.buscar((long)new Random().nextInt(perguntaDao.getList().size()-1)+1);
 	}
 	
 	public abstract List<T> listandoPerguntas(long idUser);
