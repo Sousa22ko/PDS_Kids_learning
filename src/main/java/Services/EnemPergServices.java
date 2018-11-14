@@ -101,6 +101,10 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 		//return null;
 	}
 	
+	
+	/*
+	 *@ invariant listTotal.size() >= listaPergs.size();	 
+	 * */
 	public List<EnemPergunta> listandoPerguntas(long idUser) {
 		List<EnemPergunta> listTotal = new ArrayList<EnemPergunta>();
 		List<EnemPergunta> listaPergs = new ArrayList<EnemPergunta>();
@@ -115,6 +119,12 @@ public class EnemPergServices extends AbstractPergServices<EnemPergunta> {
 		return listaPergs;
 	}
 
+	
+	/*
+	 * @ requires n > 0
+	 * @ ensures listPerg.size() > 0
+	 * 
+	 * */
 	public void populandoPergunta(int n) {
 
 		List<EnemPergunta> listPerg = new ArrayList<EnemPergunta>();

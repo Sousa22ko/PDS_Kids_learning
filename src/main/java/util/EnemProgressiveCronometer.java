@@ -18,6 +18,11 @@ public class EnemProgressiveCronometer extends Timer {
 		vidas = 3;
 	}
 
+	/*
+	 *@ invariant remainTime >= 0;
+	 *
+	 * */
+	
 	public void run() {
 		while (true) {
 			setChanged();
@@ -29,6 +34,8 @@ public class EnemProgressiveCronometer extends Timer {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
+				// @ assert \old(remainTime) < remainTime
 				remainTime += 0.1000000000d;
 				notifyObservers((Double) remainTime);
 			}
@@ -68,7 +75,7 @@ public class EnemProgressiveCronometer extends Timer {
 			if ((Boolean) arg == true) {
 				acertos += 1;
 				pontuacao(true);
-				//remainTime = 0.2d;
+				// remainTime = 0.2d;
 				// notifyObservers((String) ("CERTO " + df.format(pontuacao)));
 				notifyObservers((String) ("CERTO " + acertos + " " + erros));
 			} else {

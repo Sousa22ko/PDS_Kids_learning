@@ -19,6 +19,7 @@ public class ScreenLibrary {
 	public static void setStage(Stage primaryStageNew){
 		primaryStage = primaryStageNew;
 	}
+	
 	public static void setDimension(Dimension dimensionNew){
 		dimension = dimensionNew;
 		dimension.height -= 35;

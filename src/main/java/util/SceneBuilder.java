@@ -12,8 +12,6 @@ public class SceneBuilder {
 
 	public static void setPrimaryStage(Stage stage) {
 		ScreenLibrary.setStage(stage);
-		//A primeira tarefa de vcs e a mais complicada é resolver esse erro
-		//se der erro nisso chorem bastante pq resolver ele é um misterio
 	}
 
 	public static void setDimensions() {
